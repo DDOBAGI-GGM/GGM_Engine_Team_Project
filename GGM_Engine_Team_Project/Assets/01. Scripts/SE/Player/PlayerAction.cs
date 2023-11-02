@@ -32,7 +32,7 @@ public class PlayerAction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            actions[0].Jump();
+            actions.ToList().ForEach(x => x.Jump());
         }
     }
 #endif
