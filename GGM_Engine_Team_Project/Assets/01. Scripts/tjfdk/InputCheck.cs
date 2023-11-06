@@ -16,6 +16,6 @@ public class InputCheck : MonoBehaviour
     {
         // 침범하면 ^^ 레이로 검사하자
         //if ()
-        InputFieldTest.Instance.Input(word, wordType, timer);
+        //InputFieldTest.Instance.Input(word, wordType, timer);
     }
 }
