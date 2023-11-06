@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpecificAreaMonsters : MonoBehaviour
+public class HorizontalAreaMonsters : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2.0f;  // 속도
     [SerializeField] private float moveDistance = 5.0f; // 움직이는 거리
