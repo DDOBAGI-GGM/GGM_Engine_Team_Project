@@ -1,38 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public enum PlayerActionEnum
 {
-    Jump = 0,
-    Attack = 1,
+    Jump = 0,       // 점프
+    Attack = 1,     // 공격
     Avoidance = 2,      // 피하기
 }
 
 public interface IPlayerAction
 {
-    void Jump();
-    void Attack();
-    void Avoidance();
+    void Jump();        // 점프하기
+    void Attack();      // 공격하기
+    void Avoidance();       // 피하기
 }
 
 public class PlayerAction : MonoBehaviour
 {
-    private IPlayerAction[] actions = new IPlayerAction[2];
+    private PlayerMovement movement;
 
     private void Awake()
     {
-        actions[0] =  GetComponent<PlayerMovement>();
-        actions[1] = GetComponent<PlayerAnimation>();
+        movement = GetComponent<PlayerMovement>();
     }
 
 #if UNITY_EDITOR
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && movement.Is_onGround)        // 스페이스바를 누르고 바닥에 있을 때만 점프하게
         {
-            actions[0].Jump();
+            movement.Is_onJump = true;
+            movement.Jump();
         }
     }
 #endif
@@ -42,13 +41,13 @@ public class PlayerAction : MonoBehaviour
         switch (action)
         {
             case PlayerActionEnum.Jump:
-                actions.ToList().ForEach(x => x.Jump());
+                movement.Jump();
                 break;
             case PlayerActionEnum.Attack:
-                actions.ToList().ForEach(x => x.Attack());
+                movement.Attack();
                 break;
             case PlayerActionEnum.Avoidance:
-                actions.ToList().ForEach(x => x.Avoidance());
+                movement.Avoidance();
                 break;
             default:
                 break;
