@@ -37,7 +37,14 @@ public class InputFieldTest : SINGLETON<InputFieldTest>
     {
         //input.transform.DOKill();
         //input.transform.DOScale(1.5f, 0.25f).SetLoops(2, LoopType.Yoyo);
-        input.transform.DOScale(1.5f, 0.25f).OnComplete(() => { input.transform.DOScale(1f, 0.25f); }) ;
+
+        input.transform.DOScale(1.5f, 0.25f).OnComplete(() => { input.transform.DOScale(1f, 0.25f); });
+        //text = input.text.Substring(input.text.Length - 1);
+        //char t;
+        //Debug.Log(text);
+        //tweener = DOTween.To(() => text, x => input.text.Substring(0) = x, );
+        //tex.maxVisibleCharacters = 0;
+        //DOTween.To(x => tex.maxVisibleCharacters = (int)x, 0f, tex.text.Length, 3f);
     }
 
     public void Check()
