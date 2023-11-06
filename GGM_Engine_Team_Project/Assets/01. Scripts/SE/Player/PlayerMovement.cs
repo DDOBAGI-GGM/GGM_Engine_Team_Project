@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour, IPlayerAction
@@ -13,8 +14,12 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     
     private Rigidbody2D body;
     private SpriteRenderer spriteRenderer;
+    private CapsuleCollider2D capsuleCollider;
     private bool is_onGround;
     public bool Is_onGround { get { return is_onGround; } private set { } }
+    private bool is_onJump;
+    public bool Is_onJump { get { return is_onJump; } set { is_onJump = value; }  }
+
 
     private PlayerAnimation anim;
 
@@ -23,10 +28,12 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
         body = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<PlayerAnimation>();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
     private void FixedUpdate()
     {
+        #region 좌우 움직임과 애니메이션
         float x = Input.GetAxisRaw("Horizontal");
         body.velocity = new Vector2 (x * speed, body.velocity.y);
         if (x < 0)      // 왼쪽
@@ -43,32 +50,27 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
             anim.Walk(true);
         }
         else { anim.Walk(false); }
+        #endregion
 
-        is_onGround = false;    
+        RaycastHit2D Hit = Physics2D.CapsuleCast(capsuleCollider.bounds.center, capsuleCollider.size, CapsuleDirection2D.Vertical, 0f, Vector2.down, 0.2f, groundMask);
+        // 콜라이더 중심해서, 콜라이더 사이즈 만큼, 콜라이더는 세로로, 회전은 0, 방향은 아래로. 원점에서 갈정도는 0.2f, 감지할 것은 땅.
+        if (Hit && !is_onJump && body.velocity.y == 0) is_onGround = true;
+        else is_onGround = false;
 
-        // 하나라도 바닥에 닿아있으면 true 임.
-        raycastPos.ToList().ForEach(pos => { 
-            RaycastHit2D ray = Physics2D.Raycast(pos.position, Vector2.down, raycastDistance, groundMask);
-            Debug.DrawRay(pos.position, new Vector2(0, -0.1f), Color.red);
-            if (ray)
-            {
-                Debug.Log("바닥임");
-                is_onGround = true;
-                anim.JumpingEnd();          // 바닥이여서 끝      여기서 바로 되어버려서 문제가 생기는 것임
-            }
-            else
-            {
-                Debug.Log("바닥아님");
-            }
-        });
+        if (is_onGround && body.velocity.y == 0 && !is_onJump)
+        {
+            anim.JumpingEnd();
+        }
     }
     
     public void Jump()
     {
-        Debug.Log("점프에 따른 움직임 - 바닥에 있다면");
-        if (is_onGround)
+        //Debug.Log("점프에 따른 움직임 - 바닥에 있다면");
+        if (is_onJump)
         {
             body.AddForce(new Vector2(body.velocity.x, jump), ForceMode2D.Impulse);
+            anim.Jump();
+            is_onJump = false;
         }
     }
 

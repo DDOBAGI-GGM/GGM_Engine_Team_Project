@@ -26,17 +26,19 @@ public class PlayerAnimation : MonoBehaviour, IPlayerAction
     public void Jump()
     {
         // 플레이어 상태에 따라 다르게
-        Debug.Log("점프에 따른 애니");
 
+        Debug.Log("셋 트리거 이거 오류가 조금 있음.");
         animator.SetTrigger(jumpHash);
-        if (movement.Is_onGround)
+        if (movement.Is_onJump)       // 바닥이 아니면
         {
+            //Debug.Log("점프 중");
             animator.SetBool(jumpingHash, true);
         }
     }
 
     public void JumpingEnd()
     {
+        //Debug.Log("점프중 애니 끝.");
         animator.SetBool(jumpingHash, false);
     }
 
