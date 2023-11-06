@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using UnityEditor.Timeline.Actions;
+using System.Runtime.ExceptionServices;
 
 public enum State
 {
@@ -14,14 +16,16 @@ public enum State
 
 public class RandomCard : MonoBehaviour
 {
+    [SerializeField] private GameObject panel;
+
     #region 카드 텍스트
+    [Header("카드 텍스트")]
     [SerializeField] private TextMeshProUGUI _titleTMP1;
     [SerializeField] private TextMeshProUGUI _titleTMP2;
     [SerializeField] private TextMeshProUGUI _titleTMP3;
     [SerializeField] private TextMeshProUGUI _cardExplain1;
     [SerializeField] private TextMeshProUGUI _cardExplain2;
     [SerializeField] private TextMeshProUGUI _cardExplain3;
-    [SerializeField] private GameObject panel;
     #endregion
 
     #region 카드 enum
@@ -34,13 +38,17 @@ public class RandomCard : MonoBehaviour
     #endregion
 
     #region 활률 조절
-    int Resurrectionper = 0, HPRegainPer = 0, HPIncreasedPer = 0, IncreasedAttackPower = 0;
+    [Header("확률 조절")]
+    [SerializeField] private int resurrection = 0;
+    [SerializeField] private int hPRegain = 0;
+    [SerializeField] private int hPIncreased = 0;
+    [SerializeField] private int increasedAttackPower = 0;
     #endregion
 
     void Awake()
     {
-        panel.transform.DOMoveY(540, 2f);
-        SetCard(_titleTMP1, _cardState1, _cardExplain1, 1);
+        panel.transform.DOMoveY(540, 1.5f);
+        SetCard(_titleTMP1, _cardState1, _cardExplain1, 1);     
         SetCard(_titleTMP2, _cardState2, _cardExplain2, 2);
         SetCard(_titleTMP3, _cardState3, _cardExplain3, 3);
     }
@@ -53,6 +61,34 @@ public class RandomCard : MonoBehaviour
         {
             float percent = Random.Range(1f, 100f);
 
+            if(percent <= resurrection)
+            {
+                _state = State.Resurrection;
+                _cardTxt.text = "부활권";
+                _cardExplain.text = "이걸 누르면 부활권이 생겨용!!";
+                check = false;
+            }
+            else if(percent <= hPRegain)
+            {
+                _state = State.HPRegain;
+                _cardTxt.text = "체력 회복";
+                _cardExplain.text = "체력을 회복해드릴게용~";
+                check = false;
+            }
+            else if (percent <= hPIncreased)
+            {
+                _state = State.HPIncreased;
+                _cardTxt.text = "체력 증가";
+                _cardExplain.text = "체력을 증가시켜줄게!! 뾰로롱~";
+                check = false;
+            }
+            else if(percent <= increasedAttackPower)
+            {
+                _state = State.IncreasedAttackPower;
+                _cardTxt.text = "공격력 증가";
+                _cardExplain.text = "공격력을 증가해드릴게용ㅇ! 뚜쉬따쉬";
+                check = false;
+            }
         }
 
         switch (num)
