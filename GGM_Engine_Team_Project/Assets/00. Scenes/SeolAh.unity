@@ -765,6 +765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 1662430980}
   saveP: {fileID: 1018256573}
+  tex: {fileID: 534036775}
 --- !u!4 &1507741192
 Transform:
   m_ObjectHideFlags: 0
