@@ -155,8 +155,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1011221700}
-  - {fileID: 1670811355}
   - {fileID: 1185293670}
+  - {fileID: 1670811355}
   m_Father: {fileID: 162099150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -207,7 +207,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 108045008}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1122713999}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
+        m_MethodName: ClickCard3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &108045008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,8 +317,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ddddddddddddddd
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}
+  m_sharedMaterial: {fileID: -5685660346917535348, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -646,8 +658,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ddddddddddddddd
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}
+  m_sharedMaterial: {fileID: -5685660346917535348, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -753,8 +765,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 710011607}
-  - {fileID: 641565391}
   - {fileID: 1896493676}
+  - {fileID: 641565391}
   m_Father: {fileID: 162099150}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -805,7 +817,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 691295134}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1122713999}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
+        m_MethodName: ClickCard2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &691295134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,7 +1027,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1122713997}
-  - component: {fileID: 1122713998}
+  - component: {fileID: 1122713999}
+  - component: {fileID: 1122714000}
   m_Layer: 0
   m_Name: PanelManager
   m_TagString: Untagged
@@ -1026,7 +1051,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1122713998
+--- !u!114 &1122713999
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1035,10 +1060,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1122713996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8e41bf27cb3b1345836f6329893b090, type: 3}
+  m_Script: {fileID: 11500000, guid: b826b0f4d1ed07c4faae1dac2bb6cc67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1122714000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122713996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ae9dc5634d695498b1a15af326140c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 162099149}
+  _titleTMP1: {fileID: 1139572147}
+  _titleTMP2: {fileID: 1896493677}
+  _titleTMP3: {fileID: 1185293671}
+  _cardExplain1: {fileID: 160282046}
+  _cardExplain2: {fileID: 641565392}
+  _cardExplain3: {fileID: 1670811356}
+  resurrection: 25
+  hPRegain: 50
+  hPIncreased: 75
+  increasedAttackPower: 100
 --- !u!1 &1139572145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,8 +1147,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}
+  m_sharedMaterial: {fileID: -5685660346917535348, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1236,8 +1283,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}
+  m_sharedMaterial: {fileID: -5685660346917535348, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1530,8 +1577,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ddddddddddddddd
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}
+  m_sharedMaterial: {fileID: -5685660346917535348, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1706,7 +1753,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835861897}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1764,7 +1811,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1835861900}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1122713999}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
+        m_MethodName: ClickCard1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1835861900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1860,12 +1919,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TITLE
-
-'
+  m_text: "\uD0C0\uC774\uD2C0\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}
+  m_sharedMaterial: {fileID: -5685660346917535348, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
