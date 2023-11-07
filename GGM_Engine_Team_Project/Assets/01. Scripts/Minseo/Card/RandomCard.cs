@@ -5,6 +5,7 @@ using TMPro;
 using DG.Tweening;
 using UnityEditor.Timeline.Actions;
 using System.Runtime.ExceptionServices;
+using Unity.VisualScripting;
 
 public enum State
 {
@@ -17,6 +18,12 @@ public enum State
 public class RandomCard : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
+
+    private bool iscard = true;
+
+    CardManager _cardManager;
+
+    //public bool isShowCard = false;
 
     #region 카드 텍스트
     [Header("카드 텍스트")]
@@ -47,10 +54,41 @@ public class RandomCard : MonoBehaviour
 
     void Awake()
     {
-        panel.transform.DOMoveY(540, 1.5f);
-        SetCard(_titleTMP1, _cardState1, _cardExplain1, 1);     
+        _cardManager = GetComponent<CardManager>();
+    }
+
+    private void Update()
+    {
+        Cheak();
+        Debug.Log(_cardManager.isShowCard);
+    }
+
+    public void Cheak()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+            _cardManager.isShowCard = true;
+
+        if (_cardManager.isShowCard)
+        {
+            panel.transform.DOMoveY(540, 1.5f);
+            iscard = true;
+        }
+        else if (!_cardManager.isShowCard)
+        {
+            panel.transform.DOMoveY(-540, 1.5f);
+
+            if(iscard)
+                ShuffleCard();
+
+        }
+    }
+
+    private void ShuffleCard()
+    {
+        SetCard(_titleTMP1, _cardState1, _cardExplain1, 1);
         SetCard(_titleTMP2, _cardState2, _cardExplain2, 2);
         SetCard(_titleTMP3, _cardState3, _cardExplain3, 3);
+        iscard = false;
     }
 
     private void SetCard(TextMeshProUGUI _cardTxt, State _state, TextMeshProUGUI _cardExplain, int num)
