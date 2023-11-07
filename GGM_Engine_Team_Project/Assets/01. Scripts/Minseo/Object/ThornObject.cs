@@ -4,12 +4,27 @@ using UnityEngine;
 
 public class ThornObject : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private SpriteRenderer _thornObjectRenderer;
+    private BoxCollider2D _thornCollider;
+    private bool isVisible = true;
+    [SerializeField] private float blinkInterval = 1.0f; 
+
+    void Start()
     {
-        if (collision.CompareTag("Player"))
+        _thornObjectRenderer = GetComponent <SpriteRenderer>();
+        _thornCollider = GetComponent <BoxCollider2D>();
+
+        StartCoroutine(BlinkObstacle());
+    }
+
+    IEnumerator BlinkObstacle()
+    {
+        while (true)
         {
-            // 플레이어 hp --하는 코드
-            Debug.Log("플레이어 부닥침ㅋㅋ");
+            isVisible = !isVisible;
+            _thornObjectRenderer.enabled = isVisible;
+            _thornCollider.enabled = isVisible;
+            yield return new WaitForSeconds(blinkInterval);
         }
     }
 }
