@@ -9,13 +9,11 @@ public class InputCheck : MonoBehaviour
     [SerializeField] private TextType wordType;
     [SerializeField] private float timer;
 
-    [Header("Check")]
-    [SerializeField] private float distance;
-
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 침범하면 ^^ 레이로 검사하자
-        //if ()
-        //InputFieldTest.Instance.Input(word, wordType, timer);
+        if (collision.CompareTag("Player"))
+        {
+            InputFieldTest.Instance.Input(word, wordType, timer);
+        }
     }
 }
