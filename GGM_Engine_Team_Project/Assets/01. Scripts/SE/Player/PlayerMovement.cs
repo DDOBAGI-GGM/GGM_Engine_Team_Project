@@ -8,17 +8,18 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
 {
     [SerializeField] private float speed = 5;
     [SerializeField] private float jump = 5;
-    [SerializeField] private Transform[] raycastPos;
     [SerializeField] private float raycastDistance;
     [SerializeField] LayerMask groundMask;
     
     private Rigidbody2D body;
     private SpriteRenderer spriteRenderer;
     private CapsuleCollider2D capsuleCollider;
+
     private bool is_onGround;
     public bool Is_onGround { get { return is_onGround; } private set { } }
     private bool is_onJump;
     public bool Is_onJump { get { return is_onJump; } set { is_onJump = value; }  }
+    private bool is_ladder;
 
 
     private PlayerAnimation anim;
@@ -61,6 +62,17 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
         {
             anim.JumpingEnd();
         }
+
+        if (is_ladder)
+        {
+            float y = Input.GetAxisRaw("Vertical");
+            body.gravityScale = 0;
+            body.velocity = new Vector2(body.velocity.x, y * speed);
+        }
+        else
+        {
+            body.gravityScale = 1;
+        }
     }
     
     public void Jump()
@@ -82,5 +94,26 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     public void Avoidance()
     {
         Debug.Log("피하기에 따른 움직임");
+    }
+
+    public void Climb()
+    {
+        Debug.Log("올라가기에 따른 움직임");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            is_ladder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            is_ladder = false;
+        }
     }
 }
