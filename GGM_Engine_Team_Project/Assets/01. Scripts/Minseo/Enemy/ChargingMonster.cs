@@ -17,7 +17,7 @@ public class ChargingMonster : MonoBehaviour
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform; // 태그로 플레이어 찾기
-        _rigid = GetComponent<Rigidbody2D>();
+        _rigid = GetComponent <Rigidbody2D>();
     }
 
     private void Update()
@@ -25,7 +25,14 @@ public class ChargingMonster : MonoBehaviour
         DistanceCheck();
     }
 
-    private void DistanceCheck() // 범위 체크
+    private void OnDrawGizmos()
+    {
+        // 감지 범위를 시각적으로 나타내기
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+    }
+
+    private void DistanceCheck()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, _player.position);
 
@@ -37,7 +44,7 @@ public class ChargingMonster : MonoBehaviour
 
     private void ChargeTowardsPlayer()
     {
-        if (!hasReachedPlayer) 
+        if (!hasReachedPlayer)
         {
             isCharging = true;
 
@@ -64,7 +71,6 @@ public class ChargingMonster : MonoBehaviour
         {
 
         }
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
