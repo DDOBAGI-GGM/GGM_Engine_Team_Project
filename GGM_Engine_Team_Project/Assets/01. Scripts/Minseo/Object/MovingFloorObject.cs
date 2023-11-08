@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MovingFloorObject : MonoBehaviour
+{
+    [SerializeField] private float moveSpeed = 2.0f;  // 속도
+    [SerializeField] private float moveDistance = 1.5f; // 움직이는 거리
+
+    private Vector3 startPosition; // 시작 위치
+    private int direction = 1;
+
+    private void Start()
+    {
+        startPosition = transform.position;// 처음 위치 저장
+    }
+
+    private void Update()
+    {
+        ChangeDirectionOfMovement(); // 움직임 방향 전환
+    }
+
+    private void ChangeDirectionOfMovement()
+    {
+        transform.Translate(Vector3.right * direction * moveSpeed * Time.deltaTime); // 이동 방향으로 이동
+
+        if (Mathf.Abs(transform.position.x - startPosition.x) >= moveDistance) // 일정 거리 이동하면 방향 바꿔주기
+        {
+            direction *= -1; // 방향 전환
+        }
+    }
+}

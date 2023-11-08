@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5541447109115247234}
   - component: {fileID: 3710628686758931156}
   - component: {fileID: 4388618233042095674}
-  - component: {fileID: 5151760786009064353}
+  - component: {fileID: -2775234468625184023}
   m_Layer: 0
   m_Name: HorizontalMovingFloor
   m_TagString: Untagged
@@ -107,7 +107,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5151760786009064353
+--- !u!114 &-2775234468625184023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,8 +116,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3054285775366368072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc6df7ea0f2f91149bf4d41b4f086b13, type: 3}
+  m_Script: {fileID: 11500000, guid: 80e20ec087d199741a0fadbfcffffe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 1.5
   moveDistance: 2

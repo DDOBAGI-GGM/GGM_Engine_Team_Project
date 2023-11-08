@@ -60,7 +60,6 @@ public class RandomCard : MonoBehaviour
     private void Update()
     {
         Cheak();
-        Debug.Log(_cardManager.isShowCard);
     }
 
     public void Cheak()

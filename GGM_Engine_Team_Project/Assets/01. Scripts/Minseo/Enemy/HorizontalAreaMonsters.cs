@@ -5,28 +5,34 @@ using UnityEngine;
 public class HorizontalAreaMonsters : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2.0f;  // 속도
-    [SerializeField] private float moveDistance = 5.0f; // 움직이는 거리
 
-    private Vector3 startPosition; // 시작 위치
+    Rigidbody2D _rigid;
+
     private int direction = 1;
+    private bool isGrounded = true; // 처음에는 땅에 닿아 있다고 가정
 
-    private void Start()
+    private void Awake()
     {
-        startPosition = transform.position;// 처음 위치 저장
+        _rigid = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        ChangeDirectionOfMovement(); // 움직임 방향 전환
+        Move();
     }
 
-    private void ChangeDirectionOfMovement()
+    private void Move()
     {
-        transform.Translate(Vector3.right * direction * moveSpeed * Time.deltaTime); // 이동 방향으로 이동
+        _rigid.velocity = new Vector2(direction, _rigid.velocity.y);
 
-        if (Mathf.Abs(transform.position.x - startPosition.x) >= moveDistance) // 일정 거리 이동하면 방향 바꿔주기
+        //지형 체크
+        Vector2 frontVec = new Vector2(_rigid.position.x + direction * 0.4f, _rigid.position.y);
+
+        RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Ground"));
+        if (rayHit.collider == null) 
         {
-            direction *= -1; // 방향 전환
+            direction = direction * -1;
         }
     }
+
 }
