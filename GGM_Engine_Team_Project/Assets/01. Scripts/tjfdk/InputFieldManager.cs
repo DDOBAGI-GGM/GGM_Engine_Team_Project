@@ -16,8 +16,16 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
     private string text;
     private TextType type;
     private float timer;
+    private string funcName;
 
-    public void Input(string _text, TextType _type, float _timer)
+    PlayerAction player;
+
+    private void Awake()
+    {
+        player = GameObject.Find("Player").GetComponent<PlayerAction>();
+    }
+
+    public void Input(string _text, TextType _type, float _timer, string _funcName)
     {
         // 시간 느리게 설정
 
@@ -27,6 +35,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         text = _text;
         type = _type;
         timer = _timer;
+        funcName = _funcName;
 
         backText.text = text;
 
@@ -56,10 +65,13 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         if (inputField.text == text)
         {
             Debug.Log("성공!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            // 성은이 코드 넣기여~
+            player.Invoke(funcName, 0f);
         }
         else
+        {
             Debug.Log("병신!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+        }
 
         inputField.text = string.Empty;
 
