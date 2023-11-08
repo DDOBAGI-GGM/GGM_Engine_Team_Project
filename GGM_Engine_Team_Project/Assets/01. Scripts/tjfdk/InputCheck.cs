@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InputCheck : MonoBehaviour
 {
     [Header("KeyWord")]
     [SerializeField] private string word;
-    [SerializeField] private TextType wordType;
+    [SerializeField] private PlayerActionEnum wordType;
     [SerializeField] private float timer;
 
     private void OnTriggerEnter2D(Collider2D collision)

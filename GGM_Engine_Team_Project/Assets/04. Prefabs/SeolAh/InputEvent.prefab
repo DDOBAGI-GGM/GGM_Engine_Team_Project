@@ -165,6 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171d529de209eb846a5fadafb0374a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  word: tjfdk
+  word: 
   wordType: 0
-  timer: 3
+  timer: 0
