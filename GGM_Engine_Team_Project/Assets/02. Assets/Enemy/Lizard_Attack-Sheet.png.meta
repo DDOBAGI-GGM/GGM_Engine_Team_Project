@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8638a9dd84babbd4d8f648fbeff2514a
+guid: 98f21a0abfd78664db07541bdf72e4f3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,11 +110,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: icicle_0
+      name: Lizard_Attack-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -124,18 +124,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30edd79b2016a7f48ba4e4dc1f49d05b
-      internalID: -444364044
+      spriteID: 06bfe7cfbc28bac428adb2774172e3c1
+      internalID: -1667751459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icicle_1
+      name: Lizard_Attack-Sheet_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 16
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -145,18 +145,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88e161e13e86ff34eae5d76c37839f2d
-      internalID: -1827212066
+      spriteID: d451796f29149774ca9902d943b00db8
+      internalID: -661773885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icicle_2
+      name: Lizard_Attack-Sheet_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 16
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -166,18 +166,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8555b3a28dc098b4385bf1c4345ef42a
-      internalID: -1622561404
+      spriteID: b205c23f958ce3d4c8851365d774834e
+      internalID: 298870071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icicle_3
+      name: Lizard_Attack-Sheet_3
       rect:
         serializedVersion: 2
         x: 96
-        y: 16
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -187,18 +187,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d48c5856ed17de45b7292bd01dff75f
-      internalID: -1447096422
+      spriteID: 12f70b504ab98a441ae2bb4dbf6dfd19
+      internalID: -1462798017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icicle_4
+      name: Lizard_Attack-Sheet_4
       rect:
         serializedVersion: 2
         x: 128
-        y: 16
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -208,18 +208,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31981af565da0124db3d73109e033de5
-      internalID: 832250041
+      spriteID: e3149cd6860aa2d48a2949c16e4262c5
+      internalID: -976286688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icicle_5
+      name: Lizard_Attack-Sheet_5
       rect:
         serializedVersion: 2
         x: 160
-        y: 16
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -229,18 +229,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82b261c586c29d549b917536587ba1b3
-      internalID: -259615360
+      spriteID: 13bb58640fbfe5d4b90e845ed5607182
+      internalID: -1969203369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icicle_6
+      name: Lizard_Attack-Sheet_6
       rect:
         serializedVersion: 2
         x: 192
-        y: 16
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -250,18 +250,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 629f4df928a2f58479ad1e72ec54108f
-      internalID: -83819615
+      spriteID: 24b2b041c17b2c744aa377485eb6c9c4
+      internalID: -547207481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icicle_7
+      name: Lizard_Attack-Sheet_7
       rect:
         serializedVersion: 2
         x: 224
-        y: 16
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -271,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efbcc3b1add68414a850145ea0d2b866
-      internalID: 1438938052
+      spriteID: ddae0a9de27c01c4096c0f2314ba2c3c
+      internalID: -1793381442
       vertices: []
       indices: 
       edges: []
@@ -288,14 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      icicle_0: -444364044
-      icicle_1: -1827212066
-      icicle_2: -1622561404
-      icicle_3: -1447096422
-      icicle_4: 832250041
-      icicle_5: -259615360
-      icicle_6: -83819615
-      icicle_7: 1438938052
+      Lizard_Attack-Sheet_0: -1667751459
+      Lizard_Attack-Sheet_1: -661773885
+      Lizard_Attack-Sheet_2: 298870071
+      Lizard_Attack-Sheet_3: -1462798017
+      Lizard_Attack-Sheet_4: -976286688
+      Lizard_Attack-Sheet_5: -1969203369
+      Lizard_Attack-Sheet_6: -547207481
+      Lizard_Attack-Sheet_7: -1793381442
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
