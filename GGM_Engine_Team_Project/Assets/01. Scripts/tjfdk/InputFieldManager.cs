@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 using System.Threading;
+using UnityEngine.Events;
 
 public class InputFieldManager : SINGLETON<InputFieldManager>
 {
@@ -14,9 +15,8 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
     [SerializeField] private TextMeshProUGUI backText; 
 
     private string text;
-    private TextType type;
+    private PlayerActionEnum type;
     private float timer;
-    private string funcName;
 
     PlayerAction player;
 
@@ -25,7 +25,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         player = GameObject.Find("Player").GetComponent<PlayerAction>();
     }
 
-    public void Input(string _text, TextType _type, float _timer, string _funcName)
+    public void Input(string _text, PlayerActionEnum _type, float _timer)
     {
         // 시간 느리게 설정
 
@@ -35,7 +35,6 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         text = _text;
         type = _type;
         timer = _timer;
-        funcName = _funcName;
 
         backText.text = text;
 
@@ -47,16 +46,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
 
     public void Effect()
     {
-        //input.transform.DOKill();
-        //input.transform.DOScale(1.5f, 0.25f).SetLoops(2, LoopType.Yoyo);
-
         inputField.transform.DOScale(1.5f, 0.25f).OnComplete(() => { inputField.transform.DOScale(1f, 0.25f); });
-        //text = input.text.Substring(input.text.Length - 1);
-        //char t;
-        //Debug.Log(text);
-        //tweener = DOTween.To(() => text, x => input.text.Substring(0) = x, );
-        //tex.maxVisibleCharacters = 0;
-        //DOTween.To(x => tex.maxVisibleCharacters = (int)x, 0f, tex.text.Length, 3f);
     }
 
     public void Check()
@@ -65,16 +55,15 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         if (inputField.text == text)
         {
             Debug.Log("성공!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            player.Invoke(funcName, 0f);
+            player.action(type);
         }
         else
         {
-            Debug.Log("병신!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            Debug.Log("실패!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
         }
 
         inputField.text = string.Empty;
-
         inputFieldPanel.SetActive(false);
     }
 }
