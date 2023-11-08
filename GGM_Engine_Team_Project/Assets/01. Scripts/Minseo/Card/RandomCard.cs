@@ -23,8 +23,11 @@ public class RandomCard : MonoBehaviour
 
     CardManager _cardManager;
 
-    //public bool isShowCard = false;
-
+    #region 아이템 
+    [SerializeField] private TextMeshProUGUI _itemCoundTMP;
+    [SerializeField] private int itemCount = 0;
+    #endregion
+   
     #region 카드 텍스트
     [Header("카드 텍스트")]
     [SerializeField] private TextMeshProUGUI _titleTMP1;
@@ -80,6 +83,12 @@ public class RandomCard : MonoBehaviour
                 ShuffleCard();
 
         }
+    }
+
+    public void CoundUp()
+    {
+        itemCount++;
+        _itemCoundTMP.text = $"X {itemCount}";
     }
 
     private void ShuffleCard()

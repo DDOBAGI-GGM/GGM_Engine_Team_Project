@@ -28,8 +28,11 @@ public class HorizontalAreaMonsters : MonoBehaviour
         //지형 체크
         Vector2 frontVec = new Vector2(_rigid.position.x + direction * 0.4f, _rigid.position.y);
 
-        RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Ground"));
-        if (rayHit.collider == null) 
+        RaycastHit2D _downRayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Ground"));
+        RaycastHit2D _rightRayHit = Physics2D.Raycast(frontVec, Vector3.right, 0.01f, LayerMask.GetMask("Ground"));
+        RaycastHit2D _leftRayHit = Physics2D.Raycast(frontVec, Vector3.right, 1, LayerMask.GetMask("Ground"));
+        
+        if (_downRayHit.collider == null || _rightRayHit.collider != null || _leftRayHit.collider != null) 
         {
             direction = direction * -1;
         }

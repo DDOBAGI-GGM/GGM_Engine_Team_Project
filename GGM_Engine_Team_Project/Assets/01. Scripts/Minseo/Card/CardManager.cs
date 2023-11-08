@@ -8,6 +8,7 @@ public class CardManager : MonoBehaviour
 
     public bool isShowCard = false;
 
+
     private void Awake()
     {
         _randomCard = GetComponent<RandomCard>();
