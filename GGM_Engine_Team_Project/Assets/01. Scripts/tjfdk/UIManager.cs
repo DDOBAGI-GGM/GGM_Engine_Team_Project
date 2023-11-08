@@ -26,7 +26,7 @@ public class UIManager : SINGLETON<UIManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Escape))
             ChangeScene("SeolAh");
     }
 

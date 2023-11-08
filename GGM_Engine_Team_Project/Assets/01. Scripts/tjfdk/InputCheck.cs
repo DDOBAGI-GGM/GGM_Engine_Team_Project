@@ -13,7 +13,7 @@ public class InputCheck : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            InputFieldTest.Instance.Input(word, wordType, timer);
+            InputFieldManager.Instance.Input(word, wordType, timer);
         }
     }
 }

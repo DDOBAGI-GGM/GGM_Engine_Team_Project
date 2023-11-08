@@ -7,11 +7,11 @@ using TMPro;
 using DG.Tweening;
 using System.Threading;
 
-public class InputFieldTest : SINGLETON<InputFieldTest>
+public class InputFieldManager : SINGLETON<InputFieldManager>
 {
     [SerializeField] private GameObject inputFieldPanel;
     [SerializeField] private TMP_InputField inputField;
-    [SerializeField] private GameObject saveP;
+    [SerializeField] private TextMeshProUGUI backText; 
 
     private string text;
     private TextType type;
@@ -27,6 +27,8 @@ public class InputFieldTest : SINGLETON<InputFieldTest>
         text = _text;
         type = _type;
         timer = _timer;
+
+        backText.text = text;
 
         if (inputField.isFocused == false)
             inputField.OnPointerClick(new PointerEventData(EventSystem.current));
