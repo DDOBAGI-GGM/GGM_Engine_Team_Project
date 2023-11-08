@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4118626134239533579}
   - component: {fileID: 2440554865915341906}
   - component: {fileID: 8392806625954524908}
-  - component: {fileID: 6142351241772497964}
+  - component: {fileID: 8101183748587045176}
   m_Layer: 0
   m_Name: HorizontalAreaMonsters
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6142351241772497964
+--- !u!114 &8101183748587045176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,4 +172,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  moveDistance: 1.5
