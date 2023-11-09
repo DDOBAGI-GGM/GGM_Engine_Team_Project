@@ -18,12 +18,12 @@ public class NPC : MonoBehaviour
     //[SerializeField] private float radius;
 
     //RaycastHit2D hit;
-    BoxCollider2D boxCollider;
+    [SerializeField] CircleCollider2D collider;
 
     private void Awake()
     {
-        boxCollider = GetComponentInChildren<BoxCollider2D>();
-        Debug.Log(boxCollider.name);
+        collider = GetComponentInChildren<CircleCollider2D>();
+        Debug.Log(collider.name);
     }
 
     //private void Update()
@@ -46,18 +46,12 @@ public class NPC : MonoBehaviour
     //    boxCollider.isTrigger = true;
     //}
 
-    //private void OnDrawGizmos()
-    //{
-    //    // 에디터 창에서 원을 시각화합니다.
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, radius);
-    //}
     private void Lock()
     {
-        boxCollider.isTrigger = !isLock;
+        collider.isTrigger = !isLock;
     }
 
-    public void UnLock(ref int itemCnt)
+    public void UnLock(ref int itemCnt)     // 아직 안 쓰는 함수?
     {
         if (interaction)
         {
@@ -74,7 +68,7 @@ public class NPC : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)     // 플레이어가 들어왔어!
     {
         if (collision.CompareTag("Player"))
         {
@@ -87,7 +81,7 @@ public class NPC : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)      // 플레이어 나가면 다 꺼주기
     {
         if (collision.CompareTag("Player"))
         {
@@ -97,5 +91,13 @@ public class NPC : MonoBehaviour
             speech.transform.DOKill();
             speech.transform.localScale = Vector3.one;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        // 에디터 창에서 원을 시각화합니다.
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, collider.radius);
+        Gizmos.color = Color.white;
     }
 }
