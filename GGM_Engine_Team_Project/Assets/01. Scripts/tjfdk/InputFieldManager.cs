@@ -15,10 +15,10 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
     [SerializeField] private PlayerMovement playerMovement;
 
     private string text;
-    private TextType type;
+    private PlayerActionEnum type;
     private float timer;
 
-    public void Input(string _text, TextType _type, float _timer)
+    public void Input(string _text, PlayerActionEnum _type, float _timer)
     {
         // 시간 느리게 설정
 
