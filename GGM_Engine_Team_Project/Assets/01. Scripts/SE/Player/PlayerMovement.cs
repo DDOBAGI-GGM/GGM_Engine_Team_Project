@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
         else { anim.Walk(false); }
         #endregion
 
-        RaycastHit2D Hit = Physics2D.CapsuleCast(capsuleCollider.bounds.center, capsuleCollider.size, CapsuleDirection2D.Vertical, 0f, Vector2.down, 0.2f, groundMask);
+        RaycastHit2D Hit = Physics2D.CapsuleCast(capsuleCollider.bounds.center, capsuleCollider.size, CapsuleDirection2D.Vertical, 0f, Vector2.down, 0.5f, groundMask);
         // 콜라이더 중심해서, 콜라이더 사이즈 만큼, 콜라이더는 세로로, 회전은 0, 방향은 아래로. 원점에서 갈정도는 0.2f, 감지할 것은 땅.
         if (Hit && !is_onJump && body.velocity.y == 0) is_onGround = true;
         else is_onGround = false;
