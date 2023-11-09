@@ -23,19 +23,17 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     private void Move()
     {
-        _rigid.velocity = new Vector2(direction, _rigid.velocity.y);
+        _rigid.velocity = new Vector2(direction * moveSpeed, _rigid.velocity.y);
 
         //지형 체크
         Vector2 frontVec = new Vector2(_rigid.position.x + direction * 0.4f, _rigid.position.y);
 
         RaycastHit2D _downRayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Ground"));
-        RaycastHit2D _rightRayHit = Physics2D.Raycast(frontVec, Vector3.right, 0.01f, LayerMask.GetMask("Ground"));
-        RaycastHit2D _leftRayHit = Physics2D.Raycast(frontVec, Vector3.right, 1, LayerMask.GetMask("Ground"));
-        
-        if (_downRayHit.collider == null || _rightRayHit.collider != null || _leftRayHit.collider != null) 
+        RaycastHit2D _rightRayHit = Physics2D.Raycast(frontVec, Vector3.right * direction, 0.01f, LayerMask.GetMask("Ground"));
+
+        if (_downRayHit.collider == null || _rightRayHit.collider != null)
         {
             direction = direction * -1;
         }
     }
-
 }
