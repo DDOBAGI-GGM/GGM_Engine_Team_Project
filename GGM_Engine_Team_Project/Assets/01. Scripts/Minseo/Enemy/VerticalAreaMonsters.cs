@@ -4,30 +4,34 @@ using UnityEngine;
 
 public class VerticalAreaMonsters : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 2.0f;  // 속도
-    [SerializeField] private float moveDistance = 5.0f; // 움직이는 거리
+    [SerializeField] private float moveSpeed = 2.0f;  // 이동 속도
+    [SerializeField] private float moveDistance = 1.5f; // 움직일 거리
+    [SerializeField] private int initialDirection = 1; // 초기 이동 방향
 
-    private Vector3 startPosition; // 시작 위치
-    private int direction = 1;
+    private int direction; // 현재 이동 방향
+    private float totalDistanceMoved; // 총 이동한 거리
 
     private void Start()
     {
-        startPosition = transform.position; // 처음 위치 저장
+        direction = initialDirection; // 초기 이동 방향 설정
     }
 
     private void Update()
     {
-        ChangeDirectionOfMovement(); // 움직임 방향 전환
+        MoveObject(); // 오브젝트 이동 처리
     }
 
-    private void ChangeDirectionOfMovement()
+    private void MoveObject()
     {
-        transform.Translate(Vector3.up * direction * moveSpeed * Time.deltaTime); // y 방향으로 이동
+        float movement = direction * moveSpeed * Time.deltaTime;
+        transform.Translate(Vector3.up * movement);
 
-        if (Mathf.Abs(transform.position.y - startPosition.y) >= moveDistance) // 일정 거리 이동하면 방향 바꿔주기
+        totalDistanceMoved += Mathf.Abs(movement);
+
+        if (totalDistanceMoved >= moveDistance)
         {
-            direction *= -1; // 방향 전환
+            totalDistanceMoved = 0;
+            direction *= -1;
         }
     }
 }
-

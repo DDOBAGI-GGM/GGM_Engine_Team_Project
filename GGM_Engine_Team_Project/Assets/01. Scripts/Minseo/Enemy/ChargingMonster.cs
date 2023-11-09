@@ -25,13 +25,6 @@ public class ChargingMonster : MonoBehaviour
         DistanceCheck();
     }
 
-    private void OnDrawGizmos()
-    {
-        // 감지 범위를 시각적으로 나타내기
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
-    }
-
     private void DistanceCheck()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, _player.position);
@@ -40,6 +33,13 @@ public class ChargingMonster : MonoBehaviour
         {
             ChargeTowardsPlayer();
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        // 감지 범위를 시각적으로 나타내기
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 
     private void ChargeTowardsPlayer()
