@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a4c218a17bed3a64d9d58d20edd1ac92
+guid: 6e8a7e40bf2d735468d0d44ec023583a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 459642ac82c0fd3449514d191b264739
-      internalID: -119407495
+      spriteID: 6da421deebf41514d98ec58a4d91a941
+      internalID: 912332301
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d48eda2a78545ac4f9ed7bb748ca8e75
-      internalID: -790953487
+      spriteID: 06abb41c0a995c6478388edad12a8691
+      internalID: 1112606598
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Climb-Sheet_0: -119407495
-      Player_Climb-Sheet_1: -790953487
+      Player_Climb-Sheet_0: 912332301
+      Player_Climb-Sheet_1: 1112606598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f4438a00e0eb15b4099fffff55b97de9
+guid: c649f93e3e5d84642b51315c78afff48
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e08481339cfa2364badca9cf775ffb83
-      internalID: 98236943
+      spriteID: 8f5dd5758ccb71742b5884afe7d5c612
+      internalID: -1918589372
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b10219ae4485da4288a472aa979415d
-      internalID: -1269366787
+      spriteID: 43bd189ac4fe9184898490b75d39ed49
+      internalID: 1567804613
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c211fc24ebcd45d4bafadf3de0ace0f0
-      internalID: -191316237
+      spriteID: 11295dbb7f486ab4881b6393ceb26475
+      internalID: -156740402
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c3acde0c38c1b34d9f4faf8944fb7ac
-      internalID: -1560924190
+      spriteID: d961e7af08ee1394fac382782714dd76
+      internalID: -515257744
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Win-Sheet_0: 98236943
-      Player_Win-Sheet_1: -1269366787
-      Player_Win-Sheet_2: -191316237
-      Player_Win-Sheet_3: -1560924190
+      Player_Win-Sheet_0: -1918589372
+      Player_Win-Sheet_1: 1567804613
+      Player_Win-Sheet_2: -156740402
+      Player_Win-Sheet_3: -515257744
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -7,6 +7,7 @@ public enum PlayerActionEnum
     Jump = 0,       // 점프
     Attack = 1,     // 공격
     Avoidance = 2,      // 피하기
+    Climb = 3,
 }
 
 public interface IPlayerAction
@@ -14,15 +15,18 @@ public interface IPlayerAction
     void Jump();        // 점프하기
     void Attack();      // 공격하기
     void Avoidance();       // 피하기
+    void Climb();   // 공격
 }
 
 public class PlayerAction : MonoBehaviour
 {
     private PlayerMovement movement;
+    private PlayerAnimation animation;
 
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
+        animation = GetComponent<PlayerAnimation>();
     }
 
 //#if UNITY_EDITOR
@@ -33,6 +37,22 @@ public class PlayerAction : MonoBehaviour
             movement.Is_onJump = true;
             Debug.Log("jump");
             movement.Jump();
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            animation.Attack();
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            animation.Avoidance();
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            animation.Win();
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            animation.Interaction();
         }
     }
 //#endif
@@ -49,6 +69,10 @@ public class PlayerAction : MonoBehaviour
                 break;
             case PlayerActionEnum.Avoidance:
                 movement.Avoidance();
+                break;
+            case PlayerActionEnum.Climb:
+                Debug.Log("올라가기가 입력됨.");
+                movement.Climb();
                 break;
             default:
                 break;
