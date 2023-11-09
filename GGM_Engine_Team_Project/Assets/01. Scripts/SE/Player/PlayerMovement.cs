@@ -15,12 +15,13 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     private SpriteRenderer spriteRenderer;
     private CapsuleCollider2D capsuleCollider;
 
-    private bool is_onGround;
+    private bool is_typing;
+    public bool Is_typing { get { return is_typing; } set { is_typing = value; } }
+    public bool is_onGround;       // 확인용, 나중에 private 로 변경하기
     public bool Is_onGround { get { return is_onGround; } private set { } }
     private bool is_onJump;
     public bool Is_onJump { get { return is_onJump; } set { is_onJump = value; }  }
     private bool is_ladder;
-
 
     private PlayerAnimation anim;
 
@@ -34,50 +35,60 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
 
     private void FixedUpdate()
     {
-        #region 좌우 움직임과 애니메이션
-        float x = Input.GetAxisRaw("Horizontal");
-        body.velocity = new Vector2 (x * speed, body.velocity.y);
-        if (x < 0)      // 왼쪽
+        if (!is_typing)     // 타이핑 중이 아닐 때에만
         {
-            spriteRenderer.flipX = true;
-        }
-        else if (x > 0)
-        {
-            spriteRenderer.flipX = false;
-        }
+            #region 좌우 움직임과 애니메이션
+            float x = Input.GetAxisRaw("Horizontal");
+            body.velocity = new Vector2(x * speed, body.velocity.y);
+            if (x < 0)      // 왼쪽
+            {
+                spriteRenderer.flipX = true;
+            }
+            else if (x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
 
-        if (x != 0)
-        {
-            anim.Walk(true);
-        }
-        else { anim.Walk(false); }
-        #endregion
+            if (x != 0)
+            {
+                anim.Walk(true);
+            }
+            else { anim.Walk(false); }
+            #endregion
 
-        RaycastHit2D Hit = Physics2D.CapsuleCast(capsuleCollider.bounds.center, capsuleCollider.size, CapsuleDirection2D.Vertical, 0f, Vector2.down, 0.2f, groundMask);
-        // 콜라이더 중심해서, 콜라이더 사이즈 만큼, 콜라이더는 세로로, 회전은 0, 방향은 아래로. 원점에서 갈정도는 0.2f, 감지할 것은 땅.
-        if (Hit && !is_onJump && body.velocity.y == 0) is_onGround = true;
-        else is_onGround = false;
+            //RaycastHit2D Hit = Physics2D.CapsuleCast(capsuleCollider.bounds.center, capsuleCollider.size, CapsuleDirection2D.Vertical, 0f, Vector2.down, 0.2f, groundMask);
+            RaycastHit2D Hit = Physics2D.BoxCast(capsuleCollider.bounds.center, capsuleCollider.size, 0f, Vector2.down, 0.2f, groundMask);
+            // 콜라이더 중심해서, 콜라이더 사이즈 만큼, 콜라이더는 세로로, 회전은 0, 방향은 아래로. 원점에서 갈정도는 0.2f, 감지할 것은 땅.
+            if (Hit && !is_onJump && body.velocity.y == 0) is_onGround = true;
+            else is_onGround = false;
 
-        if (is_onGround && body.velocity.y == 0 && !is_onJump)
-        {
-            anim.JumpingEnd();
-        }
+            if (is_onGround && body.velocity.y == 0 && !is_onJump)
+            {
+                anim.JumpingEnd();
+            }
 
-        if (is_ladder)
-        {
-            float y = Input.GetAxisRaw("Vertical");
-            body.gravityScale = 0;
-            body.velocity = new Vector2(body.velocity.x, y * speed);
+            if (is_ladder)
+            {
+                float y = Input.GetAxisRaw("Vertical");
+                body.gravityScale = 0;
+                body.velocity = new Vector2(body.velocity.x, y * speed);
+            }
+            else
+            {
+                body.gravityScale = 1;
+            }
         }
         else
         {
-            body.gravityScale = 1;
+            anim.Walk(false);       // 타이핑 중이니까.
+            body.velocity = Vector2.zero;
         }
     }
     
     public void Jump()
     {
         //Debug.Log("점프에 따른 움직임 - 바닥에 있다면");
+        is_onJump = true;           // 이 불값이 필요한지를 좀 봅시다.
         if (is_onJump)
         {
             body.AddForce(new Vector2(body.velocity.x, jump), ForceMode2D.Impulse);

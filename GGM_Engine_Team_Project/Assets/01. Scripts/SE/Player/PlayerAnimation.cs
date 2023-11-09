@@ -17,6 +17,8 @@ public class PlayerAnimation : MonoBehaviour, IPlayerAction
     private readonly int avoidanceHash = Animator.StringToHash("is_avoidance");
     private readonly int interactionHash = Animator.StringToHash("is_interaction");
 
+    public bool jump_ok = true;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -31,14 +33,23 @@ public class PlayerAnimation : MonoBehaviour, IPlayerAction
     public void Jump()
     {
         // 플레이어 상태에 따라 다르게
-
-        Debug.Log("셋 트리거 이거 오류가 조금 있음.");
-        animator.SetTrigger(jumpHash);
-        if (movement.Is_onJump)       // 바닥이 아니면
+        if (jump_ok)
         {
-            //Debug.Log("점프 중");
-            animator.SetBool(jumpingHash, true);
+            Debug.Log("셋 트리거 이거 오류가 조금 있음.");
+            animator.SetTrigger(jumpHash);
+            if (movement.Is_onJump)       // 바닥이 아니면, 즉, 점프중이면
+            {
+                //Debug.Log("점프 중");
+                animator.SetBool(jumpingHash, true);
+            }
+            jump_ok = false;
         }
+    }
+
+    public void JumpComplete()          // 플레이어 점프_엔드 애니 마지막에 이벤트로 등록됨.
+    {
+        Debug.Log("점프가 끝났음!");
+        jump_ok = true;
     }
 
     public void JumpingEnd()

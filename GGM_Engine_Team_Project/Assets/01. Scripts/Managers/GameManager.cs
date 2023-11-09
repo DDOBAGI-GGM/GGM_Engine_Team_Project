@@ -4,11 +4,11 @@ using UnityEngine;
 
 public enum TextType
 {
-    ATTCK,
+    ATTACK,
     JUMP
 }
 
 public class GameManager : MonoBehaviour
 {
-    
+    // 뭐 이넘이나 뭐나 모아두는 스크립트?
 }
