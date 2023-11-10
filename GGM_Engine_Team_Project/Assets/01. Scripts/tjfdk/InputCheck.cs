@@ -33,10 +33,10 @@ public class InputCheck : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, collider.radius);
-        Gizmos.color = Color.white;
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(transform.position, collider.radius);
+    //    Gizmos.color = Color.white;
+    //}
 }
