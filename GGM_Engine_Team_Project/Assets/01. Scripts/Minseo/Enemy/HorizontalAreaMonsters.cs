@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class HorizontalAreaMonsters : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 2.0f;  // 속도
-
+    [SerializeField] private float moveSpeed = 2.0f;
     Rigidbody2D _rigid;
+    SpriteRenderer _spriteRenderer;
 
     private int direction = 1;
-    private bool isGrounded = true; // 처음에는 땅에 닿아 있다고 가정
 
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -23,17 +23,24 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     private void Move()
     {
-        _rigid.velocity = new Vector2(direction * moveSpeed, _rigid.velocity.y);
+        _rigid.velocity = new Vector2(direction * moveSpeed, _rigid.velocity.y); // y 축의 속도를 유지하지 않도록 수정
 
-        //지형 체크
-        Vector2 frontVec = new Vector2(_rigid.position.x + direction * 0.4f, _rigid.position.y);
+        Vector2 frontVec = new Vector2(_rigid.position.x + direction * 0.1f, _rigid.position.y);
+        Vector2 downfrontVec = new Vector2(_rigid.position.x + direction * 0.7f, _rigid.position.y);
 
-        RaycastHit2D _downRayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Ground"));
-        RaycastHit2D _rightRayHit = Physics2D.Raycast(frontVec, Vector3.right * direction, 0.01f, LayerMask.GetMask("Ground"));
+        RaycastHit2D _downRayHit = Physics2D.Raycast(downfrontVec, Vector3.down, 2f, LayerMask.GetMask("Ground"));
+        RaycastHit2D _rightRayHit = Physics2D.Raycast(frontVec, Vector3.right, 1f, LayerMask.GetMask("Ground"));
+        RaycastHit2D _leftRayHit = Physics2D.Raycast(frontVec, Vector3.left, 1f, LayerMask.GetMask("Ground"));
 
-        if (_downRayHit.collider == null || _rightRayHit.collider != null)
+        Debug.DrawRay(frontVec, Vector3.right * 1f, Color.blue);
+        Debug.DrawRay(frontVec, Vector3.left * 1f, Color.red);
+
+        if (_downRayHit.collider == null ||  _rightRayHit.collider != null || _leftRayHit.collider != null)
         {
             direction = direction * -1;
+            _spriteRenderer.flipX = (direction == -1);
         }
+
+
     }
 }
