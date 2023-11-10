@@ -26,7 +26,7 @@ public class InputCheck : MonoBehaviour
         {
             if (playerMovement == null)
             {
-                playerMovement =  collision.GetComponent<PlayerMovement>();
+                playerMovement = collision.GetComponent<PlayerMovement>();
             }
             playerMovement.Is_typing = true;
             InputFieldManager.Instance.Input(word, wordType, timer);

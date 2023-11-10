@@ -12,15 +12,19 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
     [SerializeField] private GameObject inputFieldPanel;
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TextMeshProUGUI backText;
+    [SerializeField] private PlayerAction player;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private CircleCollider2D collider;
 
+    private bool checking = false;
     private string text;
     private PlayerActionEnum type;
     private float timer;
+
     private void Awake()
     {
-        collider = GetComponent<CircleCollider2D>();
+        // collider = GetComponent<CircleCollider2D>();
+        inputFieldPanel.SetActive(false);
     }
 
     public void Input(string _text, PlayerActionEnum _type, float _timer)
@@ -29,6 +33,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
 
         inputFieldPanel.SetActive(true);
         inputField.text = string.Empty;
+        checking = false;
 
         text = _text;
         type = _type;
@@ -59,20 +64,26 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
     public void Check()     // 엔터칠때, 시간이 지났을 때 사용됨.
     {
         // 체크하는 순간부터 시간 다시 정상화
-        if (inputField.text == text)
+        if (checking == false)
         {
-            Debug.Log("성공");
-            // 성은이 코드 넣기여~
+            if (inputField.text == text)
+            {
+                Debug.Log("성공");
+                player.action(type);
+            }
+            else
+                Debug.Log("실패");
+
+            checking = true;
         }
-        else
-            Debug.Log("실패");
 
         inputField.text = string.Empty;
+        inputFieldPanel.SetActive(false);
+
         if (playerMovement != null)
         {
             playerMovement.Is_typing = false;
         }
-        inputFieldPanel.SetActive(false);
     }
 
     //private void OnDrawGizmos()
