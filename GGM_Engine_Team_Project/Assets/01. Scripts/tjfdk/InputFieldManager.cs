@@ -13,14 +13,19 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TextMeshProUGUI backText;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private CircleCollider2D collider;
 
     private string text;
     private PlayerActionEnum type;
     private float timer;
+    private void Awake()
+    {
+        collider = GetComponent<CircleCollider2D>();
+    }
 
     public void Input(string _text, PlayerActionEnum _type, float _timer)
     {
-        // ½Ã°£ ´À¸®°Ô ¼³Á¤
+        // ì‹œê°„ ëŠë¦¬ê²Œ ì„¤ì •
 
         inputFieldPanel.SetActive(true);
         inputField.text = string.Empty;
@@ -29,15 +34,15 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         type = _type;
         timer = _timer;
 
-        backText.text = text;       // ÃÄ¾ßÇÏ´Â °Å Ç¥½Ã
+        backText.text = text;       // ì³ì•¼í•˜ëŠ” ê±° í‘œì‹œ
 
-        if (inputField.isFocused == false)          // ³ª¿¡°Ô ÁıÁßÇØ
+        if (inputField.isFocused == false)          // ë‚˜ì—ê²Œ ì§‘ì¤‘í•´
             inputField.OnPointerClick(new PointerEventData(EventSystem.current));
 
-        Invoke("Check", timer);     // ÀÌ ½Ã°£ µÚ¿¡ È£ÃâÇØÁà¶ó
+        Invoke("Check", timer);     // ì´ ì‹œê°„ ë’¤ì— í˜¸ì¶œí•´ì¤˜ë¼
     }
 
-    public void Effect()        // Å¸ÀÌÇÎ µÉ ¶§¸¶´Ù Å©±â Å°¿öÁÖ±â
+    public void Effect()        // íƒ€ì´í•‘ ë  ë•Œë§ˆë‹¤ í¬ê¸° í‚¤ì›Œì£¼ê¸°
     {
         //input.transform.DOKill();
         //input.transform.DOScale(1.5f, 0.25f).SetLoops(2, LoopType.Yoyo);
@@ -51,16 +56,16 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         //DOTween.To(x => tex.maxVisibleCharacters = (int)x, 0f, tex.text.Length, 3f);
     }
 
-    public void Check()     // ¿£ÅÍÄ¥¶§, ½Ã°£ÀÌ Áö³µÀ» ¶§ »ç¿ëµÊ.
+    public void Check()     // ì—”í„°ì¹ ë•Œ, ì‹œê°„ì´ ì§€ë‚¬ì„ ë•Œ ì‚¬ìš©ë¨.
     {
-        // Ã¼Å©ÇÏ´Â ¼ø°£ºÎÅÍ ½Ã°£ ´Ù½Ã Á¤»óÈ­
+        // ì²´í¬í•˜ëŠ” ìˆœê°„ë¶€í„° ì‹œê°„ ë‹¤ì‹œ ì •ìƒí™”
         if (inputField.text == text)
         {
-            Debug.Log("¼º°ø");
-            // ¼ºÀºÀÌ ÄÚµå ³Ö±â¿©~
+            Debug.Log("ì„±ê³µ");
+            // ì„±ì€ì´ ì½”ë“œ ë„£ê¸°ì—¬~
         }
         else
-            Debug.Log("½ÇÆĞ");
+            Debug.Log("ì‹¤íŒ¨");
 
         inputField.text = string.Empty;
         if (playerMovement != null)
@@ -69,4 +74,11 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         }
         inputFieldPanel.SetActive(false);
     }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(transform.position, collider.radius);
+    //    Gizmos.color = Color.white;
+    //}
 }
