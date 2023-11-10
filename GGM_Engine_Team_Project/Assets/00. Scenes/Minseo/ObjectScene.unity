@@ -1185,7 +1185,7 @@ GameObject:
   - component: {fileID: 2011450926}
   - component: {fileID: 2011450925}
   - component: {fileID: 2011450928}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1703,7 +1703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3344883542252963820, guid: 1de7f198fa0b6124993f79693ac6a795, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6201802557963220776, guid: 1de7f198fa0b6124993f79693ac6a795, type: 3}
       propertyPath: m_Constraints
@@ -1748,6 +1748,10 @@ PrefabInstance:
     - target: {fileID: 7585231072791447224, guid: 1de7f198fa0b6124993f79693ac6a795, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8174276858594461038, guid: 1de7f198fa0b6124993f79693ac6a795, type: 3}
+      propertyPath: direction
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8174276858594461038, guid: 1de7f198fa0b6124993f79693ac6a795, type: 3}
       propertyPath: detectionRange

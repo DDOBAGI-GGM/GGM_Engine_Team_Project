@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +24,7 @@ public class ChargingMonster : MonoBehaviour
 
     private void DistanceCheck()
     {
-        Vector2 frontVec = new Vector2(_rigid.position.x + direction * 0.1f, _rigid.position.y);
+        Vector2 frontVec = new Vector2(_rigid.position.x + direction * 0.1f, _rigid.position.y - 0.4f);
 
         RaycastHit2D _rightRayHit = Physics2D.Raycast(frontVec, Vector3.right, direction, LayerMask.GetMask("Player"));
         RaycastHit2D _leftRayHit = Physics2D.Raycast(frontVec, Vector3.left, direction, LayerMask.GetMask("Player"));
@@ -43,11 +44,25 @@ public class ChargingMonster : MonoBehaviour
         Vector2 moveDirection = (targetPosition - _rigid.position).normalized;
 
         _rigid.velocity = new Vector2(moveDirection.x * chargeSpeed, _rigid.velocity.y);
+
+        if (moveDirection.x > 0)
+        {
+            // 이동 방향이 오른쪽일 때
+            transform.localScale = new Vector3(2, 2, 2);
+        }
+        else if (moveDirection.x < 0)
+        {
+            // 이동 방향이 왼쪽일 때
+            transform.localScale = new Vector3(-2, 2, 2);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("플레이어 충돌");
-        chargeSpeed = 0;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("플레이어 충돌");
+            chargeSpeed = 0;
+        }
     }
 }
