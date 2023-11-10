@@ -1,95 +1,92 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [System.Serializable]
 public class Sound
 {
-    public string soundName;
+    public string name;
     public AudioClip clip;
 }
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : SINGLETON<SoundManager>
 {
-    static public SoundManager instance;
-    private void Awake()
-    {
-        if (instance == null)
-            instance = this;
-        else
-            Destroy(this.gameObject);
-    }
-
     public Sound[] bgmSounds;           // BGM 사운드 저장
     public Sound[] effectSounds;        // SFX 사운드 저장
 
-    public AudioSource audioSourceBgmPlayers;           // BGM을 출력할 오디오 소스
-    public AudioSource[] audioSourceEffectsPlayers;     // SFX를 출력할 오디오 소스
+    public AudioSource bgmAudioSource;           // BGM을 출력할 오디오 소스
+    public AudioSource[] sfxAudioSource;     // SFX를 출력할 오디오 소스
 
-    public string[] playSoundName;                      // ??? ???? ????? ???? ??? 
+    Dictionary<string, AudioClip> bgmDic = new Dictionary<string, AudioClip>();
+    Dictionary<string, AudioClip> sfxDic = new Dictionary<string, AudioClip>();
+
+    //public string[] playSoundName;                      // ??? ???? ????? ???? ??? 
 
     private void Start()
     {
-        playSoundName = new string[audioSourceEffectsPlayers.Length];
-        PlayBGM("BGM");
+        //playSoundName = new string[sfxAudioSource.Length];
+        //PlayBGM("BGM");
+
+        foreach (var bgm in bgmSounds)
+            bgmDic.Add(bgm.name, bgm.clip);
+
+        foreach (var sfx in effectSounds)
+            sfxDic.Add(sfx.name, sfx.clip);
     }
 
-    public void PlaySFX(string name) // 
+    public void PlaySFX(string name)
     {
-        for (int i = 0; i < effectSounds.Length; i++)
+        foreach (var sfxSource in sfxAudioSource)
         {
-            if (name == effectSounds[i].soundName)
+            if (sfxDic[name] != null && sfxSource.isPlaying == false)
             {
-                for (int j = 0; j < audioSourceEffectsPlayers.Length; j++)
-                {
-                    if (!audioSourceEffectsPlayers[j].isPlaying) // 현재 사용하려는 오디오소스가 사용중이 아니라면
-                    {
-                        audioSourceEffectsPlayers[j].clip = effectSounds[i].clip; // 현재 오디오소스를 사용
-                        audioSourceEffectsPlayers[j].Play(); // 실행
-                        playSoundName[j] = effectSounds[i].soundName; // ??
-                        return;
-                    }
-                }
-
-                return;
+                sfxSource.clip = sfxDic[name];
+                sfxSource.Play();
             }
         }
     }
 
     public void PlayBGM(string name) // BGM 실행
     {
-        for (int i = 0; i < bgmSounds.Length; i++)
+        if (bgmDic[name] != null)
         {
-            if (name == bgmSounds[i].soundName)
-            {
-                audioSourceBgmPlayers.clip = bgmSounds[i].clip;
-                audioSourceBgmPlayers.loop = true;
-                audioSourceBgmPlayers.Play();
-                return;
-            }
+            bgmAudioSource.clip = bgmDic[name];
+            bgmAudioSource.loop = true;
+            bgmAudioSource.Play();
         }
     }
 
     public void StopBGM()
     {
-
-        audioSourceBgmPlayers.Stop();
+        bgmAudioSource.Stop();
     }
 
-    public void StopAllEffectsSound() // 모든 SFX룰 중지
+    public void StopAllSFX() // 모든 SFX룰 중지
     {
-        for (int i = 0; i < audioSourceEffectsPlayers.Length; i++)
-            audioSourceEffectsPlayers[i].Stop();
-    }
-
-    public void StopEffectsSound(string name) // 특정 SFX를 중지
-    {
-        for (int i = 0; i < audioSourceEffectsPlayers.Length; i++)
+        foreach (var sfxSource in sfxAudioSource)
         {
-            if (playSoundName[i] == name)
+            sfxSource.Stop();
+            sfxSource.clip = null;
+            sfxSource.loop = false;
+        }
+    }
+
+    public void StopSFX(string name) // 특정 SFX를 중지
+    {
+        foreach (var sfxSource in sfxAudioSource)
+        {
+            if (sfxDic[name] != null && sfxSource.isPlaying == true)
             {
-                audioSourceEffectsPlayers[i].Stop();
-                break;
+                if (sfxSource.clip.name == sfxDic[name].name)
+                {
+                    sfxSource.Stop();
+                    sfxSource.clip = null;
+                    sfxSource.loop = false;
+
+                    return;
+                }
             }
         }
     }
