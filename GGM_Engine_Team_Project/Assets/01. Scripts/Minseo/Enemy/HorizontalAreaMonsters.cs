@@ -5,10 +5,13 @@ using UnityEngine;
 public class HorizontalAreaMonsters : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2.0f;
+    [SerializeField] private float moveDistance = 3.0f;
+
     Rigidbody2D _rigid;
     SpriteRenderer _spriteRenderer;
 
     private int direction = 1;
+    private float totalDistance = 0f;
 
     private void Awake()
     {
@@ -23,7 +26,11 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     private void Move()
     {
-        _rigid.velocity = new Vector2(direction * moveSpeed, _rigid.velocity.y); // y 축의 속도를 유지하지 않도록 수정
+        float distanceThisFrame = direction * moveSpeed * Time.fixedDeltaTime;
+
+        _rigid.velocity = new Vector2(direction * moveSpeed, _rigid.velocity.y); 
+
+        totalDistance += Mathf.Abs(distanceThisFrame);
 
         Vector2 frontVec = new Vector2(_rigid.position.x + direction * 0.1f, _rigid.position.y);
         Vector2 downfrontVec = new Vector2(_rigid.position.x + direction * 0.7f, _rigid.position.y);
@@ -35,10 +42,11 @@ public class HorizontalAreaMonsters : MonoBehaviour
         Debug.DrawRay(frontVec, Vector3.right * 1f, Color.blue);
         Debug.DrawRay(frontVec, Vector3.left * 1f, Color.red);
 
-        if (_downRayHit.collider == null ||  _rightRayHit.collider != null || _leftRayHit.collider != null)
+        if (totalDistance >= moveDistance || _downRayHit.collider == null ||  _rightRayHit.collider != null || _leftRayHit.collider != null)
         {
             direction = direction * -1;
             _spriteRenderer.flipX = (direction == -1);
+            totalDistance = 0f;
         }
 
 
