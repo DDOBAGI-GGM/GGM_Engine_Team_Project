@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00. Scenes/Tilemap_stage.unity
     guid: 481c572fca22d9e40943b987fbd20fd9
+  - enabled: 1
+    path: Assets/00. Scenes/GameClearScene.unity
+    guid: 02b891d1008062243aa12d6f8359e702
+  - enabled: 1
+    path: Assets/00. Scenes/GameOverScene.unity
+    guid: eed39274a48b7704d909021a51f85670
   m_configObjects: {}

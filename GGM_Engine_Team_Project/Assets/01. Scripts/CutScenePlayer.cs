@@ -9,8 +9,7 @@ public class CutScenePlayer : MonoBehaviour
 {
     [SerializeField] Sprite[] cutSceneImages;
     [SerializeField] SpriteRenderer cutSceneViewer;
-    [SerializeField] private Image fadePanel;
-    [SerializeField] private float duration;
+    [SerializeField] SceneChanger sceneChanger;
 
     private int imageIdx;
     private const string sceneName = "Tilemap_stage";
@@ -30,14 +29,11 @@ public class CutScenePlayer : MonoBehaviour
             }
             else
             {
-                ChangeScene();
+                Debug.Log(sceneChanger);
+                sceneChanger.ChangeScene(sceneName);
             }
             imageIdx++;
         }
     }
 
-    public void ChangeScene()
-    {
-        fadePanel.DOFade(1, duration).OnComplete(() => { SceneManager.LoadScene(sceneName); }).SetEase(Ease.InExpo);
-    }
 }
