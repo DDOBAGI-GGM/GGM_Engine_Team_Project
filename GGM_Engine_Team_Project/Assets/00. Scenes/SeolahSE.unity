@@ -373,6 +373,7 @@ MonoBehaviour:
   effectSounds: []
   bgmAudioSource: {fileID: 0}
   sfxAudioSource: []
+  sfxAudioSourceConut: 8
 --- !u!1 &1488190244
 GameObject:
   m_ObjectHideFlags: 0

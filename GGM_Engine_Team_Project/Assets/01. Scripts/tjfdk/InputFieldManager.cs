@@ -72,7 +72,10 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
                 player.action(type);
             }
             else
+            {
                 Debug.Log("실패");
+                // 몬스터 공격 함수 호출
+            }
 
             checking = true;
         }
