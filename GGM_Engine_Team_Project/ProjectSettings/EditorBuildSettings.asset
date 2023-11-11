@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/00. Scenes/SeolAh.unity
     guid: bbc6877aec9a81d4d91ed4e72d5cf3ad
   - enabled: 1
+    path: Assets/00. Scenes/TitleScene.unity
+    guid: 5ea123b677babda488ebb7070e43ed7c
+  - enabled: 1
+    path: Assets/00. Scenes/CutScene.unity
+    guid: 2e4912fd9aac2444098a42c0d8977f0e
+  - enabled: 1
     path: Assets/00. Scenes/Tilemap_stage.unity
     guid: 481c572fca22d9e40943b987fbd20fd9
   m_configObjects: {}
