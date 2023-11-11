@@ -5,6 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Windows;
 using Unity.VisualScripting;
+using TMPro;
 
 public class NPC : MonoBehaviour
 {
@@ -13,13 +14,14 @@ public class NPC : MonoBehaviour
     [SerializeField] private int toll;
     [SerializeField] private bool isLock = true;
     [SerializeField] private bool interaction = false;
+    [SerializeField] private TextMeshProUGUI tolltxt;
 
     [SerializeField] CircleCollider2D collider;
 
     private void Awake()
     {
         collider = GetComponentInChildren<CircleCollider2D>();
-        Debug.Log(collider.name);
+        tolltxt.text = "x" + toll;
     }
 
     private void Lock()
