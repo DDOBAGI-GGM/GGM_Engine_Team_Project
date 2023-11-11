@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -17,12 +18,19 @@ public class SoundManager : SINGLETON<SoundManager>
     public Sound[] effectSounds;        // SFX 사운드 저장
 
     public AudioSource bgmAudioSource;           // BGM을 출력할 오디오 소스
-    public AudioSource[] sfxAudioSource;     // SFX를 출력할 오디오 소스
+    public List<AudioSource> sfxAudioSource = new List<AudioSource>();     // SFX를 출력할 오디오 소스
+    [SerializeField] private int sfxAudioSourceConut;
 
     Dictionary<string, AudioClip> bgmDic = new Dictionary<string, AudioClip>();
     Dictionary<string, AudioClip> sfxDic = new Dictionary<string, AudioClip>();
 
-    //public string[] playSoundName;                      // ??? ???? ????? ???? ??? 
+    //public string[] playSoundName;                      // ??? ???? ????? ???? ???
+
+    private void Awake()
+    {
+        for (int i = 0; i < sfxAudioSourceConut; ++i)
+            sfxAudioSource.Add(gameObject.AddComponent<AudioSource>());
+    }
 
     private void Start()
     {

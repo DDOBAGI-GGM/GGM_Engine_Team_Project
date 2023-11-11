@@ -48,6 +48,8 @@ public class NPC : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            // 플레이어한테 현재 npc를 알려주는...
+
             interaction = true;
             speech.SetActive(true);
 
