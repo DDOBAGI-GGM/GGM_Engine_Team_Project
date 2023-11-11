@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +6,12 @@ public class ChargingMonster : MonoBehaviour
 {
     public float direction = 5f;   // 플레이어를 감지할 x축 범위
     public float chargeSpeed = 10f; // 돌진 속도
+    public float chargeDuration = 2f; // 돌진 지속 시간
 
     private Transform player;
     private Rigidbody2D _rigid;
+    private bool isCharging = false; // 돌진 상태를 나타내는 변수
+    private float chargeTimer = 0f; // 돌진 시간을 측정하는 타이머
 
     private void Start()
     {
@@ -19,7 +21,23 @@ public class ChargingMonster : MonoBehaviour
 
     private void Update()
     {
-        DistanceCheck();
+        if (isCharging)
+        {
+            ChargeTowardsPlayer();
+            chargeTimer += Time.deltaTime;
+
+            if (chargeTimer >= chargeDuration)
+            {
+                isCharging = false;
+                chargeTimer = 0f;
+                chargeSpeed = 0f;
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            DistanceCheck();
+        }
     }
 
     private void DistanceCheck()
@@ -34,7 +52,7 @@ public class ChargingMonster : MonoBehaviour
 
         if (_rightRayHit.collider != null || _leftRayHit.collider != null)
         {
-            ChargeTowardsPlayer();
+            isCharging = true;
         }
     }
 
@@ -46,13 +64,11 @@ public class ChargingMonster : MonoBehaviour
         _rigid.velocity = new Vector2(moveDirection.x * chargeSpeed, _rigid.velocity.y);
 
         if (moveDirection.x > 0)
-        {
-            // 이동 방향이 오른쪽일 때
+        { 
             transform.localScale = new Vector3(2, 2, 2);
         }
         else if (moveDirection.x < 0)
         {
-            // 이동 방향이 왼쪽일 때
             transform.localScale = new Vector3(-2, 2, 2);
         }
     }

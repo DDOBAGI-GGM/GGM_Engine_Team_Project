@@ -8,12 +8,14 @@ public class FallingObject : MonoBehaviour
     [SerializeField] private float detectionRange = 2.5f;
 
     private Transform _playerTransform;
-    
+    Rigidbody2D _rigid;
+
     private bool isFalling = false;
 
     void Start()
     {
-        _playerTransform = GameObject.FindWithTag("Player").transform; 
+        _rigid = GetComponent<Rigidbody2D>();
+        _playerTransform = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()
@@ -21,21 +23,17 @@ public class FallingObject : MonoBehaviour
         Falling();
     }
 
-    public void StartFalling()
-    {
-        isFalling = true;
-    }
-
     private void Falling()
     {
         if (!isFalling)
         {
-            // 플레이어와의 거리를 계산
-            float distanceToPlayer = Vector3.Distance(transform.position, _playerTransform.position);
+            Vector2 frontVec = new Vector2(_rigid.position.x + detectionRange * 0.1f, _rigid.position.y);
 
-            if (distanceToPlayer <= detectionRange && _playerTransform.position.y < transform.position.y)
+            RaycastHit2D _downRayHit = Physics2D.Raycast(frontVec, Vector3.down, 2f, LayerMask.GetMask("Player"));
+
+            if (_downRayHit.collider != null)
             {
-                StartFalling();
+                isFalling = true;
             }
         }
 
@@ -49,6 +47,9 @@ public class FallingObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (collision.CompareTag("Player") || collision.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
