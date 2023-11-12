@@ -41,8 +41,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5682160600062472554}
-  - component: {fileID: 443004462074853988}
   - component: {fileID: 8803890975719073840}
+  - component: {fileID: 8281414433554063074}
   m_Layer: 0
   m_Name: Check
   m_TagString: Untagged
@@ -65,8 +65,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5535985195025308137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &443004462074853988
-CircleCollider2D:
+--- !u!114 &8803890975719073840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8470776782886041298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171d529de209eb846a5fadafb0374a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  word: 
+  wordType: 0
+  timer: 0
+  collider: {fileID: 0}
+--- !u!61 &8281414433554063074
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -98,21 +114,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 2.91
---- !u!114 &8803890975719073840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8470776782886041298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 171d529de209eb846a5fadafb0374a56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  word: 
-  wordType: 0
-  timer: 0
-  collider: {fileID: 0}
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
