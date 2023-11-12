@@ -84601,6 +84601,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VerticalMovingFloor
       objectReference: {fileID: 0}
+    - target: {fileID: 6169135708558916561, guid: 4fd93e742ed461b4980c8d51a5fb3d23, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8273262640914929791, guid: 4fd93e742ed461b4980c8d51a5fb3d23, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
