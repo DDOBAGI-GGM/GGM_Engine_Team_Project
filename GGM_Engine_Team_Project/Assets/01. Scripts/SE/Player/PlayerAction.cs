@@ -32,10 +32,6 @@ public class PlayerAction : MonoBehaviour
 #if UNITY_EDITOR
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && movement.Is_onGround)        // 스페이스바를 누르고 바닥에 있을 때만 점프하게
-        {
-            movement.Jump();
-        }
         if (Input.GetKeyDown(KeyCode.Q))
         {
             animation.Attack();
