@@ -11,8 +11,11 @@ public class VerticalAreaMonsters : MonoBehaviour
     private int direction; // 현재 이동 방향
     private float totalDistanceMoved; // 총 이동한 거리'
 
+    PlayerHp _playerHP;
+
     private void Start()
     {
+        _playerHP = GetComponent<PlayerHp>();
         direction = initialDirection; // 초기 이동 방향 설정
     }
 
@@ -37,6 +40,6 @@ public class VerticalAreaMonsters : MonoBehaviour
 
     public void Attack()
     {
-        // 플레이어 피 깎기
+        _playerHP.HpDown(1);
     }
 }

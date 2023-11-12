@@ -79587,6 +79587,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 128
+  capsuleCollider: {fileID: 1516541899}
   is_onGround: 0
 --- !u!95 &1516541903
 Animator:
