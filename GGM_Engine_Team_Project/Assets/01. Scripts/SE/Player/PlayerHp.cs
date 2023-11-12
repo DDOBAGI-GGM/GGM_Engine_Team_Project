@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerHp : MonoBehaviour
 {
-    [SerializeField] float playerHp = 3;
     [SerializeField] Text hpText;
 
-    private bool resurrection = false;
+    public float playerHp = 3;
+
+    public bool resurrection = false;
 
     public void HpUp(int up = 1)
     {

@@ -11,6 +11,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
     Rigidbody2D _rigid;
     SpriteRenderer _spriteRenderer;
     Animator _animator;
+    PlayerHp _playerHp;
 
     private int direction = 1;
     private float totalDistance = 0f;
@@ -21,6 +22,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        _playerHp = GetComponent<PlayerHp>();
     }
 
     private void FixedUpdate()
@@ -60,5 +62,6 @@ public class HorizontalAreaMonsters : MonoBehaviour
     public void Attack()
     {
         _animator.SetTrigger("Attack");
+        _playerHp.HpDown(1);
     }
 }
