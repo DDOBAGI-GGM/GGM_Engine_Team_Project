@@ -9,7 +9,7 @@ public class VerticalAreaMonsters : MonoBehaviour
     [SerializeField] private int initialDirection = 1; // 초기 이동 방향
 
     private int direction; // 현재 이동 방향
-    private float totalDistanceMoved; // 총 이동한 거리
+    private float totalDistanceMoved; // 총 이동한 거리'
 
     private void Start()
     {
@@ -33,5 +33,10 @@ public class VerticalAreaMonsters : MonoBehaviour
             totalDistanceMoved = 0;
             direction *= -1;
         }
+    }
+
+    public void Attack()
+    {
+        // 플레이어 피 깎기
     }
 }
