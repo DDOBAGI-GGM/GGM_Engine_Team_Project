@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ChargingMonster : MonoBehaviour
@@ -10,6 +11,9 @@ public class ChargingMonster : MonoBehaviour
 
     private Transform player;
     private Rigidbody2D _rigid;
+    private Animator _animator;
+    private PlayerHp _playerHp; 
+
     private bool isCharging = false; // 돌진 상태를 나타내는 변수
     private float chargeTimer = 0f; // 돌진 시간을 측정하는 타이머
 
@@ -17,6 +21,8 @@ public class ChargingMonster : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform; // 태그로 플레이어 찾기
         _rigid = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _playerHp = GetComponent<PlayerHp>();
     }
 
     private void Update()
@@ -37,6 +43,7 @@ public class ChargingMonster : MonoBehaviour
         else
         {
             DistanceCheck();
+            _animator.SetBool("Attack", false);
         }
     }
 
@@ -56,8 +63,10 @@ public class ChargingMonster : MonoBehaviour
         }
     }
 
-    private void ChargeTowardsPlayer()
+    public void ChargeTowardsPlayer()
     {
+        _animator.SetBool("Attack", true);
+
         Vector2 targetPosition = new Vector2(player.position.x, _rigid.position.y);
         Vector2 moveDirection = (targetPosition - _rigid.position).normalized;
 
@@ -71,6 +80,11 @@ public class ChargingMonster : MonoBehaviour
         {
             transform.localScale = new Vector3(-2, 2, 2);
         }
+    }
+
+    public void Attack()
+    {
+        _playerHp.HpDown(1);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -17,6 +17,7 @@ public class ItemObject : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            SoundManager.Instance.PlaySFX("get");
             _randomCard.CoundUp();
             _cardManager.isShowCard = true;
 

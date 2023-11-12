@@ -9,7 +9,7 @@ public class PlatformIgnore : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("»ç´Ù¸®¿Í ºÎµúÇô");
+            //Debug.Log("»ç´Ù¸®¿Í ºÎµúÇô");
             Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), ladderGroundCollision, true);
         }
     }
@@ -18,7 +18,7 @@ public class PlatformIgnore : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("³ª°¬¿À");
+            //Debug.Log("³ª°¬¿À");
             Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), ladderGroundCollision, false);
         }
     }

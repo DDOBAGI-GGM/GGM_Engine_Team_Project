@@ -24,10 +24,10 @@ public class SoundManager : SINGLETON<SoundManager>
     Dictionary<string, AudioClip> bgmDic = new Dictionary<string, AudioClip>();
     Dictionary<string, AudioClip> sfxDic = new Dictionary<string, AudioClip>();
 
-    //public string[] playSoundName;                      // ??? ???? ????? ???? ???
-
     private void Awake()
     {
+        bgmAudioSource = gameObject.AddComponent<AudioSource>();
+
         for (int i = 0; i < sfxAudioSourceConut; ++i)
             sfxAudioSource.Add(gameObject.AddComponent<AudioSource>());
     }

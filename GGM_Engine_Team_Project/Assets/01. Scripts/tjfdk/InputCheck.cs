@@ -11,13 +11,13 @@ public class InputCheck : MonoBehaviour
     [SerializeField] private string word;
     [SerializeField] private PlayerActionEnum wordType;
     [SerializeField] private float timer;
-    [SerializeField] private CircleCollider2D collider;
+    [SerializeField] private BoxCollider2D collider;
 
     private PlayerMovement playerMovement;
 
     private void Awake()
     {
-        collider = GetComponent<CircleCollider2D>();
+        collider = GetComponent<BoxCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,7 +28,7 @@ public class InputCheck : MonoBehaviour
             {
                 playerMovement = collision.GetComponent<PlayerMovement>();
             }
-            playerMovement.Is_typing = true;
+            //playerMovement.Is_typing = true;
             InputFieldManager.Instance.Input(word, wordType, timer);
         }
     }

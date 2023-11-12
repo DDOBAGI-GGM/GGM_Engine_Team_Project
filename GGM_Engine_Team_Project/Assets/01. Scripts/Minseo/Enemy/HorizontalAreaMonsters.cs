@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HorizontalAreaMonsters : MonoBehaviour
@@ -9,14 +10,19 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     Rigidbody2D _rigid;
     SpriteRenderer _spriteRenderer;
+    Animator _animator;
+    PlayerHp _playerHp;
 
     private int direction = 1;
     private float totalDistance = 0f;
+
 
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
+        _playerHp = GetComponent<PlayerHp>();
     }
 
     private void FixedUpdate()
@@ -26,6 +32,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     private void Move()
     {
+        _animator.SetBool("Walk", true);
         float distanceThisFrame = direction * moveSpeed * Time.fixedDeltaTime;
 
         _rigid.velocity = new Vector2(direction * moveSpeed, _rigid.velocity.y); 
@@ -50,5 +57,11 @@ public class HorizontalAreaMonsters : MonoBehaviour
         }
 
 
+    }
+
+    public void Attack()
+    {
+        _animator.SetTrigger("Attack");
+        _playerHp.HpDown(1);
     }
 }

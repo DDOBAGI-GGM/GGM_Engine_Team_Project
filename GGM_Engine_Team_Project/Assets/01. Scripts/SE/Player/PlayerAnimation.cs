@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour, IPlayerAction
+public class PlayerAnimation : MonoBehaviour//, IPlayerAction
 {
     private Animator animator;
     private PlayerMovement movement;
@@ -10,7 +10,6 @@ public class PlayerAnimation : MonoBehaviour, IPlayerAction
     // 헤쉬들 가져오기
     private readonly int walkHash = Animator.StringToHash("is_walking");
     private readonly int jumpHash = Animator.StringToHash("is_jump");
-    private readonly int jumpingHash = Animator.StringToHash("is_jumping");
     private readonly int winHash = Animator.StringToHash("is_win");
     private readonly int attackHash = Animator.StringToHash("is_attack");
     private readonly int climbHash = Animator.StringToHash("is_climb");
@@ -18,6 +17,7 @@ public class PlayerAnimation : MonoBehaviour, IPlayerAction
     private readonly int interactionHash = Animator.StringToHash("is_interaction");
 
     public bool jump_ok = true;
+    public bool Jump_ok {  get { return jump_ok; } }
 
     private void Awake()
     {
@@ -30,32 +30,9 @@ public class PlayerAnimation : MonoBehaviour, IPlayerAction
         animator.SetBool(walkHash, value);
     }
 
-    public void Jump()
+    public void Jump(bool value)
     {
-        // 플레이어 상태에 따라 다르게
-        if (jump_ok)
-        {
-            Debug.Log("셋 트리거 이거 오류가 조금 있음.");
-            animator.SetTrigger(jumpHash);
-            if (movement.Is_onJump)       // 바닥이 아니면, 즉, 점프중이면
-            {
-                //Debug.Log("점프 중");
-                animator.SetBool(jumpingHash, true);
-            }
-            jump_ok = false;
-        }
-    }
-
-    public void JumpComplete()          // 플레이어 점프_엔드 애니 마지막에 이벤트로 등록됨.
-    {
-        Debug.Log("점프가 끝났음!");
-        jump_ok = true;
-    }
-
-    public void JumpingEnd()
-    {
-        //Debug.Log("점프중 애니 끝.");
-        animator.SetBool(jumpingHash, false);
+        animator.SetBool(jumpHash, value);
     }
 
     public void Attack()
