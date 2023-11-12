@@ -3521,7 +3521,7 @@ GameObject:
   - component: {fileID: 1613665543505758176}
   - component: {fileID: 7429775850140197032}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4621,6 +4621,6 @@ SceneRoots:
   - {fileID: 1850032196}
   - {fileID: 72480505}
   - {fileID: 304494693350740864}
-  - {fileID: 680786052}
   - {fileID: 2376282641569129260}
   - {fileID: 1917236667}
+  - {fileID: 680786052}

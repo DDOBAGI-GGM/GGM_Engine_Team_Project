@@ -349,69 +349,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346116043}
   m_CullTransparentMesh: 1
---- !u!1 &838183786
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 838183788}
-  - component: {fileID: 838183787}
-  m_Layer: 0
-  m_Name: CutScenePlayer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &838183787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838183786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c8ed2fac2cead4a8dfa77ff3806e76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cutSceneImages:
-  - {fileID: 21300000, guid: 7d464567715fe5d48b5cb6d5050b91af, type: 3}
-  - {fileID: 21300000, guid: 8565f992e4684ab4c80e88154b4e9a9e, type: 3}
-  - {fileID: 21300000, guid: f27bf2cf425263c4ba27d44e9b7a7c62, type: 3}
-  - {fileID: 21300000, guid: ce04b7076a8da904dbe7b4e98ee3426d, type: 3}
-  - {fileID: 21300000, guid: 9c5a986f9310aba42b60c0ba1dfc32b2, type: 3}
-  - {fileID: 21300000, guid: 1c87ebfcf37483246acd3e2f74c56631, type: 3}
-  - {fileID: 21300000, guid: 0e50ca4ccbdb7614895f01c00c18f3df, type: 3}
-  - {fileID: 21300000, guid: 45250eb0170d53b49bfd5efef14c6a94, type: 3}
-  - {fileID: 21300000, guid: 5f242ad7ec023344da96ac8a73349cdb, type: 3}
-  - {fileID: 21300000, guid: bfb412ca4c3a9c647aa138f4d09f76ff, type: 3}
-  - {fileID: 21300000, guid: fa1c3adfbc45f1c4e818812d1507b21c, type: 3}
-  - {fileID: 21300000, guid: e3ddf9c47ffaa7643bfda13123a3f59c, type: 3}
-  - {fileID: 21300000, guid: f16af752e62f85b4cb44c39adb165c75, type: 3}
-  - {fileID: 21300000, guid: bf40bc1770b9cce42904684405b76581, type: 3}
-  - {fileID: 21300000, guid: df6cfa691cb0c1741a6671e88fc8fb61, type: 3}
-  - {fileID: 21300000, guid: 370bd72af26529046927b117812c93be, type: 3}
-  cutSceneViewer: {fileID: 928425294}
-  sceneChanger: {fileID: 1980039412}
---- !u!4 &838183788
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838183786}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &928425293
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,13 +359,14 @@ GameObject:
   m_Component:
   - component: {fileID: 928425295}
   - component: {fileID: 928425294}
+  - component: {fileID: 928425296}
   m_Layer: 0
   m_Name: CutSceneViewer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &928425294
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -496,6 +434,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &928425296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928425293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1980039415}
+        m_TargetAssemblyTypeName: CutScenePlayer, Assembly-CSharp
+        m_MethodName: PlayCutScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1053601987
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +586,7 @@ RectTransform:
   m_Children:
   - {fileID: 1805254559}
   - {fileID: 1875598745}
+  - {fileID: 1732182118}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -599,6 +594,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1732182117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1732182118}
+  - component: {fileID: 1732182120}
+  - component: {fileID: 1732182119}
+  m_Layer: 5
+  m_Name: Fade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1732182118
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732182117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1053601991}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1732182119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732182117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1732182120
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732182117}
+  m_CullTransparentMesh: 1
 --- !u!1 &1805254558
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,8 +680,9 @@ GameObject:
   - component: {fileID: 1805254559}
   - component: {fileID: 1805254561}
   - component: {fileID: 1805254560}
+  - component: {fileID: 1805254562}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: CutSceneViewer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -649,15 +720,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7d464567715fe5d48b5cb6d5050b91af, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -674,6 +745,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805254558}
   m_CullTransparentMesh: 1
+--- !u!114 &1805254562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805254558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1805254560}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1980039415}
+        m_TargetAssemblyTypeName: CutScenePlayer, Assembly-CSharp
+        m_MethodName: PlayCutScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1875598744
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +838,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -50, y: -50}
-  m_SizeDelta: {x: 500, y: 30}
+  m_SizeDelta: {x: 200, y: 75}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1875598746
 MonoBehaviour:
@@ -757,10 +884,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1980039412}
-        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 5
+      - m_Target: {fileID: 1980039415}
+        m_TargetAssemblyTypeName: CutScenePlayer, Assembly-CSharp
+        m_MethodName: Skip
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -816,28 +943,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1980039413}
-  - component: {fileID: 1980039412}
+  - component: {fileID: 1980039414}
+  - component: {fileID: 1980039415}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1980039412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980039411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af22fd3bbf47e664d9e8fb6c3d01d809, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadePanel: {fileID: 1805254560}
-  duration: 1
 --- !u!4 &1980039413
 Transform:
   m_ObjectHideFlags: 0
@@ -853,6 +967,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1980039414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980039411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0e53b31f74bdc4aad06f271d903bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 0}
+  bgm_slider: {fileID: 0}
+  sfx_slider: {fileID: 0}
+  fadePanel: {fileID: 1732182119}
+  duration: 2
+--- !u!114 &1980039415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980039411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c8ed2fac2cead4a8dfa77ff3806e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutSceneImages:
+  - {fileID: 21300000, guid: 7d464567715fe5d48b5cb6d5050b91af, type: 3}
+  - {fileID: 21300000, guid: 8565f992e4684ab4c80e88154b4e9a9e, type: 3}
+  - {fileID: 21300000, guid: f27bf2cf425263c4ba27d44e9b7a7c62, type: 3}
+  - {fileID: 21300000, guid: ce04b7076a8da904dbe7b4e98ee3426d, type: 3}
+  - {fileID: 21300000, guid: 9c5a986f9310aba42b60c0ba1dfc32b2, type: 3}
+  - {fileID: 21300000, guid: 1c87ebfcf37483246acd3e2f74c56631, type: 3}
+  - {fileID: 21300000, guid: 0e50ca4ccbdb7614895f01c00c18f3df, type: 3}
+  - {fileID: 21300000, guid: 45250eb0170d53b49bfd5efef14c6a94, type: 3}
+  - {fileID: 21300000, guid: 5f242ad7ec023344da96ac8a73349cdb, type: 3}
+  - {fileID: 21300000, guid: bfb412ca4c3a9c647aa138f4d09f76ff, type: 3}
+  - {fileID: 21300000, guid: fa1c3adfbc45f1c4e818812d1507b21c, type: 3}
+  - {fileID: 21300000, guid: e3ddf9c47ffaa7643bfda13123a3f59c, type: 3}
+  - {fileID: 21300000, guid: f16af752e62f85b4cb44c39adb165c75, type: 3}
+  - {fileID: 21300000, guid: bf40bc1770b9cce42904684405b76581, type: 3}
+  - {fileID: 21300000, guid: df6cfa691cb0c1741a6671e88fc8fb61, type: 3}
+  - {fileID: 21300000, guid: 370bd72af26529046927b117812c93be, type: 3}
+  cutSceneViewer: {fileID: 1805254560}
 --- !u!1 &2102667675
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +1087,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 184723699}
-  - {fileID: 838183788}
   - {fileID: 928425295}
   - {fileID: 2102667678}
   - {fileID: 1053601991}

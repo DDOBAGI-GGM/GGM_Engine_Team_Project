@@ -8,8 +8,7 @@ using DG.Tweening;
 public class CutScenePlayer : MonoBehaviour
 {
     [SerializeField] Sprite[] cutSceneImages;
-    [SerializeField] SpriteRenderer cutSceneViewer;
-    [SerializeField] SceneChanger sceneChanger;
+    [SerializeField] Image cutSceneViewer;
 
     private int imageIdx;
     private const string sceneName = "Tilemap_stage";
@@ -19,21 +18,21 @@ public class CutScenePlayer : MonoBehaviour
         imageIdx = 0;
     }
 
-    void Update()
+    public void PlayCutScene()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (imageIdx < cutSceneImages.Length)
         {
-            if (imageIdx < cutSceneImages.Length)
-            {
-                cutSceneViewer.sprite = cutSceneImages[imageIdx];
-            }
-            else
-            {
-                Debug.Log(sceneChanger);
-                sceneChanger.ChangeScene(sceneName);
-            }
-            imageIdx++;
+            cutSceneViewer.sprite = cutSceneImages[imageIdx];
         }
+        else
+        {
+            UIManager.Instance.ChangeScene(sceneName);
+        }
+        imageIdx++;
     }
 
+    public void Skip()
+    {
+        UIManager.Instance.ChangeScene(sceneName);
+    }
 }
