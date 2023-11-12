@@ -52,6 +52,11 @@ public class UIManager : SINGLETON<UIManager>
         fadePanel.DOFade(1, duration).OnComplete(() => { SceneManager.LoadScene(sceneName); }).SetEase(Ease.InExpo);
     }
 
+    public void Click()
+    {
+        SoundManager.Instance.PlaySFX("click");
+    }
+
     public void Exit()
     {
         Debug.Log("∞‘¿” ¥›±‚");

@@ -13,12 +13,14 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TextMeshProUGUI backText;
     [SerializeField] private PlayerAction player;
+    [SerializeField] private EnemyManager enemy;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private CircleCollider2D collider;
 
     private bool checking = false;
     private string text;
-    private PlayerActionEnum type;
+    private PlayerActionEnum playerType;
+    private EnemyEnum enemyType;
     private float timer;
 
     private void Awake()
@@ -36,7 +38,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         checking = false;
 
         text = _text;
-        type = _type;
+        playerType = _type;
         timer = _timer;
 
         backText.text = text;       // 쳐야하는 거 표시
@@ -49,16 +51,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
 
     public void Effect()        // 타이핑 될 때마다 크기 키워주기
     {
-        //input.transform.DOKill();
-        //input.transform.DOScale(1.5f, 0.25f).SetLoops(2, LoopType.Yoyo);
-
         inputField.transform.DOScale(1.5f, 0.25f).OnComplete(() => { inputField.transform.DOScale(1f, 0.25f); });
-        //text = input.text.Substring(input.text.Length - 1);
-        //char t;
-        //Debug.Log(text);
-        //tweener = DOTween.To(() => text, x => input.text.Substring(0) = x, );
-        //tex.maxVisibleCharacters = 0;
-        //DOTween.To(x => tex.maxVisibleCharacters = (int)x, 0f, tex.text.Length, 3f);
     }
 
     public void Check()     // 엔터칠때, 시간이 지났을 때 사용됨.
@@ -69,12 +62,12 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
             if (inputField.text == text)
             {
                 Debug.Log("성공");
-                player.action(type);
+                player.action(playerType);
             }
             else
             {
                 Debug.Log("실패");
-                // 몬스터 공격 함수 호출
+                enemy.Enemy(enemyType);
             }
 
             checking = true;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum EnemyEnum
 {
+    None = -1,
     Charging = 0,
     HorizontalArea,
     VerticalArea
