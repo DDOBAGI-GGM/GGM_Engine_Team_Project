@@ -20,8 +20,7 @@ public class UIManager : SINGLETON<UIManager>
     private void Start()
     {
         fadePanel.gameObject.SetActive(true);
-        fadePanel.DOFade(0, duration).SetEase(Ease.OutExpo);
-        fadePanel.gameObject.SetActive(false);
+        fadePanel.DOFade(0, duration).SetEase(Ease.OutExpo).OnComplete(() => fadePanel.gameObject.SetActive(false));
     }
 
     private void Update()
@@ -49,6 +48,7 @@ public class UIManager : SINGLETON<UIManager>
     {
         //panel.DOFade(1, duration).SetEase(Ease.InExpo).OnComplete(() => { SceneManager.LoadScene(sceneName); });
         //panel.DOFade(1, duration).OnComplete(() => { SceneManager.LoadScene(sceneName); });
+        fadePanel.gameObject.SetActive(true);
         fadePanel.DOFade(1, duration).OnComplete(() => { SceneManager.LoadScene(sceneName); }).SetEase(Ease.InExpo);
     }
 

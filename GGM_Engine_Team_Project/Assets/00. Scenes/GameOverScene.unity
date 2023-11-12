@@ -875,7 +875,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1379251080}
-  - component: {fileID: 1379251079}
   - component: {fileID: 1379251078}
   m_Layer: 0
   m_Name: GameManager
@@ -901,20 +900,6 @@ MonoBehaviour:
   sfx_slider: {fileID: 0}
   fadePanel: {fileID: 550474152}
   duration: 0.5
---- !u!114 &1379251079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1379251077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af22fd3bbf47e664d9e8fb6c3d01d809, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadePanel: {fileID: 0}
-  duration: 1
 --- !u!4 &1379251080
 Transform:
   m_ObjectHideFlags: 0
