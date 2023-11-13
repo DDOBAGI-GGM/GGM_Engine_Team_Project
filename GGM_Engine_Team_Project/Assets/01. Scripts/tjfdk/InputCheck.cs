@@ -12,7 +12,7 @@ public class InputCheck : MonoBehaviour
     [SerializeField] private PlayerActionEnum playerType;
     [SerializeField] private EnemyEnum enemyType;
     [SerializeField] private float timer;
-    private BoxCollider2D collider;
+    [SerializeField] private BoxCollider2D collider;
 
     private PlayerMovement playerMovement;
     private ChargingMonster ChargingMonster;
@@ -26,7 +26,6 @@ public class InputCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(GetComponentInParent<GameObject>().name);
         if (collision.CompareTag("Player"))     // 플레이어가 내 사거리에 닿았으면
         {
             if (playerMovement == null)
@@ -35,33 +34,6 @@ public class InputCheck : MonoBehaviour
             }
 
             playerMovement.Is_typing = true;
-        }
-        else if (collision.CompareTag("CEnemy"))
-        {
-            if(ChargingMonster == null)
-            {
-                ChargingMonster = collision.GetComponent<ChargingMonster>();
-            }
-
-            ChargingMonster.isTyping = true;
-        }
-        else if (collision.CompareTag("HEnemy"))
-        {
-            if (HorizontalAreaMonsters == null)
-            {
-                HorizontalAreaMonsters = collision.GetComponent<HorizontalAreaMonsters>();
-            }
-
-            HorizontalAreaMonsters.isTyping = true;
-        }
-        else if (collision.CompareTag("VEnemy"))
-        {
-            if (VerticalAreaMonsters == null)
-            {
-                VerticalAreaMonsters = collision.GetComponent<VerticalAreaMonsters>();
-            }
-
-            ChargingMonster.isTyping = true;
         }
                 
         InputFieldManager.Instance.Input(word, playerType, enemyType, timer);
