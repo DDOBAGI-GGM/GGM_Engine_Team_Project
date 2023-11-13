@@ -876,6 +876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1379251080}
   - component: {fileID: 1379251078}
+  - component: {fileID: 1379251081}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -915,6 +916,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1379251081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379251077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd531821bfe38547ab68f64ee7eb4f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmSounds:
+  - name: bgm
+    clip: {fileID: 8300000, guid: 033766cc31c97904bae4404b8a079544, type: 3}
+  effectSounds:
+  - name: clear
+    clip: {fileID: 8300000, guid: 0e7c550af75a5864082bd9a2143acbf9, type: 3}
+  - name: over
+    clip: {fileID: 8300000, guid: b2452766c3f0be44c8342cefb39a5818, type: 3}
+  - name: npc
+    clip: {fileID: 8300000, guid: af95835557fb2d84dbf9ab19ff7eb810, type: 3}
+  - name: attack
+    clip: {fileID: 8300000, guid: 240694e580cc57b4cb1b5ddfeddba54b, type: 3}
+  - name: dash
+    clip: {fileID: 8300000, guid: 4d8c1c1fc5a44bd4dbd5c97d9d33d459, type: 3}
+  - name: get
+    clip: {fileID: 8300000, guid: 9492bf9cd972d474b880e4b8cfb82b97, type: 3}
+  - name: hit
+    clip: {fileID: 8300000, guid: 012062224f10c524e93a28fa7b0021e5, type: 3}
+  - name: jump
+    clip: {fileID: 8300000, guid: 18f966e06d5a87d4d9cd677a2d368fa4, type: 3}
+  - name: sceneChange
+    clip: {fileID: 8300000, guid: aa8805cbb5fe0b34cad69c6d1b41565e, type: 3}
+  - name: click
+    clip: {fileID: 8300000, guid: 8f7c8ba0f3b1fdc4babaf6713bd4d985, type: 3}
+  bgmAudioSource: {fileID: 0}
+  sfxAudioSource: []
+  sfxAudioSourceConut: 10
+  sceneName: Tilemap_stage
 --- !u!1 &1507852879
 GameObject:
   m_ObjectHideFlags: 0
