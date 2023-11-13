@@ -78,9 +78,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   word: 
-  wordType: 0
+  playerType: 1
+  enemyType: 1
   timer: 0
-  collider: {fileID: 0}
 --- !u!61 &8281414433554063074
 BoxCollider2D:
   m_ObjectHideFlags: 0
