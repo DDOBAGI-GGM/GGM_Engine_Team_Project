@@ -16,11 +16,12 @@ public class UIManager : SINGLETON<UIManager>
     [Header("Fade")]
     [SerializeField] private Image fadePanel;
     [SerializeField] private float duration;
+    [SerializeField] private Ease easingFunc;
 
     private void Start()
     {
         fadePanel.gameObject.SetActive(true);
-        fadePanel.DOFade(0, duration).SetEase(Ease.OutExpo).OnComplete(() => fadePanel.gameObject.SetActive(false));
+        fadePanel.DOFade(0, duration).SetEase(easingFunc).OnComplete(() => fadePanel.gameObject.SetActive(false));
     }
 
     private void Update()

@@ -5,8 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
-  - Enemy
   - Ground
+  - Ladder
+  - CEnemy
+  - HEnemy
+  - VEnemy
   layers:
   - Default
   - TransparentFX

@@ -110,7 +110,7 @@ public class RandomCard : MonoBehaviour
             if(percent <= resurrection)
             {
                 _state = State.Resurrection;
-                _cardTxt.text = "부활권";
+                _cardTxt.text = "부활";
                 _cardExplain.text = "이걸 누르면 부활권이 생겨용!!";
                 check = false;
             }
@@ -118,21 +118,21 @@ public class RandomCard : MonoBehaviour
             {
                 _state = State.HPRegain;
                 _cardTxt.text = "체력 회복";
-                _cardExplain.text = "체력을 회복해드릴게용~";
+                _cardExplain.text = "빵구의 현재 체력을 최대로 회복한다.";
                 check = false;
             }
             else if (percent <= hPIncreased)
             {
                 _state = State.HPIncreased;
                 _cardTxt.text = "체력 증가";
-                _cardExplain.text = "체력을 증가시켜줄게!! 뾰로롱~";
+                _cardExplain.text = "빵구의 최대 체력이 +1 증가한다.";
                 check = false;
             }
             else if(percent <= increasedAttackPower)
             {
                 _state = State.IncreasedAttackPower;
                 _cardTxt.text = "공격력 증가";
-                _cardExplain.text = "공격력을 증가해드릴게용ㅇ! 뚜쉬따쉬";
+                _cardExplain.text = "빵구의 공격력이 +1 증가한다.";
                 check = false;
             }
         }

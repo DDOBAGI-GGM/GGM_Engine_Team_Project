@@ -14,6 +14,9 @@ public class InputCheck : MonoBehaviour
     [SerializeField] private BoxCollider2D collider;
 
     private PlayerMovement playerMovement;
+    private ChargingMonster ChargingMonster;
+    private HorizontalAreaMonsters HorizontalAreaMonsters;
+    private VerticalAreaMonsters VerticalAreaMonsters;
 
     private void Awake()
     {
@@ -30,7 +33,34 @@ public class InputCheck : MonoBehaviour
             }
 
             playerMovement.Is_typing = true;
-            InputFieldManager.Instance.Input(word, wordType, timer);
+                
+        }
+        else if (collision.CompareTag("CEnemy"))
+        {
+            if(ChargingMonster == null)
+            {
+                ChargingMonster = collision.GetComponent<ChargingMonster>();
+            }
+
+            ChargingMonster.isTyping = true;
+        }
+        else if (collision.CompareTag("HEnemy"))
+        {
+            if (HorizontalAreaMonsters == null)
+            {
+                HorizontalAreaMonsters = collision.GetComponent<HorizontalAreaMonsters>();
+            }
+
+            HorizontalAreaMonsters.isTyping = true;
+        }
+        else if (collision.CompareTag("VEnemy"))
+        {
+            if (VerticalAreaMonsters == null)
+            {
+                VerticalAreaMonsters = collision.GetComponent<VerticalAreaMonsters>();
+            }
+
+            ChargingMonster.isTyping = true;
         }
     }
 

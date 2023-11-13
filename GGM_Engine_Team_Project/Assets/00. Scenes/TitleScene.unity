@@ -2046,7 +2046,8 @@ MonoBehaviour:
   bgm_slider: {fileID: 6775684431960414215}
   sfx_slider: {fileID: 6134859594852154816}
   fadePanel: {fileID: 7429775850140197032}
-  duration: 1
+  duration: 3
+  easingFunc: 5
 --- !u!4 &680786052
 Transform:
   m_ObjectHideFlags: 0
@@ -4085,7 +4086,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CutScene
+          m_StringArgument: Tilemap_stage
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 680786051}
