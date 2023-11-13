@@ -29,7 +29,7 @@ public class InputCheck : MonoBehaviour
                 playerMovement = collision.GetComponent<PlayerMovement>();
             }
 
-            playerMovement.Is_typing = true;
+            //playerMovement.Is_typing = true;
             InputFieldManager.Instance.Input(word, wordType, timer);
         }
     }

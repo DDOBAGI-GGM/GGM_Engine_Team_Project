@@ -442,6 +442,7 @@ MonoBehaviour:
   inputField: {fileID: 1662430980}
   backText: {fileID: 247876548}
   player: {fileID: 0}
+  enemy: {fileID: 0}
   playerMovement: {fileID: 0}
   collider: {fileID: 0}
 --- !u!1 &1348468475
@@ -1117,11 +1118,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: ttjf\tkn
+      value: tlqkftlqkftlqkf
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
