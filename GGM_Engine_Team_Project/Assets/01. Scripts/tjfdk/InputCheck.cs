@@ -34,15 +34,7 @@ public class InputCheck : MonoBehaviour
             }
 
             playerMovement.Is_typing = true;
+            InputFieldManager.Instance.Input(word, playerType, enemyType, timer);
         }
-                
-        InputFieldManager.Instance.Input(word, playerType, enemyType, timer);
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, collider.radius);
-    //    Gizmos.color = Color.white;
-    //}
 }
