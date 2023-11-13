@@ -9,7 +9,8 @@ public class InputCheck : MonoBehaviour
 {
     [Header("KeyWord")]
     [SerializeField] private string word;
-    [SerializeField] private PlayerActionEnum wordType;
+    [SerializeField] private PlayerActionEnum playerType;
+    [SerializeField] private EnemyEnum enemyType;
     [SerializeField] private float timer;
     [SerializeField] private BoxCollider2D collider;
 
@@ -32,8 +33,7 @@ public class InputCheck : MonoBehaviour
                 playerMovement = collision.GetComponent<PlayerMovement>();
             }
 
-            playerMovement.Is_typing = true;
-                
+            //playerMovement.Is_typing = true;
         }
         else if (collision.CompareTag("CEnemy"))
         {
@@ -62,6 +62,8 @@ public class InputCheck : MonoBehaviour
 
             ChargingMonster.isTyping = true;
         }
+                
+        InputFieldManager.Instance.Input(word, playerType, enemyType, timer);
     }
 
     //private void OnDrawGizmos()
