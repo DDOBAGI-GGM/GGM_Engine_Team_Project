@@ -7,9 +7,15 @@ public class PlayerHp : MonoBehaviour
 {
     [SerializeField] Text hpText;
 
-    public float playerHp = 3;
+    public float MaxHP = 3;
+    public float playerHp;
 
     public bool resurrection = false;
+
+    private void Awake()
+    {
+        playerHp = MaxHP;
+    }
 
     public void HpUp(int up = 1)
     {
