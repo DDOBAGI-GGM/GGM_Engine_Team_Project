@@ -7,6 +7,7 @@ public class VerticalAreaMonsters : MonoBehaviour
     [SerializeField] private float moveSpeed = 2.0f;  // 이동 속도
     [SerializeField] private float moveDistance = 1.5f; // 움직일 거리
     [SerializeField] private int initialDirection = 1; // 초기 이동 방향
+    [SerializeField] private int HP = 1;
 
     private int direction; // 현재 이동 방향
     private float totalDistanceMoved; // 총 이동한 거리'
@@ -45,5 +46,15 @@ public class VerticalAreaMonsters : MonoBehaviour
     {
         isTyping = false;
         _playerHP.HpDown(1);
+    }
+
+    public void GetDamage(int damage = 1)
+    {
+        HP -= damage;
+
+        if(HP <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

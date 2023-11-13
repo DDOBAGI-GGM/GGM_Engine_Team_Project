@@ -8,6 +8,8 @@ public class HorizontalAreaMonsters : MonoBehaviour
     [SerializeField] private float moveSpeed = 2.0f;
     [SerializeField] private float moveDistance = 3.0f;
 
+    [SerializeField] private int HP = 1;
+
     Rigidbody2D _rigid;
     SpriteRenderer _spriteRenderer;
     Animator _animator;
@@ -68,5 +70,15 @@ public class HorizontalAreaMonsters : MonoBehaviour
         isTyping = false;
         _animator.SetTrigger("Attack");
         _playerHp.HpDown(1);
+    }
+
+    public void GetDamage(int damage = 1)
+    {
+        HP -= damage;
+
+        if (HP <= 0) 
+        {
+            Destroy(gameObject);
+        }
     }
 }
