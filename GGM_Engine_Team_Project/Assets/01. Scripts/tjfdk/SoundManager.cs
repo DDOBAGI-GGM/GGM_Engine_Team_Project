@@ -38,14 +38,18 @@ public class SoundManager : SINGLETON<SoundManager>
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == sceneName)
-            PlayBGM("bgm");
-
         foreach (var bgm in bgmSounds)
+        {
             bgmDic.Add(bgm.name, bgm.clip);
+        }
 
         foreach (var sfx in effectSounds)
+        {
             sfxDic.Add(sfx.name, sfx.clip);
+        }
+
+        if (SceneManager.GetActiveScene().name == sceneName)
+            PlayBGM("bgm");
     }
 
     public void PlaySFX(string name)
@@ -54,6 +58,7 @@ public class SoundManager : SINGLETON<SoundManager>
         {
             if (sfxDic[name] != null && sfxSource.isPlaying == false)
             {
+                Debug.Log(sfxDic[name] != null);
                 sfxSource.clip = sfxDic[name];
                 sfxSource.Play();
             }
