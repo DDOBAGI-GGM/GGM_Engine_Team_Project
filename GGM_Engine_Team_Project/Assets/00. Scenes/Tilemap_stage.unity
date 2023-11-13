@@ -83408,13 +83408,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jump: 5
+  jump: 7
   raycastDistance: 0.1
   groundMask:
     serializedVersion: 2
     m_Bits: 128
   capsuleCollider: {fileID: 0}
   is_onGround: 0
+  is_Jumping: 0
 --- !u!95 &1992322764
 Animator:
   serializedVersion: 5
