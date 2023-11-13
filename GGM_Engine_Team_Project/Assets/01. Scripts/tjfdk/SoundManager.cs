@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Sound
@@ -24,6 +25,9 @@ public class SoundManager : SINGLETON<SoundManager>
     Dictionary<string, AudioClip> bgmDic = new Dictionary<string, AudioClip>();
     Dictionary<string, AudioClip> sfxDic = new Dictionary<string, AudioClip>();
 
+    [Header("BGMtest")]
+    [SerializeField] private string sceneName;
+
     private void Awake()
     {
         bgmAudioSource = gameObject.AddComponent<AudioSource>();
@@ -34,8 +38,8 @@ public class SoundManager : SINGLETON<SoundManager>
 
     private void Start()
     {
-        //playSoundName = new string[sfxAudioSource.Length];
-        //PlayBGM("BGM");
+        if (SceneManager.GetActiveScene().name == sceneName)
+            PlayBGM("bgm");
 
         foreach (var bgm in bgmSounds)
             bgmDic.Add(bgm.name, bgm.clip);

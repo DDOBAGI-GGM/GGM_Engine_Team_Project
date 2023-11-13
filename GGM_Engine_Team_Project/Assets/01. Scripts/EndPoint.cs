@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EndPoint : MonoBehaviour
 {
-    [SerializeField] SceneChanger sceneChanger;
 
     private const string sceneName = "GameClearScene";
     
@@ -12,7 +11,7 @@ public class EndPoint : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            sceneChanger.ChangeScene(sceneName);
+            UIManager.Instance.ChangeScene(sceneName);
         }
     }
 }
