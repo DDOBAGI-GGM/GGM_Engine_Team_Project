@@ -5,23 +5,23 @@ using UnityEngine.UI;
 
 public class PlayerHp : MonoBehaviour
 {
-    [SerializeField] float playerHp = 3;
+    [SerializeField] float nowPlayerHp = 3, maxPlayerHp = 5;
     [SerializeField] Text hpText;
 
     private bool resurrection = false;
 
     public void HpUp(int up = 1)
     {
-        playerHp += up;
-        hpText.text = $"X {playerHp}";
+        nowPlayerHp += up;
+        hpText.text = $"X {nowPlayerHp} / {maxPlayerHp}";
     }
 
     public void HpDown(int damage = 1)
     {
-        playerHp -= damage;
-        hpText.text = $"X {playerHp}";
+        nowPlayerHp -= damage;
+        hpText.text = $"X {nowPlayerHp} / {maxPlayerHp}";
 
-        if (playerHp <= 0)      // 플레이어 체력이 0이면
+        if (nowPlayerHp <= 0)      // 플레이어 체력이 0이면
         {
             if (resurrection)
             {
