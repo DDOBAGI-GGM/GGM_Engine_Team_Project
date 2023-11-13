@@ -69,12 +69,12 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
             if (inputField.text == text)
             {
                 Debug.Log("성공");
-                //player.action(playerType);
+                player.action(playerType);
             }
             else
             {
                 Debug.Log("실패");
-                //enemy.Enemy(enemyType);
+                enemy.Enemy(enemyType);
             }
 
             checking = true;

@@ -11,6 +11,7 @@ public class EndPoint : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            SoundManager.Instance.PlaySFX("clear");
             UIManager.Instance.ChangeScene(sceneName);
         }
     }

@@ -33,34 +33,7 @@ public class InputCheck : MonoBehaviour
                 playerMovement = collision.GetComponent<PlayerMovement>();
             }
 
-            //playerMovement.Is_typing = true;
-        }
-        else if (collision.CompareTag("CEnemy"))
-        {
-            if(ChargingMonster == null)
-            {
-                ChargingMonster = collision.GetComponent<ChargingMonster>();
-            }
-
-            ChargingMonster.isTyping = true;
-        }
-        else if (collision.CompareTag("HEnemy"))
-        {
-            if (HorizontalAreaMonsters == null)
-            {
-                HorizontalAreaMonsters = collision.GetComponent<HorizontalAreaMonsters>();
-            }
-
-            HorizontalAreaMonsters.isTyping = true;
-        }
-        else if (collision.CompareTag("VEnemy"))
-        {
-            if (VerticalAreaMonsters == null)
-            {
-                VerticalAreaMonsters = collision.GetComponent<VerticalAreaMonsters>();
-            }
-
-            ChargingMonster.isTyping = true;
+            playerMovement.Is_typing = true;
         }
                 
         InputFieldManager.Instance.Input(word, playerType, enemyType, timer);

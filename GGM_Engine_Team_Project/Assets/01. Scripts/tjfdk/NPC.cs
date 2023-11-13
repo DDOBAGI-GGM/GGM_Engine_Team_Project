@@ -57,6 +57,8 @@ public class NPC : MonoBehaviour
 
             speech.transform.DOScale(1.5f, 0.5f).SetLoops(-1, LoopType.Yoyo);
 
+            SoundManager.Instance.PlaySFX("npc");
+
             Debug.Log(collision.name);
         }
     }

@@ -47,8 +47,7 @@ public class UIManager : SINGLETON<UIManager>
 
     public void ChangeScene(string sceneName)
     {
-        //panel.DOFade(1, duration).SetEase(Ease.InExpo).OnComplete(() => { SceneManager.LoadScene(sceneName); });
-        //panel.DOFade(1, duration).OnComplete(() => { SceneManager.LoadScene(sceneName); });
+        SoundManager.Instance.PlaySFX("sceneChange");
         fadePanel.gameObject.SetActive(true);
         fadePanel.DOFade(1, duration).OnComplete(() => { SceneManager.LoadScene(sceneName); }).SetEase(Ease.InExpo);
     }
