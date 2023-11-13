@@ -11,6 +11,8 @@ public class VerticalAreaMonsters : MonoBehaviour
     private int direction; // 현재 이동 방향
     private float totalDistanceMoved; // 총 이동한 거리'
 
+    public bool isTyping = false;
+
     PlayerHp _playerHP;
 
     private void Start()
@@ -21,7 +23,8 @@ public class VerticalAreaMonsters : MonoBehaviour
 
     private void Update()
     {
-        MoveObject(); // 오브젝트 이동 처리
+        if (!isTyping)
+            MoveObject(); // 오브젝트 이동 처리
     }
 
     private void MoveObject()
@@ -40,6 +43,7 @@ public class VerticalAreaMonsters : MonoBehaviour
 
     public void Attack()
     {
+        isTyping = false;
         _playerHP.HpDown(1);
     }
 }

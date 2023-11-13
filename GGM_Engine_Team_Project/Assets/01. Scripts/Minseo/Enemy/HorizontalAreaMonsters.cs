@@ -16,6 +16,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
     private int direction = 1;
     private float totalDistance = 0f;
 
+    public bool isTyping = false;
 
     private void Awake()
     {
@@ -27,7 +28,10 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        if (!isTyping)
+        {
+            Move();
+        }
     }
 
     private void Move()
@@ -61,6 +65,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     public void Attack()
     {
+        isTyping = false;
         _animator.SetTrigger("Attack");
         _playerHp.HpDown(1);
     }
