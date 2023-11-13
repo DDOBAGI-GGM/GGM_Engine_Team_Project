@@ -15,7 +15,8 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
 
     private bool is_typing;
     public bool Is_typing { get { return is_typing; } set { is_typing = value; } }
-    public bool is_onGround;       // 확인용, 나중에 private 로 변경하기
+    [SerializeField] private bool is_onGround;       // 확인용, 나중에 private 로 변경하기
+    public bool Is_onGround { get { return is_onGround; } set { is_onGround = value; }  }
     public bool is_Jumping;
    // private bool is_onJump;
     //public bool Is_onJump { get { return is_onJump; } set { is_onJump = value; }  }
@@ -63,7 +64,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
             // 점프
             if (Input.GetKeyDown(KeyCode.Space))        // 스페이스바를 누르고 바닥에 있을 때와 애니가 재생중이 아닐 때에만
             {
-                Debug.Log("점프키를 누름");
+                //Debug.Log("점프키를 누름");
                 Jump();
             }
         }

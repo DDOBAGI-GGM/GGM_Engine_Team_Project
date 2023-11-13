@@ -47,9 +47,10 @@ public class PlayerAnimation : MonoBehaviour//, IPlayerAction
         animator.SetTrigger(avoidanceHash);
     }
 
-    public void Climb()
+    public void Climb(bool value)
     {
-        Debug.Log("올라가기에 따른 애니");
+        //Debug.Log("올라가기에 따른 애니");
+        animator.SetBool(climbHash, value);
     }
 
     public void Win()
