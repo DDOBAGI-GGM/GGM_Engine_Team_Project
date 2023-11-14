@@ -13,9 +13,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TextMeshProUGUI backText;
     [SerializeField] private PlayerAction player;
-    [SerializeField] private EnemyManager enemy;
     [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private CircleCollider2D collider;
 
     private bool checking = false;
     private string text;
@@ -25,7 +23,6 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
 
     private void Awake()
     {
-        // collider = GetComponent<CircleCollider2D>();
         inputFieldPanel.SetActive(false);
     }
 
@@ -36,8 +33,6 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
 
     public void Input(string _text, PlayerActionEnum _playerType, EnemyEnum _enemyType, float _timer)
     {
-        // 시간 느리게 설정
-
         inputFieldPanel.SetActive(true);
         inputField.text = string.Empty;
         checking = false;
@@ -46,7 +41,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         text = _text;
         playerType = _playerType;
         enemyType = _enemyType;
-        timer = _timer;
+        timer = GameManager.Instance.TimeNormalize(_timer);
 
         backText.text = text;       // 쳐야하는 거 표시
 
@@ -58,11 +53,13 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
 
     public void Effect()        // 타이핑 될 때마다 크기 키워주기
     {
-        inputField.transform.DOScale(1.5f, 0.25f).OnComplete(() => { inputField.transform.DOScale(1f, 0.25f); });
+        inputField.transform.DOScale(1.5f, GameManager.Instance.TimeNormalize(0.25f))
+            .OnComplete(() => { inputField.transform.DOScale(1f, GameManager.Instance.TimeNormalize(0.25f)); });
     }
 
     public void Check()     // 엔터칠때, 시간이 지났을 때 사용됨.
     {
+        Debug.Log("체크");
         // 체크하는 순간부터 시간 다시 정상화
         if (checking == false)
         {
@@ -74,12 +71,13 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
             else
             {
                 Debug.Log("실패");
-                enemy.Enemy(enemyType);
+                //EnemyManager.Instance.Enemy(enemyType); // 오류나용 널레퍼.. enemymanager가 어디 있는지도 모르겠는데 일단 getcomponent가 될 리가 없음
             }
 
             checking = true;
         }
 
+        GameManager.Instance.TimeReset();
         inputField.text = string.Empty;
         inputFieldPanel.SetActive(false);
 
