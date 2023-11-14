@@ -159,6 +159,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     {
         if (is_onGround)
         {
+            SoundManager.Instance.PlaySFX("jump");
             is_Jumping = true;
             body.velocity = new Vector2(0, 0);
             body.AddForce(Vector2.up * jump, ForceMode2D.Impulse);

@@ -43,7 +43,8 @@ public class PlayerAnimation : MonoBehaviour//, IPlayerAction
 
     public void Avoidance()
     {
-        Debug.Log("피하기에 따른 애니");
+        Debug.Log("피하기에 따른 애니와 소리도 재생되용!");
+        SoundManager.Instance.PlaySFX("");
         animator.SetTrigger(avoidanceHash);
     }
 
