@@ -86,9 +86,6 @@ public class RandomCard : MonoBehaviour
 
     public void Cheak()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-            _cardManager.isShowCard = true;
-
         if (_cardManager.isShowCard)
         {
             panel.transform.DOMoveY(540, 1.5f);
