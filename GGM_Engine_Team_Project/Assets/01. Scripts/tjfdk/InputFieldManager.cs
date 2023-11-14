@@ -88,11 +88,4 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
             playerMovement.Is_typing = false;
         }
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, collider.radius);
-    //    Gizmos.color = Color.white;
-    //}
 }
