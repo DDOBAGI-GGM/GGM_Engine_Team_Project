@@ -15,11 +15,14 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
 
     private bool is_typing;
     public bool Is_typing { get { return is_typing; } set { is_typing = value; } }
-    public bool is_onGround;       // 확인용, 나중에 private 로 변경하기
+    [SerializeField] private bool is_onGround;       // 확인용, 나중에 private 로 변경하기
+    public bool Is_onGround { get { return is_onGround; } set { is_onGround = value; }  }
     public bool is_Jumping;
    // private bool is_onJump;
     //public bool Is_onJump { get { return is_onJump; } set { is_onJump = value; }  }
     private bool is_ladder;
+    public bool Is_ladder { get { return is_ladder; } set { is_ladder = value; } }
+    private bool first_ladder =false;
 
     private PlayerAnimation anim;
     private Vector2 rayOrigin, raySize;
@@ -63,7 +66,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
             // 점프
             if (Input.GetKeyDown(KeyCode.Space))        // 스페이스바를 누르고 바닥에 있을 때와 애니가 재생중이 아닐 때에만
             {
-                Debug.Log("점프키를 누름");
+                //Debug.Log("점프키를 누름");
                 Jump();
             }
         }
@@ -140,10 +143,16 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
                 float y = Input.GetAxisRaw("Vertical");
                 body.gravityScale = 0;
                 body.velocity = new Vector2(body.velocity.x, y * speed);
+                first_ladder = true;
             }
             else
             {
                 body.gravityScale = 1;
+                if (first_ladder)
+                {
+                    body.velocity = Vector2.zero;
+                    first_ladder = false;
+                }
             }
             #endregion
         }
@@ -158,6 +167,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     {
         if (is_onGround)
         {
+            SoundManager.Instance.PlaySFX("jump");
             is_Jumping = true;
             body.velocity = new Vector2(0, 0);
             body.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
@@ -178,21 +188,5 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     public void Climb()
     {
         Debug.Log("올라가기에 따른 움직임");
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            is_ladder = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            is_ladder = false;
-        }
     }
 }

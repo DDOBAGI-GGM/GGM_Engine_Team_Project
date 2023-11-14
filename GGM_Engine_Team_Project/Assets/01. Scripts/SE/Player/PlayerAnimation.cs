@@ -43,13 +43,15 @@ public class PlayerAnimation : MonoBehaviour//, IPlayerAction
 
     public void Avoidance()
     {
-        Debug.Log("피하기에 따른 애니");
+        Debug.Log("피하기에 따른 애니와 소리도 재생되용!");
+        SoundManager.Instance.PlaySFX("");
         animator.SetTrigger(avoidanceHash);
     }
 
-    public void Climb()
+    public void Climb(bool value)
     {
-        Debug.Log("올라가기에 따른 애니");
+        //Debug.Log("올라가기에 따른 애니");
+        animator.SetBool(climbHash, value);
     }
 
     public void Win()
