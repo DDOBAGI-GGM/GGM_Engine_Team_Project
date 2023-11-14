@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHp : MonoBehaviour
 {
-    [SerializeField] Text hpText;
+    [SerializeField] TextMeshProUGUI hpText;
 
     public float MaxHP = 3;
     public float playerHp;
@@ -16,6 +16,8 @@ public class PlayerHp : MonoBehaviour
     private void Awake()
     {
         playerHp = MaxHP;
+        hpText.text = $"X {playerHp}";
+
     }
 
     public void HpUp(int up = 1)

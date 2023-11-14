@@ -29,28 +29,6 @@ public class PlayerAction : MonoBehaviour
         animation = GetComponent<PlayerAnimation>();
     }
 
-#if UNITY_EDITOR
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            animation.Attack();
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            animation.Avoidance();
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            animation.Win();
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            animation.Interaction();
-        }
-    }
-#endif
-
     public void action(PlayerActionEnum action)
     {
         switch (action)

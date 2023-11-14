@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
    // private bool is_onJump;
     //public bool Is_onJump { get { return is_onJump; } set { is_onJump = value; }  }
     private bool is_ladder;
+    public bool Is_ladder { get { return is_ladder; } set { is_ladder = value; } }
+    private bool first_ladder =false;
 
     private PlayerAnimation anim;
     private Vector2 rayOrigin, raySize;
@@ -141,10 +143,16 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
                 float y = Input.GetAxisRaw("Vertical");
                 body.gravityScale = 0;
                 body.velocity = new Vector2(body.velocity.x, y * speed);
+                first_ladder = true;
             }
             else
             {
                 body.gravityScale = 1;
+                if (first_ladder)
+                {
+                    body.velocity = Vector2.zero;
+                    first_ladder = false;
+                }
             }
             #endregion
         }
@@ -180,21 +188,5 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     public void Climb()
     {
         Debug.Log("올라가기에 따른 움직임");
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            is_ladder = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Ladder"))
-        {
-            is_ladder = false;
-        }
     }
 }
