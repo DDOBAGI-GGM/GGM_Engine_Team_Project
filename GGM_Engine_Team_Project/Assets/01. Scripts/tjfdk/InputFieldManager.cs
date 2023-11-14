@@ -29,16 +29,23 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         inputFieldPanel.SetActive(false);
     }
 
-    public void Input(string _text, PlayerActionEnum _type, float _timer)
+    private void Update()
+    {
+        inputField.placeholder.enabled = true;
+    }
+
+    public void Input(string _text, PlayerActionEnum _playerType, EnemyEnum _enemyType, float _timer)
     {
         // 시간 느리게 설정
 
         inputFieldPanel.SetActive(true);
         inputField.text = string.Empty;
         checking = false;
+        inputField.characterLimit = _text.Length;
 
         text = _text;
-        playerType = _type;
+        playerType = _playerType;
+        enemyType = _enemyType;
         timer = _timer;
 
         backText.text = text;       // 쳐야하는 거 표시
@@ -81,11 +88,4 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
             playerMovement.Is_typing = false;
         }
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, collider.radius);
-    //    Gizmos.color = Color.white;
-    //}
 }

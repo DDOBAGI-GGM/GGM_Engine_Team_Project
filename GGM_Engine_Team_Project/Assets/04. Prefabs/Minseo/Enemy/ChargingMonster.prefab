@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7088360778600840824}
   m_Layer: 0
   m_Name: ChargingMonster
-  m_TagString: Obstacle
+  m_TagString: CEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,6 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 5
   chargeSpeed: 10
+  chargeDuration: 2
+  isTyping: 0
 --- !u!61 &7088360778600840824
 BoxCollider2D:
   m_ObjectHideFlags: 0

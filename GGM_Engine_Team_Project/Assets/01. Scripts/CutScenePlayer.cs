@@ -11,7 +11,7 @@ public class CutScenePlayer : MonoBehaviour
     [SerializeField] Image cutSceneViewer;
 
     private int imageIdx;
-    private const string sceneName = "Tilemap_stage";
+    private const string sceneName = "TitleScene";
 
     private void Start()
     {

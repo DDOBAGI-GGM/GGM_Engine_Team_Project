@@ -6,6 +6,7 @@ using DG.Tweening;
 using UnityEditor.Timeline.Actions;
 using System.Runtime.ExceptionServices;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public enum State
 {
@@ -24,10 +25,27 @@ public class RandomCard : MonoBehaviour
     CardManager _cardManager;
 
     #region 아이템 
+    [Header("아이템")]
     [SerializeField] private TextMeshProUGUI _itemCoundTMP;
     [SerializeField] private int itemCount = 0;
     #endregion
-   
+
+
+    #region 아이콘
+    [Header("아이콘 스프라이트")]
+    [SerializeField] private Sprite _resurrectionSprite;
+    [SerializeField] private Sprite _hPRegainSprite;
+    [SerializeField] private Sprite _hPIncreasedSprite;
+    [SerializeField] private Sprite _increasedAttackPowerSprite;
+    #endregion
+
+    #region 이미지
+    [Header("아이콘 이미지")]
+    [SerializeField] private Image _lmage1;
+    [SerializeField] private Image _lmage2;
+    [SerializeField] private Image _lmage3;
+    #endregion
+
     #region 카드 텍스트
     [Header("카드 텍스트")]
     [SerializeField] private TextMeshProUGUI _titleTMP1;
@@ -54,6 +72,7 @@ public class RandomCard : MonoBehaviour
     [SerializeField] private int hPIncreased = 0;
     [SerializeField] private int increasedAttackPower = 0;
     #endregion
+
 
     void Awake()
     {
@@ -93,13 +112,13 @@ public class RandomCard : MonoBehaviour
 
     private void ShuffleCard()
     {
-        SetCard(_titleTMP1, _cardState1, _cardExplain1, 1);
-        SetCard(_titleTMP2, _cardState2, _cardExplain2, 2);
-        SetCard(_titleTMP3, _cardState3, _cardExplain3, 3);
+        SetCard(_titleTMP1, _cardState1, _cardExplain1, 1, _lmage1);
+        SetCard(_titleTMP2, _cardState2, _cardExplain2, 2, _lmage2);
+        SetCard(_titleTMP3, _cardState3, _cardExplain3, 3, _lmage3);
         iscard = false;
     }
 
-    private void SetCard(TextMeshProUGUI _cardTxt, State _state, TextMeshProUGUI _cardExplain, int num)
+    private void SetCard(TextMeshProUGUI _cardTxt, State _state, TextMeshProUGUI _cardExplain, int num, Image _image) // 이미지 추가하기
     {
         bool check = true;
 
@@ -110,29 +129,33 @@ public class RandomCard : MonoBehaviour
             if(percent <= resurrection)
             {
                 _state = State.Resurrection;
-                _cardTxt.text = "부활권";
-                _cardExplain.text = "이걸 누르면 부활권이 생겨용!!";
+                _cardTxt.text = "부활";
+                _image.sprite = _resurrectionSprite;
+                _cardExplain.text = "빵구가 죽으면 다시 \n 부활할 수 있는 횟수가 \n +1 증가한다.";
                 check = false;
             }
             else if(percent <= hPRegain)
             {
                 _state = State.HPRegain;
                 _cardTxt.text = "체력 회복";
-                _cardExplain.text = "체력을 회복해드릴게용~";
+                _image.sprite = _hPRegainSprite;
+                _cardExplain.text = "빵구의 현재 체력을 \n 최대로 회복한다.";
                 check = false;
             }
             else if (percent <= hPIncreased)
             {
                 _state = State.HPIncreased;
                 _cardTxt.text = "체력 증가";
-                _cardExplain.text = "체력을 증가시켜줄게!! 뾰로롱~";
+                _image.sprite = _hPIncreasedSprite;
+                _cardExplain.text = "빵구의 최대 체력이 \n +1 증가한다.";
                 check = false;
             }
             else if(percent <= increasedAttackPower)
             {
                 _state = State.IncreasedAttackPower;
                 _cardTxt.text = "공격력 증가";
-                _cardExplain.text = "공격력을 증가해드릴게용ㅇ! 뚜쉬따쉬";
+                _image.sprite = _increasedAttackPowerSprite;
+                _cardExplain.text = "빵구의 공격력이 \n +1 증가한다.";
                 check = false;
             }
         }

@@ -9,11 +9,15 @@ public class InputCheck : MonoBehaviour
 {
     [Header("KeyWord")]
     [SerializeField] private string word;
-    [SerializeField] private PlayerActionEnum wordType;
+    [SerializeField] private PlayerActionEnum playerType;
+    [SerializeField] private EnemyEnum enemyType;
     [SerializeField] private float timer;
     [SerializeField] private BoxCollider2D collider;
 
     private PlayerMovement playerMovement;
+    private ChargingMonster ChargingMonster;
+    private HorizontalAreaMonsters HorizontalAreaMonsters;
+    private VerticalAreaMonsters VerticalAreaMonsters;
 
     private void Awake()
     {
@@ -30,14 +34,7 @@ public class InputCheck : MonoBehaviour
             }
 
             playerMovement.Is_typing = true;
-            InputFieldManager.Instance.Input(word, wordType, timer);
+            InputFieldManager.Instance.Input(word, playerType, enemyType, timer);
         }
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, collider.radius);
-    //    Gizmos.color = Color.white;
-    //}
 }
