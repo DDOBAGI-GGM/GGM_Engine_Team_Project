@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,27 +15,47 @@ public class InputCheck : MonoBehaviour
     [SerializeField] private float timer;
     [SerializeField] private BoxCollider2D collider;
 
+    [Header("Raycast")]
+    [SerializeField] private float radius;
+    [SerializeField] private LayerMask layer;
+
+    [Header("TimeScale")]
+    [SerializeField] private float timeSlow;
+
     private PlayerMovement playerMovement;
-    private ChargingMonster ChargingMonster;
-    private HorizontalAreaMonsters HorizontalAreaMonsters;
-    private VerticalAreaMonsters VerticalAreaMonsters;
+    private RaycastHit2D hit;
+
+    private bool check = false;
 
     private void Awake()
     {
         collider = GetComponent<BoxCollider2D>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.CompareTag("Player"))     // 플레이어가 내 사거리에 닿았으면
-        {
-            if (playerMovement == null)
-            {
-                playerMovement = collision.GetComponent<PlayerMovement>();
-            }
+        hit = Physics2D.CircleCast(transform.position, radius, Vector3.forward, 0f, layer);
 
-            playerMovement.Is_typing = true;
-            InputFieldManager.Instance.Input(word, playerType, enemyType, timer);
+        if (hit.collider != null)
+        {
+            if (!check)
+            {
+                if (playerMovement == null)
+                    playerMovement = hit.collider.GetComponent<PlayerMovement>();
+
+                InputFieldManager.Instance.Input(word, playerType, enemyType, timer);
+                GameManager.Instance.TimeSlow();
+
+                check = true;
+            }
         }
+        else
+            check = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }

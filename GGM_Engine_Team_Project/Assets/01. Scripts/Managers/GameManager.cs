@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TextType
+public partial class GameManager : SINGLETON<GameManager>
 {
-    ATTACK,
-    JUMP
-}
-
-public class GameManager : MonoBehaviour
-{
-    // 뭐 이넘이나 뭐나 모아두는 스크립트?
+    [SerializeField] private float timeSlow;
+    
+    public void TimeSlow() { Time.timeScale = timeSlow; }
+    public void TimeReset() { Time.timeScale = 1; }
+    public float TimeNormalize(float time) { return time * timeSlow; }
 }

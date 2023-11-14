@@ -10,7 +10,7 @@ public enum EnemyEnum
     VerticalArea
 }
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : SINGLETON<EnemyManager>
 {
     ChargingMonster chargingMonster;
     HorizontalAreaMonsters horseMonsters;
