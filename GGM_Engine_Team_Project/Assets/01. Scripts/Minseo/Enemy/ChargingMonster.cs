@@ -15,7 +15,6 @@ public class ChargingMonster : MonoBehaviour
     private PlayerHp _playerHp; 
 
     private bool isCharging = false; // 돌진 상태를 나타내는 변수
-    public bool isTyping = false;
 
     private float chargeTimer = 0f; // 돌진 시간을 측정하는 타이머
 
@@ -29,7 +28,7 @@ public class ChargingMonster : MonoBehaviour
 
     private void Update()
     {
-        if (isCharging && !isTyping)
+        if (isCharging)
         {
             ChargeTowardsPlayer();
             chargeTimer += Time.deltaTime;
@@ -68,7 +67,6 @@ public class ChargingMonster : MonoBehaviour
 
     public void ChargeTowardsPlayer()
     {
-        isTyping = false;
         _animator.SetBool("Attack", true);
 
         Vector2 targetPosition = new Vector2(player.position.x, _rigid.position.y);

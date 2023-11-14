@@ -878,6 +878,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: VEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: Attack the pufferfish
@@ -893,6 +897,10 @@ PrefabInstance:
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1348,6 +1356,10 @@ PrefabInstance:
     - target: {fileID: 5535985195025308137, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: CEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
@@ -2851,6 +2863,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: HEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: hit the enemy
@@ -2865,6 +2881,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2990,6 +3010,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: VEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: You have to attack the pufferfish
@@ -3005,6 +3029,10 @@ PrefabInstance:
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3072,6 +3100,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: HEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: hit the enemy
@@ -3086,6 +3118,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -73480,6 +73516,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: VEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: Hit the enemy in front of you
@@ -73495,6 +73535,10 @@ PrefabInstance:
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -73777,6 +73821,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: VEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: Attack the pufferfish
@@ -73792,6 +73840,10 @@ PrefabInstance:
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74071,6 +74123,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: CEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: Avoid the enemies!
@@ -74334,6 +74390,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: HEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: Hit the enemy in front of you
@@ -74348,6 +74408,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -74625,6 +74689,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: VEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: Attack the pufferfish
@@ -74640,6 +74708,10 @@ PrefabInstance:
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -76339,6 +76411,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: VEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: Attack the pufferfish
@@ -76354,6 +76430,10 @@ PrefabInstance:
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -76906,6 +76986,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: HEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: Hit the enemy in front of you
@@ -76920,6 +77004,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -79329,6 +79417,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: CEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: Avoid the enemies!
@@ -79971,6 +80063,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: CEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: Avoid the enemies!
@@ -80222,6 +80318,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: VEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: You have to attack the pufferfish
@@ -80237,6 +80337,10 @@ PrefabInstance:
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -82944,6 +83048,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: VEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: Attack the pufferfish
@@ -82959,6 +83067,10 @@ PrefabInstance:
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -83428,6 +83540,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: VEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: You have to attack the pufferfish
@@ -83443,6 +83559,10 @@ PrefabInstance:
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -84482,6 +84602,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8470776782886041298, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: m_TagString
+      value: VEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
       value: You have to attack the pufferfish
@@ -84497,6 +84621,10 @@ PrefabInstance:
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: wordType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
+      propertyPath: enemyType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

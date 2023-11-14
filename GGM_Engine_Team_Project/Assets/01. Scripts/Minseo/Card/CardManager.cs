@@ -51,10 +51,10 @@ public class CardManager : MonoBehaviour
                 Debug.Log("공격력 증가");
                 break;
             case State.HPIncreased:
-                _playerHp.playerHp = _playerHp.MaxHP;
+                _playerHp.MaxHP++;
                 break;
             case State.HPRegain:
-                _playerHp.HpUp(1);
+                _playerHp.playerHp = _playerHp.MaxHP;
                 break;
         }
     }
