@@ -23,7 +23,7 @@ public class EnemyManager : SINGLETON<EnemyManager>
         verticalMonsters = FindObjectOfType<VerticalAreaMonsters>();
     }
 
-    public void Enemy(EnemyEnum enemy)
+    public void EnemyAttack(EnemyEnum enemy)
     {
         switch (enemy)
         {
@@ -36,6 +36,22 @@ public class EnemyManager : SINGLETON<EnemyManager>
             case EnemyEnum.VerticalArea:
                 verticalMonsters.Attack();
             break;
+        }
+    }
+
+    public void EnemyDamage(EnemyEnum enemy)
+    {
+        switch (enemy)
+        {
+            case EnemyEnum.Charging:
+                chargingMonster.GetDamage();
+                break;
+            case EnemyEnum.HorizontalArea:
+                horseMonsters.GetDamage();
+                break;
+            case EnemyEnum.VerticalArea:
+                verticalMonsters.GetDamage();
+                break;
         }
     }
 }

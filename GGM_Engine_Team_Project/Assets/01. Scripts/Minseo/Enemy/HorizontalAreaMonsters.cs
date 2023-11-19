@@ -23,7 +23,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
-        _playerHp = GetComponent<PlayerHp>();
+        _playerHp = FindObjectOfType<PlayerHp>();
     }
 
     private void Update()
@@ -63,7 +63,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
     public void Attack()
     {
         _animator.SetTrigger("Attack");
-        //_playerHp.HpDown(1);
+        _playerHp.HpDown(1);
     }
 
     public void GetDamage(int damage = 1)
@@ -72,7 +72,27 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
         if (HP <= 0) 
         {
-            Destroy(gameObject);
+            Transform parent = transform.parent;
+
+            if (parent != null)
+            {
+                // 부모 오브젝트의 부모 오브젝트 얻기
+                Transform grandparent = parent.parent;
+
+                if (grandparent != null)
+                {
+                    // 부모의 부모 오브젝트 삭제
+                    Destroy(grandparent.gameObject);
+                }
+                else
+                {
+                    Debug.Log("부모의 부모 오브젝트가 없습니다.");
+                }
+            }
+            else
+            {
+                Debug.Log("부모 오브젝트가 없습니다.");
+            }
         }
     }
 }

@@ -74,14 +74,16 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
             {
                 Debug.Log("성공");
                 player.action(playerType);
+                EnemyManager.Instance.EnemyDamage(enemyType);
             }
             else
             {
                 Debug.Log("실패");
-                EnemyManager.Instance.Enemy(enemyType); // 오류나용 널레퍼.. enemymanager가 어디 있는지도 모르겠는데 일단 getcomponent가 될 리가 없음
+                EnemyManager.Instance.EnemyAttack(enemyType); 
             }
 
             checking = true;
+            CameraAction.Instance.Shake();
         }
 
         GameManager.Instance.TimeReset();

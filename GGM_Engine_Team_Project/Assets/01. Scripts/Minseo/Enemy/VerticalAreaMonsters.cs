@@ -50,7 +50,27 @@ public class VerticalAreaMonsters : MonoBehaviour
 
         if(HP <= 0)
         {
-            Destroy(gameObject);
+            Transform parent = transform.parent;
+
+            if (parent != null)
+            {
+                // 부모 오브젝트의 부모 오브젝트 얻기
+                Transform grandparent = parent.parent;
+
+                if (grandparent != null)
+                {
+                    // 부모의 부모 오브젝트 삭제
+                    Destroy(grandparent.gameObject);
+                }
+                else
+                {
+                    Debug.Log("부모의 부모 오브젝트가 없습니다.");
+                }
+            }
+            else
+            {
+                Debug.Log("부모 오브젝트가 없습니다.");
+            }
         }
     }
 }
