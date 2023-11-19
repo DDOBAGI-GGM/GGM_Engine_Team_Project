@@ -111032,7 +111032,7 @@ Transform:
   m_GameObject: {fileID: 942168140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.6, y: 81.2, z: -10}
+  m_LocalPosition: {x: 15.4, y: 0, z: -10}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117225,6 +117225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd531821bfe38547ab68f64ee7eb4f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  master: {fileID: 24100000, guid: bdccf224383153e4180f25d0962514ba, type: 2}
   bgmSounds:
   - name: bgm
     clip: {fileID: 8300000, guid: 033766cc31c97904bae4404b8a079544, type: 3}
@@ -119867,7 +119868,7 @@ Transform:
   m_GameObject: {fileID: 1992322759}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.6, y: 79.2, z: 0}
+  m_LocalPosition: {x: 15.4, y: -2, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -120816,7 +120817,7 @@ Transform:
   m_GameObject: {fileID: 4718562090361967684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.6, y: 81.2, z: -10}
+  m_LocalPosition: {x: 15.4, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
