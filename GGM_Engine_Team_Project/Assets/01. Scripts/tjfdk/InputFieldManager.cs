@@ -33,10 +33,10 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
 
     public void Input(string _text, PlayerActionEnum _playerType, EnemyEnum _enemyType, float _timer)
     {
-        inputFieldPanel.SetActive(true);
-        inputField.text = string.Empty;
         checking = false;
+        inputField.text = string.Empty;
         inputField.characterLimit = _text.Length;
+        inputFieldPanel.SetActive(true);
 
         text = _text;
         playerType = _playerType;
@@ -73,7 +73,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
             else
             {
                 Debug.Log("실패");
-                //EnemyManager.Instance.Enemy(enemyType); // 오류나용 널레퍼.. enemymanager가 어디 있는지도 모르겠는데 일단 getcomponent가 될 리가 없음
+                EnemyManager.Instance.Enemy(enemyType); // 오류나용 널레퍼.. enemymanager가 어디 있는지도 모르겠는데 일단 getcomponent가 될 리가 없음
             }
 
             checking = true;

@@ -63,7 +63,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
     public void Attack()
     {
         _animator.SetTrigger("Attack");
-        _playerHp.HpDown(1);
+        //_playerHp.HpDown(1);
     }
 
     public void GetDamage(int damage = 1)

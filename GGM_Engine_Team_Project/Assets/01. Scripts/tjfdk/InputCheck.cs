@@ -40,9 +40,11 @@ public class InputCheck : MonoBehaviour
         {
             if (!check)
             {
+                Debug.Log("¡¯¿‘");
                 if (playerMovement == null)
                     playerMovement = hit.collider.GetComponent<PlayerMovement>();
 
+                playerMovement.Is_typing = true;
                 string enemyTag = hit.collider.tag;
 
                 switch (enemyTag)
@@ -58,8 +60,8 @@ public class InputCheck : MonoBehaviour
                         break;
                 }
 
-                InputFieldManager.Instance.Input(word, playerType, enemyType, timer);
                 GameManager.Instance.TimeSlow();
+                InputFieldManager.Instance.Input(word, playerType, enemyType, timer);
 
                 check = true;
             }
