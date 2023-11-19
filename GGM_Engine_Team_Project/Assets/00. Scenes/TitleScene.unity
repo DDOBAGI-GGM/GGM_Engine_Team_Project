@@ -2023,6 +2023,7 @@ GameObject:
   - component: {fileID: 680786052}
   - component: {fileID: 680786051}
   - component: {fileID: 680786053}
+  - component: {fileID: 680786054}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2075,6 +2076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd531821bfe38547ab68f64ee7eb4f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  master: {fileID: 24100000, guid: bdccf224383153e4180f25d0962514ba, type: 2}
   bgmSounds:
   - name: bgm
     clip: {fileID: 8300000, guid: 033766cc31c97904bae4404b8a079544, type: 3}
@@ -2103,6 +2105,102 @@ MonoBehaviour:
   sfxAudioSource: []
   sfxAudioSourceConut: 10
   sceneName: TitleScene
+--- !u!82 &680786054
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680786050}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &833991827
 GameObject:
   m_ObjectHideFlags: 0
@@ -3780,14 +3878,14 @@ MonoBehaviour:
   m_FillRect: {fileID: 106367571178301188}
   m_HandleRect: {fileID: 5938869213755776103}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -30
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 680786051}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: Set_SFXVolume
         m_Mode: 1
@@ -4153,14 +4251,14 @@ MonoBehaviour:
   m_FillRect: {fileID: 3466760945704679046}
   m_HandleRect: {fileID: 2495607448208834030}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -30
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 680786051}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: Set_BGMVolume
         m_Mode: 1
