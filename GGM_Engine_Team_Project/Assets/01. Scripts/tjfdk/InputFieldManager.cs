@@ -21,6 +21,9 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
     private EnemyEnum enemyType;
     private float timer;
 
+    private bool is_typing = false;
+    public bool Is_typing { get { return is_typing; } set { is_typing = value; } }
+
     private void Awake()
     {
         inputFieldPanel.SetActive(false);
@@ -42,13 +45,17 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         playerType = _playerType;
         enemyType = _enemyType;
         timer = GameManager.Instance.TimeNormalize(_timer);
+        //timer = _timer;
 
         backText.text = text;       // 쳐야하는 거 표시
 
         if (inputField.isFocused == false)          // 나에게 집중해
             inputField.OnPointerClick(new PointerEventData(EventSystem.current));
 
+        Debug.Log(timer);
         Invoke("Check", timer);     // 이 시간 뒤에 호출해줘라
+
+        is_typing = true;
     }
 
     public void Effect()        // 타이핑 될 때마다 크기 키워주기
@@ -59,10 +66,10 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
 
     public void Check()     // 엔터칠때, 시간이 지났을 때 사용됨.
     {
-        Debug.Log("체크");
         // 체크하는 순간부터 시간 다시 정상화
         if (checking == false)
         {
+            Debug.Log("체크");
             if (inputField.text == text)
             {
                 Debug.Log("성공");
@@ -78,6 +85,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         }
 
         GameManager.Instance.TimeReset();
+        is_typing = false;
         inputField.text = string.Empty;
         inputFieldPanel.SetActive(false);
 

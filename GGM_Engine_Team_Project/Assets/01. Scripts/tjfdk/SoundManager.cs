@@ -58,7 +58,6 @@ public class SoundManager : SINGLETON<SoundManager>
         {
             if (sfxDic[name] != null && sfxSource.isPlaying == false)
             {
-                Debug.Log(sfxDic[name] != null);
                 sfxSource.clip = sfxDic[name];
                 sfxSource.Play();
             }
