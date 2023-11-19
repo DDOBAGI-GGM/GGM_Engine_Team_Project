@@ -89,6 +89,11 @@ public class ChargingMonster : MonoBehaviour
         _playerHp.HpDown(1);
     }
 
+    public void GetDamage()
+    {
+        Destroy(gameObject);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
