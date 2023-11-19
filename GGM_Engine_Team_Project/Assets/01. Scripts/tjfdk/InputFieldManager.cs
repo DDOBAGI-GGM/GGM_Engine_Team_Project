@@ -60,7 +60,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
 
     public void Effect()        // 타이핑 될 때마다 크기 키워주기
     {
-        inputField.transform.DOScale(1.5f, GameManager.Instance.TimeNormalize(0.25f))
+        inputField.transform.DOScale(1.1f, GameManager.Instance.TimeNormalize(0.25f))
             .OnComplete(() => { inputField.transform.DOScale(1f, GameManager.Instance.TimeNormalize(0.25f)); });
     }
 
