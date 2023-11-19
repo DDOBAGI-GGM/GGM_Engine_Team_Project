@@ -10,7 +10,7 @@ public enum EnemyEnum
     VerticalArea
 }
 
-public class EnemyManager : SINGLETON<EnemyManager>
+public class EnemyManager : SINGLETON<EnemyManager> 
 {
     ChargingMonster chargingMonster;
     HorizontalAreaMonsters horseMonsters;
@@ -18,9 +18,9 @@ public class EnemyManager : SINGLETON<EnemyManager>
 
     private void Awake()
     {
-        chargingMonster = GetComponent<ChargingMonster>();
-        horseMonsters = GetComponent<HorizontalAreaMonsters>();
-        verticalMonsters = GetComponent<VerticalAreaMonsters>();
+        chargingMonster = FindObjectOfType<ChargingMonster>();
+        horseMonsters = FindObjectOfType<HorizontalAreaMonsters>();
+        verticalMonsters = FindObjectOfType<VerticalAreaMonsters>();
     }
 
     public void Enemy(EnemyEnum enemy)

@@ -43,6 +43,21 @@ public class InputCheck : MonoBehaviour
                 if (playerMovement == null)
                     playerMovement = hit.collider.GetComponent<PlayerMovement>();
 
+                string enemyTag = hit.collider.tag;
+
+                switch (enemyTag)
+                {
+                    case "CEnemy":
+                        enemyType = EnemyEnum.Charging;
+                        break;
+                    case "HEnemy":
+                        enemyType = EnemyEnum.HorizontalArea;
+                        break;
+                    case "VEnemy":
+                        enemyType = EnemyEnum.VerticalArea;
+                        break;
+                }
+
                 InputFieldManager.Instance.Input(word, playerType, enemyType, timer);
                 GameManager.Instance.TimeSlow();
 

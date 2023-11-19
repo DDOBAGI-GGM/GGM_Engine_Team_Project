@@ -43,6 +43,8 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         enemyType = _enemyType;
         timer = GameManager.Instance.TimeNormalize(_timer);
 
+        EnemyManager.Instance.Enemy(enemyType);
+
         backText.text = text;       // 쳐야하는 거 표시
 
         if (inputField.isFocused == false)          // 나에게 집중해
