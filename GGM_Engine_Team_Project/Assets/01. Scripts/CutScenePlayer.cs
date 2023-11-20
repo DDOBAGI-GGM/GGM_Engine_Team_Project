@@ -12,6 +12,12 @@ public class CutScenePlayer : MonoBehaviour
 
     private int imageIdx;
     private const string sceneName = "TitleScene";
+    private string name = "Player";
+
+    private void Awake()
+    {
+        
+    }
 
     private void Start()
     {
