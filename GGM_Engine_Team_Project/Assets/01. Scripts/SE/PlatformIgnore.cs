@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformIgnore : MonoBehaviour
 {
     public Collider2D ladderGroundCollision;
-    [SerializeField] private BoxCollider2D ladderCollider;
+    [SerializeField] private Collider2D ladderCollider;
 
     private GameObject player;
     private Collider2D playerCol;
@@ -17,39 +17,38 @@ public class PlatformIgnore : MonoBehaviour
     private bool first = true;
     [SerializeField] LayerMask playerMask;
 
-    private void Awake()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        ladderCollider = GetComponent<BoxCollider2D>();
+        if (collision.CompareTag("Player"))
+        {
+            if (player == null)
+            {
+                player = collision.gameObject;
+            }
+            if (anim == null || movement == null || playerBody == null || playerCol == null)
+            {
+                anim = player.GetComponent<PlayerAnimation>();
+                movement = player.GetComponent<PlayerMovement>();
+                playerBody = player.GetComponent<Rigidbody2D>();
+                playerCol = playerBody.GetComponent<Collider2D>();
+            }
+
+            Physics2D.IgnoreCollision(playerCol, ladderGroundCollision, true);       // 무시해라
+
+            nowPlayerPos = player.transform.position;
+            playerPos = nowPlayerPos;
+            anim.Climb(false);
+            movement.Is_ladder = true;
+        }
     }
 
-    private void FixedUpdate()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(transform.position, ladderCollider.bounds.size, 0, Vector2.zero, 0, playerMask);
-        if (raycastHit2D)
+        if (collision.CompareTag("Player"))
         {
-            if (raycastHit2D.collider.gameObject.CompareTag("Player"))
+            if (movement != null && movement.Is_ladder)
             {
-                if (player == null) {
-                    player = raycastHit2D.collider.gameObject;
-                }
-                if (anim == null || movement == null || playerBody == null || playerCol == null)
-                {
-                    anim = player.GetComponent<PlayerAnimation>();
-                    movement = player.GetComponent<PlayerMovement>();
-                    playerBody = player.GetComponent<Rigidbody2D>();
-                    playerCol = playerBody.GetComponent<Collider2D>();
-                }
-
-                movement.Is_ladder = true;
-                Physics2D.IgnoreCollision(playerCol, ladderGroundCollision, true);       // 무시해라
-
-                nowPlayerPos = player.transform.position;
-                if (first)
-                {
-                    playerPos = nowPlayerPos;
-                    anim.Climb(false);
-                    first = false;
-                }
+                nowPlayerPos = collision.transform.position;
                 if (playerPos == nowPlayerPos)      // 지금꺼랑 같으면
                 {
                     anim.Climb(false);
@@ -65,7 +64,12 @@ public class PlatformIgnore : MonoBehaviour
                 }
             }
         }
-        else        // 플레이어 없으면
+    }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
         {
             if (player != null && anim != null)
             {
@@ -73,11 +77,11 @@ public class PlatformIgnore : MonoBehaviour
                 anim.Climb(false);
                 movement.Is_ladder = false;
             }
-            first = true;
         }
     }
 
-    private void OnDrawGizmos()
+
+    /*private void OnDrawGizmos()
     {
         if (Application.isPlaying)
         {
@@ -85,7 +89,7 @@ public class PlatformIgnore : MonoBehaviour
             Gizmos.DrawWireCube(transform.position, ladderCollider.bounds.size);
             Gizmos.color = Color.white;
         }
-    }
+    }*/
 }
 
 

@@ -676,8 +676,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.12941177, g: 0.5411765, b: 0.45098042, a: 1}
-      maxColor: {r: 0.38823533, g: 0.9803922, b: 0.7411765, a: 1}
+      minColor: {r: 0.93725497, g: 0.7568628, b: 0.09019608, a: 1}
+      maxColor: {r: 0.90196085, g: 0.13333334, b: 0.13333334, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6445,36 +6445,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1350081346}
   - component: {fileID: 1350081345}
-  - component: {fileID: 1350081344}
   - component: {fileID: 1350081347}
   m_Layer: 0
-  m_Name: gem_0
+  m_Name: "\uBD80\uD65C \uC544\uC774\uD15C"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &1350081344
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350081343}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 9269c0f4761c41a488e6141ede4c77f0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1350081345
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6516,8 +6494,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -1356697489, guid: 236a946e6ebe81649b0bd06979e37fed, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Sprite: {fileID: -1609919807, guid: 7c2c10dfcda92ce4491810c9576e7ee7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6536,8 +6514,8 @@ Transform:
   m_GameObject: {fileID: 1350081343}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.18, y: 4.24, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.18, y: 4.2, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1324717076}

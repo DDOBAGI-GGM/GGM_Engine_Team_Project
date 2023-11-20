@@ -22,7 +22,7 @@ public class ResurrectionAnim : MonoBehaviour
     public void ObjReset(bool value)
     {
         resurrectionTrm.gameObject.SetActive(value);
-        resurrectionTrm.localPosition = new Vector2(-8.18f, 4.24f);
+        resurrectionTrm.localPosition = new Vector2(-8.18f, 4.2f);
         resurrectionRenderer.color = new Color(1, 1, 1, 1);
         player.color = new Color(1, 1, 1, 1);
     }
