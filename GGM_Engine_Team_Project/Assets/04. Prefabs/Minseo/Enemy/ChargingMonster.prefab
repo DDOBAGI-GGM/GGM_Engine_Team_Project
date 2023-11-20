@@ -148,10 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d117c1f95cc76c43b8f26b49a0d38ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 5
+  direction: 3
   chargeSpeed: 10
   chargeDuration: 2
-  isTyping: 0
 --- !u!61 &7088360778600840824
 BoxCollider2D:
   m_ObjectHideFlags: 0

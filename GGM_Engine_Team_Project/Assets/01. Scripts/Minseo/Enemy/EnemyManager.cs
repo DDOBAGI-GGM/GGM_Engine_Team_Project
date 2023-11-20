@@ -20,7 +20,8 @@ public class EnemyManager : SINGLETON<EnemyManager>
     VerticalAreaMonsters verticalMonsters;
     
 
-    [SerializeField] private float radius = 2.0f; 
+    [SerializeField] private float radius = 2.2f; 
+
     private void Update()
     {
         RaycastHit2D hit;   
@@ -28,23 +29,29 @@ public class EnemyManager : SINGLETON<EnemyManager>
 
         if (hit.collider != null)
         {
-            // 충돌한 객체 가져오기
-            GameObject collidedObject = hit.collider.gameObject;
-
-            switch (collidedObject.tag)
+            if (!hit.collider.CompareTag("Player"))
             {
-                case "CEnemy":
-                    chargingMonster = collidedObject.GetComponent<ChargingMonster>();
-                    Debug.Log("c");
-                    break;
-                case "HEnemy":
-                    horseMonsters = collidedObject.GetComponent<HorizontalAreaMonsters>();
-                    Debug.Log("h" + collidedObject.name);
-                    break;
-                case "VEnemy":
-                    verticalMonsters = collidedObject.GetComponent<VerticalAreaMonsters>();
-                    break;
+                // 충돌한 객체 가져오기
+                GameObject collidedObject = hit.collider.gameObject;
+
+                switch (collidedObject.tag)
+                {
+                    case "CEnemy":
+                        chargingMonster = collidedObject.GetComponent<ChargingMonster>();
+                        Debug.Log(collidedObject.name);
+                        break;
+                    case "HEnemy":
+                        horseMonsters = collidedObject.GetComponent<HorizontalAreaMonsters>();
+                        Debug.Log(collidedObject.name);
+                        break;
+                    case "VEnemy":
+                        verticalMonsters = collidedObject.GetComponent<VerticalAreaMonsters>();
+                        Debug.Log(collidedObject.name);
+                        break;
+                }
             }
+
+           
         }
     }
 
@@ -53,13 +60,16 @@ public class EnemyManager : SINGLETON<EnemyManager>
         switch (enemy)
         {
             case EnemyEnum.Charging:
-                chargingMonster.ChargeTowardsPlayer();
+                if(chargingMonster != null)
+                    chargingMonster.ChargeTowardsPlayer();
             break;
             case EnemyEnum.HorizontalArea:
-                horseMonsters.Attack();
+                if(horseMonsters != null)
+                    horseMonsters.Attack();
             break;
             case EnemyEnum.VerticalArea:
-                verticalMonsters.Attack();
+                if (verticalMonsters != null)
+                    verticalMonsters.Attack();
             break;
         }
     }
@@ -69,13 +79,16 @@ public class EnemyManager : SINGLETON<EnemyManager>
         switch (enemy)
         {
             case EnemyEnum.Charging:
-                chargingMonster.GetDamage();
+                if (chargingMonster != null)
+                    chargingMonster.GetDamage();    
                 break;
             case EnemyEnum.HorizontalArea:
-                horseMonsters.GetDamage();
+                if (horseMonsters != null)
+                    horseMonsters.GetDamage();
                 break;
             case EnemyEnum.VerticalArea:
-                verticalMonsters.GetDamage();
+                if (verticalMonsters != null)
+                    verticalMonsters.GetDamage();
                 break;
         }
     }

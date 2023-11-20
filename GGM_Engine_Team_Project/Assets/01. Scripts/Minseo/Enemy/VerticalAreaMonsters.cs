@@ -20,7 +20,7 @@ public class VerticalAreaMonsters : MonoBehaviour
     {
         HP = maxHP;
 
-        _playerHP = GetComponent<PlayerHp>();
+        _playerHP = FindObjectOfType<PlayerHp>();
         direction = initialDirection; // 초기 이동 방향 설정
     }
 
