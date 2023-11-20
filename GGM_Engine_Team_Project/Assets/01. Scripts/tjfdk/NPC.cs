@@ -31,6 +31,7 @@ public class NPC : SINGLETON<NPC>
 
     public void UnLock(ref int itemCnt)     // 아직 안 쓰는 함수?
     {
+        Debug.Log("해금 호출중 + " + " " + interaction);
         if (interaction)
         {
             if (itemCnt >= toll)
