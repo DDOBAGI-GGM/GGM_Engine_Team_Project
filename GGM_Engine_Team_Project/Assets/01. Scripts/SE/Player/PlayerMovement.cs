@@ -197,7 +197,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
             else
             {
                 body.gravityScale = gravity;
-                if (first_ladder)
+                if (first_ladder && !is_Jumping)
                 {
                     Debug.Log("사다리가 아님");
                     body.velocity = Vector2.zero;
@@ -213,10 +213,11 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
         }
     }
     
-    public void Jump()
+    public void Jump(bool unconditional = false)
     {
-        if (is_onGround && !is_ladder)
+        if ((is_onGround && !is_ladder) || unconditional)
         {
+            Debug.Log("점프프프");
             SoundManager.Instance.PlaySFX("jump");
 
             jumpParticle.gameObject.SetActive(true);

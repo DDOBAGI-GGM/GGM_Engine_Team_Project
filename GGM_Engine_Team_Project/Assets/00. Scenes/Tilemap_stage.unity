@@ -105627,7 +105627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: playerType
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -107992,7 +107992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: playerType
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -111214,7 +111214,7 @@ Transform:
   m_GameObject: {fileID: 942168140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.4, y: 0, z: -10}
+  m_LocalPosition: {x: 9.8, y: 53.1, z: -10}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117654,6 +117654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChargingMonster (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1175706715434807851, guid: 1de7f198fa0b6124993f79693ac6a795, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7585231072791447224, guid: 1de7f198fa0b6124993f79693ac6a795, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9
@@ -120009,7 +120013,7 @@ Transform:
   m_GameObject: {fileID: 1992322759}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.4, y: -2, z: 0}
+  m_LocalPosition: {x: 9.8, y: 51.1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -122186,7 +122190,7 @@ Transform:
   m_GameObject: {fileID: 4718562090361967684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.4, y: 0, z: -10}
+  m_LocalPosition: {x: 9.8, y: 53.1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
