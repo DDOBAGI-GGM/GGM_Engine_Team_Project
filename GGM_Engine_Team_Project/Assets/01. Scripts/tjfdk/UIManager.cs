@@ -37,12 +37,18 @@ public class UIManager : SINGLETON<UIManager>
 
     public void Set_BGMVolume()
     {
-        audioMixer.SetFloat("BGM", bgm_slider.value);
+        if (bgm_slider.value == -40)
+            audioMixer.SetFloat("BGM", -80);
+        else
+            audioMixer.SetFloat("BGM", bgm_slider.value);
     }
 
     public void Set_SFXVolume()
     {
-        audioMixer.SetFloat("SFX", sfx_slider.value);
+        if (sfx_slider.value == -40)
+            audioMixer.SetFloat("SFX", -80);
+        else
+            audioMixer.SetFloat("SFX", sfx_slider.value);
     }
 
     public void ChangeScene(string sceneName)
