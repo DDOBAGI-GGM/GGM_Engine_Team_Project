@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
 {
     [SerializeField] private float speed = 5;
     [SerializeField] private float jump = 5;
+    [SerializeField] private float gravity = 1;
     [SerializeField] private float raycastDistance;
     [SerializeField] LayerMask groundMask;
     
@@ -144,13 +145,13 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
             {
                 anim.Jump(false);
                 float y = Input.GetAxisRaw("Vertical");
-                body.gravityScale = 0;
-                body.velocity = new Vector2(body.velocity.x, y * speed);
+                    body.gravityScale = 0;
+                    body.velocity = new Vector2(body.velocity.x, y * speed);
                 first_ladder = true;
             }
             else
             {
-                body.gravityScale = 1;
+                body.gravityScale = gravity;
                 if (first_ladder)
                 {
                     Debug.Log("사다리가 아님");
@@ -169,7 +170,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     
     public void Jump()
     {
-        if (is_onGround)
+        if (is_onGround && !is_ladder)
         {
             SoundManager.Instance.PlaySFX("jump");
             is_Jumping = true;

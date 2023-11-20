@@ -65,7 +65,7 @@ public class PlatformIgnore : MonoBehaviour
                 }
             }
         }
-        else
+        else        // 플레이어 없으면
         {
             if (player != null && anim != null)
             {
