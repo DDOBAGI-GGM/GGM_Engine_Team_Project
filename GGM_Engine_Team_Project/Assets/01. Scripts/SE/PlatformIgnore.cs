@@ -5,10 +5,14 @@ using UnityEngine;
 public class PlatformIgnore : MonoBehaviour
 {
     public Collider2D ladderGroundCollision;
-    public GameObject player;
     [SerializeField] private BoxCollider2D ladderCollider;
+
+    private GameObject player;
+    private Collider2D playerCol;
     private PlayerAnimation anim;
     private PlayerMovement movement;
+    private Rigidbody2D playerBody;
+    
     private Vector2 playerPos, nowPlayerPos;
     private bool first = true;
     [SerializeField] LayerMask playerMask;
@@ -25,34 +29,37 @@ public class PlatformIgnore : MonoBehaviour
         {
             if (raycastHit2D.collider.gameObject.CompareTag("Player"))
             {
-                if (anim == null && movement == null)
-                {
-                    anim = raycastHit2D.collider.gameObject.GetComponent<PlayerAnimation>();
-                    movement = raycastHit2D.collider.gameObject.GetComponent<PlayerMovement>();
+                if (player == null) {
+                    player = raycastHit2D.collider.gameObject;
                 }
-                player = raycastHit2D.collider.gameObject;
+                if (anim == null || movement == null || playerBody == null || playerCol == null)
+                {
+                    anim = player.GetComponent<PlayerAnimation>();
+                    movement = player.GetComponent<PlayerMovement>();
+                    playerBody = player.GetComponent<Rigidbody2D>();
+                    playerCol = playerBody.GetComponent<Collider2D>();
+                }
 
                 movement.Is_ladder = true;
+                Physics2D.IgnoreCollision(playerCol, ladderGroundCollision, true);       // 무시해라
 
-                Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), ladderGroundCollision, true);       // 충돌하지 말아라
                 nowPlayerPos = player.transform.position;
                 if (first)
                 {
                     playerPos = nowPlayerPos;
-                    Debug.Log("처음임");
+                    anim.Climb(false);
                     first = false;
                 }
-                Debug.Log($"{playerPos}, {nowPlayerPos}");
                 if (playerPos == nowPlayerPos)      // 지금꺼랑 같으면
                 {
                     anim.Climb(false);
                 }
                 else
                 {
-                    if (!movement.Is_onGround)
+                    if (!movement.Is_onGround)      // 바닥에 닿아있지 않으면
                     {
                         anim.Climb(true);
-                        Debug.Log("움직이고 이써");
+                        Debug.Log("사다리 타는 중이자나");
                     }
                     playerPos = nowPlayerPos;
                 }
@@ -60,10 +67,9 @@ public class PlatformIgnore : MonoBehaviour
         }
         else
         {
-            Debug.Log("사다리 안타고 있음!");
-            if (player != null && anim! != null)
+            if (player != null && anim != null)
             {
-                Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), ladderGroundCollision, false);
+                Physics2D.IgnoreCollision(playerCol, ladderGroundCollision, false);
                 anim.Climb(false);
                 movement.Is_ladder = false;
             }

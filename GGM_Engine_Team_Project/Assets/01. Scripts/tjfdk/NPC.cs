@@ -7,7 +7,7 @@ using UnityEngine.Windows;
 using Unity.VisualScripting;
 using TMPro;
 
-public class NPC : MonoBehaviour
+public class NPC : SINGLETON<NPC>
 {
     [Header("NPC")]
     [SerializeField] private GameObject speech;

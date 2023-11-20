@@ -70877,7 +70877,7 @@ Transform:
   m_GameObject: {fileID: 942168140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: -10}
+  m_LocalPosition: {x: 18.81, y: 28.62, z: -10}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73332,6 +73332,7 @@ MonoBehaviour:
   capsuleCollider: {fileID: 1992322760}
   is_onGround: 0
   is_Jumping: 0
+  is_ladder: 0
 --- !u!95 &1992322764
 Animator:
   serializedVersion: 5
@@ -73441,7 +73442,7 @@ Transform:
   m_GameObject: {fileID: 1992322759}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 18.81, y: 26.62, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73790,7 +73791,7 @@ Transform:
   m_GameObject: {fileID: 4718562090361967684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: -10}
+  m_LocalPosition: {x: 18.81, y: 28.62, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
