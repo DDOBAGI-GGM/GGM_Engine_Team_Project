@@ -117941,6 +117941,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: aa8805cbb5fe0b34cad69c6d1b41565e, type: 3}
   - name: click
     clip: {fileID: 8300000, guid: 8f7c8ba0f3b1fdc4babaf6713bd4d985, type: 3}
+  - name: revival
+    clip: {fileID: 8300000, guid: cbe0fc409119c6446ac171fc375a45e2, type: 3}
   bgmAudioSource: {fileID: 0}
   sfxAudioSource: []
   sfxAudioSourceConut: 10
@@ -117957,12 +117959,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0e53b31f74bdc4aad06f271d903bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: bdccf224383153e4180f25d0962514ba, type: 2}
   bgm_slider: {fileID: 0}
   sfx_slider: {fileID: 0}
   fadePanel: {fileID: 1552704494}
-  duration: 2
-  easingFunc: 0
+  duration: 1
+  easingFunc: 11
 --- !u!114 &1653918003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121693,9 +121695,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1383ae7ba9a605249ae76cb71645374a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeFouce: 3
+  shakeFouce: 10
   shakeSpeed: 0.1
-  shakeTimer: 0.5
+  shakeTimer: 0.35
 --- !u!114 &8449405163032637383
 MonoBehaviour:
   m_ObjectHideFlags: 0

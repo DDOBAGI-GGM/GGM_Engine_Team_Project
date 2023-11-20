@@ -45,14 +45,12 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         playerType = _playerType;
         enemyType = _enemyType;
         timer = GameManager.Instance.TimeNormalize(_timer);
-        //timer = _timer;
 
         backText.text = text;       // 쳐야하는 거 표시
 
         if (inputField.isFocused == false)          // 나에게 집중해
             inputField.OnPointerClick(new PointerEventData(EventSystem.current));
 
-        Debug.Log(timer);
         Invoke("Check", timer);     // 이 시간 뒤에 호출해줘라
 
         is_typing = true;
