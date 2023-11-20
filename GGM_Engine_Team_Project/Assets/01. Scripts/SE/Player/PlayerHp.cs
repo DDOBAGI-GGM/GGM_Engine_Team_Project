@@ -17,7 +17,6 @@ public class PlayerHp : MonoBehaviour
     {
         playerHp = MaxHP;
         hpText.text = $"X {playerHp}";
-
     }
 
     public void HpUp(int up = 1)

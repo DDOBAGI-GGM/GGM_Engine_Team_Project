@@ -49,7 +49,7 @@ public class UIManager : SINGLETON<UIManager>
     {
         SoundManager.Instance.PlaySFX("sceneChange");
         fadePanel.gameObject.SetActive(true);
-        fadePanel.DOFade(1, duration).OnComplete(() => { SceneManager.LoadScene(sceneName); }).SetEase(Ease.InExpo);
+        fadePanel.DOFade(1, duration).OnComplete(() => { SceneManager.LoadScene(sceneName); }).SetEase(easingFunc);
     }
 
     public void Click()
@@ -60,6 +60,6 @@ public class UIManager : SINGLETON<UIManager>
     public void Exit()
     {
         Debug.Log("∞‘¿” ¥›±‚");
-        //Application.Quit();
+        Application.Quit();
     }
 }
