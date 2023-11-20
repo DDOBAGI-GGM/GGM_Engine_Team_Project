@@ -7,6 +7,7 @@ using UnityEditor.Timeline.Actions;
 using System.Runtime.ExceptionServices;
 using Unity.VisualScripting;
 using UnityEngine.UI;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 
 public enum State
 {
@@ -19,6 +20,8 @@ public enum State
 public class RandomCard : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject HPPanel;
+    [SerializeField] private GameObject ItemPanel;
 
     private bool iscard = true;
 
@@ -27,9 +30,7 @@ public class RandomCard : MonoBehaviour
     #region 아이템 
     [Header("아이템")]
     [SerializeField] private TextMeshProUGUI _itemCoundTMP;
-    [SerializeField] private int itemCount = 0;
     #endregion
-
 
     #region 아이콘
     [Header("아이콘 스프라이트")]
@@ -89,11 +90,15 @@ public class RandomCard : MonoBehaviour
         if (_cardManager.isShowCard)
         {
             panel.transform.DOMoveY(540, 1.5f);
+            HPPanel.SetActive(false);
+            ItemPanel.SetActive(false);
             iscard = true;
         }
         else if (!_cardManager.isShowCard)
         {
             panel.transform.DOMoveY(-540, 1.5f);
+            HPPanel.SetActive(true);
+            ItemPanel.SetActive(true);
 
             if(iscard)
                 ShuffleCard();
@@ -103,8 +108,8 @@ public class RandomCard : MonoBehaviour
 
     public void CoundUp()
     {
-        itemCount++;
-        _itemCoundTMP.text = $"X {itemCount}";
+        GameManager.Instance.SetItem();
+        _itemCoundTMP.text = $"X {GameManager.Instance.GetItem()}";
     }
 
     private void ShuffleCard()
