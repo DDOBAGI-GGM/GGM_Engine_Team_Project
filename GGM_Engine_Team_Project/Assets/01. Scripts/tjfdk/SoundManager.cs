@@ -28,9 +28,6 @@ public class SoundManager : SINGLETON<SoundManager>
     Dictionary<string, AudioClip> bgmDic = new Dictionary<string, AudioClip>();
     Dictionary<string, AudioClip> sfxDic = new Dictionary<string, AudioClip>();
 
-    [Header("BGMtest")]
-    [SerializeField] private string sceneName;
-
     private void Awake()
     {
         bgmAudioSource = gameObject.AddComponent<AudioSource>();
@@ -51,8 +48,7 @@ public class SoundManager : SINGLETON<SoundManager>
             sfxDic.Add(sfx.name, sfx.clip);
         }
 
-        if (SceneManager.GetActiveScene().name == sceneName)
-            PlayBGM("bgm");
+        PlayBGM("bgm");
     }
 
     public void PlaySFX(string name)

@@ -10,6 +10,7 @@ using System.Threading;
 public class InputFieldManager : SINGLETON<InputFieldManager>
 {
     [SerializeField] private GameObject inputFieldPanel;
+    [SerializeField] private GameObject uiCanvas;
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TextMeshProUGUI backText;
     [SerializeField] private PlayerAction player;
@@ -27,6 +28,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
     private void Awake()
     {
         inputFieldPanel.SetActive(false);
+        uiCanvas.SetActive(true);
     }
 
     private void Update()
@@ -40,6 +42,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         inputField.text = string.Empty;
         inputField.characterLimit = _text.Length;
         inputFieldPanel.SetActive(true);
+        uiCanvas.SetActive(false);
 
         text = _text;
         playerType = _playerType;
@@ -88,6 +91,7 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         is_typing = false;
         inputField.text = string.Empty;
         inputFieldPanel.SetActive(false);
+        uiCanvas.SetActive(true);
 
         if (playerMovement != null)
         {
