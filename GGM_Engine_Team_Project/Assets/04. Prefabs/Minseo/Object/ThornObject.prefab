@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3466554681672571749}
   - component: {fileID: 2789323140628371541}
   - component: {fileID: 8071585672675626052}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ThornObject
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
