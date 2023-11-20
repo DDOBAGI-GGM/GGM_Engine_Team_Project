@@ -52,6 +52,12 @@ public class VerticalAreaMonsters : MonoBehaviour
     {
         HP -= damage;
 
+        EffectTest.Instance.Hit(gameObject, result =>
+        {
+            Debug.Log("¾ÆÆ÷¶ó");
+        });
+
+
         if (HP <= 0)
         {
             HP = maxHP;

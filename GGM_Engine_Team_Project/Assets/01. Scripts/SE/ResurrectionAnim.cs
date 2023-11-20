@@ -44,6 +44,7 @@ public class ResurrectionAnim : MonoBehaviour
         resurrectionRenderer.color = new Color(1, 1, 1, 0);
 
     particle.Play();
+        SoundManager.Instance.PlaySFX("revival");
 
         float duration = 0.25f; // 타격을 받은 후 투명한 상태를 유지할 시간
         float alphaValue = 0.25f; // 투명한 알파값

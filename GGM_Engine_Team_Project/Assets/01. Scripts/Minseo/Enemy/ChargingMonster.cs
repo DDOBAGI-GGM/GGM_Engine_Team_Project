@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ChargingMonster : MonoBehaviour
 {
-    public float direction = 2f;   // 플레이어를 감지할 x축 범위
+    public float direction = 3.5f;   // 플레이어를 감지할 x축 범위
     public float chargeSpeed = 10f; // 돌진 속도
     public float chargeDuration = 2f; // 돌진 지속 시간
 
@@ -28,6 +28,8 @@ public class ChargingMonster : MonoBehaviour
 
     private void Update()
     {
+        _animator.speed = Time.timeScale;
+
         if (isCharging)
         {
             ChargeTowardsPlayer();
@@ -91,6 +93,12 @@ public class ChargingMonster : MonoBehaviour
 
     public void GetDamage()
     {
+        Debug.Log("아야");
+        EffectTest.Instance.Hit(gameObject, result =>
+        {
+            Debug.Log("ㅇ,포");
+        });
+
         Destroy(gameObject);
     }
 

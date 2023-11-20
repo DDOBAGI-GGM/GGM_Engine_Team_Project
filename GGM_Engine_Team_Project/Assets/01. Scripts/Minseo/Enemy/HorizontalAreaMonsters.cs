@@ -32,6 +32,8 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     private void Update()
     {
+        _animator.speed = Time.timeScale;
+
         Move();
     }
 
@@ -74,6 +76,11 @@ public class HorizontalAreaMonsters : MonoBehaviour
     {
         Debug.Log("겟데미지");
         HP -= damage;
+
+        EffectTest.Instance.Hit(gameObject, result =>
+        {
+            Debug.Log("아포라");
+        });
 
         if (HP <= 0) 
         {
