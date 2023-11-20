@@ -799,11 +799,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0e53b31f74bdc4aad06f271d903bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: bdccf224383153e4180f25d0962514ba, type: 2}
   bgm_slider: {fileID: 0}
   sfx_slider: {fileID: 0}
   fadePanel: {fileID: 597278228}
   duration: 0.5
+  easingFunc: 0
 --- !u!114 &617084795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,6 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd531821bfe38547ab68f64ee7eb4f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  master: {fileID: 0}
   bgmSounds:
   - name: bgm
     clip: {fileID: 8300000, guid: 033766cc31c97904bae4404b8a079544, type: 3}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,8 @@ public class Sound
 
 public class SoundManager : SINGLETON<SoundManager>
 {
+    [SerializeField] private AudioMixer master;
+
     public Sound[] bgmSounds;           // BGM 사운드 저장
     public Sound[] effectSounds;        // SFX 사운드 저장
 
@@ -58,8 +61,8 @@ public class SoundManager : SINGLETON<SoundManager>
         {
             if (sfxDic[name] != null && sfxSource.isPlaying == false)
             {
-                Debug.Log(sfxDic[name] != null);
                 sfxSource.clip = sfxDic[name];
+                sfxSource.outputAudioMixerGroup = master.FindMatchingGroups("SFX")[0];
                 sfxSource.Play();
             }
         }
@@ -70,6 +73,7 @@ public class SoundManager : SINGLETON<SoundManager>
         if (bgmDic[name] != null)
         {
             bgmAudioSource.clip = bgmDic[name];
+            bgmAudioSource.outputAudioMixerGroup = master.FindMatchingGroups("BGM")[0];
             bgmAudioSource.loop = true;
             bgmAudioSource.Play();
         }

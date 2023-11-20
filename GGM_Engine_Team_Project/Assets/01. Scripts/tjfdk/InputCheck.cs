@@ -19,9 +19,6 @@ public class InputCheck : MonoBehaviour
     [SerializeField] private float radius;
     [SerializeField] private LayerMask layer;
 
-    [Header("TimeScale")]
-    [SerializeField] private float timeSlow;
-
     private PlayerMovement playerMovement;
     private RaycastHit2D hit;
 
@@ -34,7 +31,8 @@ public class InputCheck : MonoBehaviour
 
     private void Update()
     {
-        hit = Physics2D.CircleCast(transform.position, radius, Vector3.forward, 0f, layer);
+        if (InputFieldManager.Instance.Is_typing == false)
+            hit = Physics2D.CircleCast(transform.position, radius, Vector3.forward, 0f, layer);
 
         if (hit.collider != null)
         {
@@ -72,7 +70,10 @@ public class InputCheck : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, radius);
+        if (InputFieldManager.Instance.Is_typing == false)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, radius);
+        }
     }
 }
