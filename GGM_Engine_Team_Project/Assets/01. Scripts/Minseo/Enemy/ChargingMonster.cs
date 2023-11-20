@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ChargingMonster : MonoBehaviour
 {
-    public float direction = 5f;   // 플레이어를 감지할 x축 범위
+    public float direction = 2f;   // 플레이어를 감지할 x축 범위
     public float chargeSpeed = 10f; // 돌진 속도
     public float chargeDuration = 2f; // 돌진 지속 시간
 

@@ -8,7 +8,8 @@ public class HorizontalAreaMonsters : MonoBehaviour
     [SerializeField] private float moveSpeed = 2.0f;
     [SerializeField] private float moveDistance = 3.0f;
 
-    [SerializeField] private int HP = 1;
+    [SerializeField] private int maxHP = 1;
+    [SerializeField] private int HP;
 
     Rigidbody2D _rigid;
     SpriteRenderer _spriteRenderer;
@@ -20,6 +21,9 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     private void Awake()
     {
+
+        maxHP = HP;
+
         _rigid = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
@@ -68,31 +72,16 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     public void GetDamage(int damage = 1)
     {
+        Debug.Log("겟데미지");
         HP -= damage;
 
         if (HP <= 0) 
         {
-            Transform parent = transform.parent;
+            Debug.Log(HP);
 
-            if (parent != null)
-            {
-                // 부모 오브젝트의 부모 오브젝트 얻기
-                Transform grandparent = parent.parent;
+            HP = maxHP;
+            Destroy(gameObject);
 
-                if (grandparent != null)
-                {
-                    // 부모의 부모 오브젝트 삭제
-                    Destroy(grandparent.gameObject);
-                }
-                else
-                {
-                    Debug.Log("부모의 부모 오브젝트가 없습니다.");
-                }
-            }
-            else
-            {
-                Debug.Log("부모 오브젝트가 없습니다.");
-            }
         }
     }
 }
