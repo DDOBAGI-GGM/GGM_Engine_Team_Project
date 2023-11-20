@@ -6,12 +6,14 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
 {
     [SerializeField] private float speed = 5;
     [SerializeField] private float jump = 5;
+    [SerializeField] private float gravity = 1;
     [SerializeField] private float raycastDistance;
     [SerializeField] LayerMask groundMask;
     
     private Rigidbody2D body;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private CapsuleCollider2D capsuleCollider;          // 시리얼라이즈필드지워주기
+    [SerializeField] private Animator jumpParticle;
 
     private bool is_typing;
     public bool Is_typing { get { return is_typing; } set { is_typing = value; } }
@@ -144,13 +146,13 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
             {
                 anim.Jump(false);
                 float y = Input.GetAxisRaw("Vertical");
-                body.gravityScale = 0;
-                body.velocity = new Vector2(body.velocity.x, y * speed);
+                    body.gravityScale = 0;
+                    body.velocity = new Vector2(body.velocity.x, y * speed);
                 first_ladder = true;
             }
             else
             {
-                body.gravityScale = 1;
+                body.gravityScale = gravity;
                 if (first_ladder)
                 {
                     Debug.Log("사다리가 아님");
@@ -169,9 +171,13 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     
     public void Jump()
     {
-        if (is_onGround)
+        if (is_onGround && !is_ladder)
         {
             SoundManager.Instance.PlaySFX("jump");
+
+            jumpParticle.gameObject.SetActive(true);
+            jumpParticle.gameObject.transform.position = new Vector2(transform.position.x, transform.position.y - gameObject.transform.localScale.x / 2);
+
             is_Jumping = true;
             is_ladder = false;
             body.velocity = new Vector2(0, 0);

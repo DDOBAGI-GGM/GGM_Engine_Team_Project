@@ -108,7 +108,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-3_0
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 12
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7069e71bb61dc4cbb2349cf4a00c53
+      internalID: -489886458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-3_1
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 12
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2fff83eb902d844b2eb67e3f0e6ece
+      internalID: -1116275477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-3_2
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 12
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae31da671059a244a61e7139c60800d
+      internalID: -1351897750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmokeFX Lite SpriteSheet 4A-3_3
+      rect:
+        serializedVersion: 2
+        x: 1369
+        y: 12
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb4bf1aacf371f2489529fdc7a0df37e
+      internalID: -1294869000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +203,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SmokeFX Lite SpriteSheet 4A-3_0: 97051796
+      SmokeFX Lite SpriteSheet 4A-3_1: -489886458
+      SmokeFX Lite SpriteSheet 4A-3_2: -1116275477
+      SmokeFX Lite SpriteSheet 4A-3_3: -1351897750
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

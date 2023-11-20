@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: JumpParticle
+  m_Controller: {fileID: 9100000, guid: 2fa4ab41b87d405408ccfa49f43d09ca, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 546f79bfa6651cf489b07cbf3f407323, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 460b9abb5f26d9c429fc1688c1d5101c, type: 2}
