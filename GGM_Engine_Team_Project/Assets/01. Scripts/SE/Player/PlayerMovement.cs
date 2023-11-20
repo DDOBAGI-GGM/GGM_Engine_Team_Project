@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     
     private Rigidbody2D body;
     private SpriteRenderer spriteRenderer;
+    private PlayerHp hp;
+    private EffectTest effectTest;
     [SerializeField] private CapsuleCollider2D capsuleCollider;          // 시리얼라이즈필드지워주기
     [SerializeField] private Animator jumpParticle;
 
@@ -36,6 +38,8 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     {
         body = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        hp = GetComponent<PlayerHp>();
+        effectTest = GetComponent<EffectTest>();
         anim = GetComponent<PlayerAnimation>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         raySize = new Vector2(capsuleCollider.size.x * gameObject.transform.localScale.x, capsuleCollider.size.y * gameObject.transform.localScale.y / 2);
@@ -105,6 +109,27 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
             rayOrigin = capsuleCollider.bounds.center;
             Vector2 bottomPos = new Vector2(rayOrigin.x, rayOrigin.y - (raycastDistance + gameObject.transform.localScale.y * 0.2f));
             RaycastHit2D Hit = Physics2D.BoxCast(bottomPos, raySize, 0f, Vector2.down, raycastDistance, groundMask);        // 콜라이더 중심해서, 콜라이더 사이즈 만큼, 콜라이더는 세로로, 회전은 0, 방향은 아래로. 원점에서 갈정도는 0.2f, 감지할 것은 땅.
+
+            if (Hit&&Hit.collider.gameObject.CompareTag("Obstacle"))
+            {
+                hp.HpDown(1);
+                effectTest.Hit(gameObject);
+                switch (Hit.collider.gameObject.name)
+                {
+                    case "one":
+                        gameObject.transform.position = new Vector2(35, 9.2f);
+                        break;
+                    case "Two":
+                        gameObject.transform.position = new Vector2(23, 47.2f);
+                        break;
+                    case "Three":
+                        gameObject.transform.position = new Vector2(42.2f, 72.2f);
+                        break;
+                    default:
+                        Debug.Log("그냥 아파용");
+                        break;
+                }
+            }
 
             //Debug.Log();
             if (Hit && Mathf.Abs(body.velocity.y) < 1)      // y 의 벨로시티가 0이면, 즉 점프상태가 아니면

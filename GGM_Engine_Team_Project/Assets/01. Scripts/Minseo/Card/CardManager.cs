@@ -55,7 +55,7 @@ public class CardManager : MonoBehaviour
                 _playerHp.MaxHP++;
                 break;
             case State.HPRegain:
-                _playerHp.playerHp = _playerHp.MaxHP;
+                _playerHp.HpReSet();
                 break;
         }
     }

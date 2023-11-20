@@ -5,30 +5,43 @@ using TMPro;
 
 public class PlayerHp : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI hpText;
+    [SerializeField] private GameObject[] hpVisual = new GameObject[8];
 
-    public float MaxHP = 3;
-    public float playerHp;
+    private float maxHP = 3;
+    public float MaxHP { get { return maxHP; } set { maxHP = value; } }
+    private float playerHp;
+    //public float NowPlayerHp { get { return playerHp; } set { playerHp = value; } }
 
     private int resurrection = 0;
     public int Resurrection { get { return resurrection; } set {  resurrection = value; } }
 
     private void Awake()
     {
-        playerHp = MaxHP;
-        hpText.text = $"X {playerHp}";
+        HpReSet();
     }
 
-    public void HpUp(int up = 1)
+    public void HpReSet()       // 멕스만큼 리셋됨.
     {
-        playerHp += up;
-        hpText.text = $"X {playerHp}";
+        playerHp = maxHP;
+        for (int i = 0; i < playerHp; i++)
+        {
+            hpVisual[i].SetActive(true);
+        }
+    }
+
+    public void MaxHpUp()
+    {
+        // 무조건 하나만 늘어남.
+        maxHP++;
     }
 
     public void HpDown(int damage = 1)
     {
         playerHp -= damage;
-        hpText.text = $"X {playerHp}";
+        for (int i = 0; i < playerHp; i++)
+        {
+            hpVisual[i].SetActive(true);
+        }
         SoundManager.Instance.PlaySFX("hit");
 
         if (playerHp <= 0)      // 플레이어 체력이 0이면
@@ -37,7 +50,7 @@ public class PlayerHp : MonoBehaviour
             {
                 Debug.Log("부활권 있어서 부활");
                 --resurrection;
-                HpUp(1);
+                ResurrectionHp();
             }
             else
             {
@@ -45,5 +58,10 @@ public class PlayerHp : MonoBehaviour
                 //SoundManager.Instance.PlaySFX("");
             }
         }
+    }
+
+    public void ResurrectionHp()
+    {
+        hpVisual[0].SetActive(true);
     }
 }
