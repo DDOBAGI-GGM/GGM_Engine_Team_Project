@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
 
     private PlayerAnimation anim;
     private Vector2 rayOrigin, raySize;
+    private bool attackFirst = true;
 
     private void Start()
     {
@@ -112,8 +114,21 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
 
             if (Hit&&Hit.collider.gameObject.CompareTag("Obstacle"))
             {
-                hp.HpDown(1);
-                effectTest.Hit(gameObject);
+                //effectTest.Hit(gameObject);
+                EffectTest.Instance.Hit(gameObject, result =>
+                {
+                    //if (result)
+                    // 타격 이펙트 실행 뒤 실행할 것들 (ex. destory, 이펙트 보여주고 지워야할 거 아녀) 딱히 뭘 지워주고는 안할건뎅
+                    //hp.HpDown(1);
+                    Debug.Log("dkf");
+                });
+
+                if (attackFirst)
+                {
+                    hp.HpDown(1);
+                    attackFirst = false;
+                }
+
                 switch (Hit.collider.gameObject.name)
                 {
                     case "one":
@@ -129,6 +144,10 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
                         Debug.Log("그냥 아파용");
                         break;
                 }
+            }
+            else
+            {
+                attackFirst = true;
             }
 
             //Debug.Log();

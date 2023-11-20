@@ -38,10 +38,16 @@ public class PlayerHp : MonoBehaviour
     public void HpDown(int damage = 1)
     {
         playerHp -= damage;
+        Debug.Log(playerHp);
+        for (int i = 0; i < hpVisual.Length; i++)
+        {
+            hpVisual[i].SetActive(false);
+        }
         for (int i = 0; i < playerHp; i++)
         {
             hpVisual[i].SetActive(true);
         }
+
         SoundManager.Instance.PlaySFX("hit");
 
         if (playerHp <= 0)      // 플레이어 체력이 0이면
