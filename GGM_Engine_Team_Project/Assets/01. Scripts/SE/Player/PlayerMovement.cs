@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     private Rigidbody2D body;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private CapsuleCollider2D capsuleCollider;          // 시리얼라이즈필드지워주기
+    [SerializeField] private Animator jumpParticle;
 
     private bool is_typing;
     public bool Is_typing { get { return is_typing; } set { is_typing = value; } }
@@ -173,6 +174,10 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
         if (is_onGround && !is_ladder)
         {
             SoundManager.Instance.PlaySFX("jump");
+
+            jumpParticle.gameObject.SetActive(true);
+            jumpParticle.gameObject.transform.position = new Vector2(transform.position.x, transform.position.y - gameObject.transform.localScale.x / 2);
+
             is_Jumping = true;
             is_ladder = false;
             body.velocity = new Vector2(0, 0);

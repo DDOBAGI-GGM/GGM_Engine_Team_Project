@@ -16,7 +16,7 @@ public class ResurrectionAnim : MonoBehaviour
         resurrectionRenderer = GetComponent<SpriteRenderer>();
         //Debug.Log(resurrectionTrm);
         ObjReset(false);
-        ResurrectionAnimStart();
+        //ResurrectionAnimStart();
     }
 
     public void ObjReset(bool value)
