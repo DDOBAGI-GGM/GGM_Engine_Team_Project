@@ -20,7 +20,8 @@ public class EnemyManager : SINGLETON<EnemyManager>
     VerticalAreaMonsters verticalMonsters;
     
 
-    [SerializeField] private float radius = 2.0f; 
+    [SerializeField] private float radius = 2.2f; 
+
     private void Update()
     {
         RaycastHit2D hit;   
@@ -28,23 +29,29 @@ public class EnemyManager : SINGLETON<EnemyManager>
 
         if (hit.collider != null)
         {
-            // 충돌한 객체 가져오기
-            GameObject collidedObject = hit.collider.gameObject;
-
-            switch (collidedObject.tag)
+            if (!hit.collider.CompareTag("Player"))
             {
-                case "CEnemy":
-                    chargingMonster = collidedObject.GetComponent<ChargingMonster>();
-                    Debug.Log("c");
-                    break;
-                case "HEnemy":
-                    horseMonsters = collidedObject.GetComponent<HorizontalAreaMonsters>();
-                    Debug.Log("h" + collidedObject.name);
-                    break;
-                case "VEnemy":
-                    verticalMonsters = collidedObject.GetComponent<VerticalAreaMonsters>();
-                    break;
+                // 충돌한 객체 가져오기
+                GameObject collidedObject = hit.collider.gameObject;
+
+                switch (collidedObject.tag)
+                {
+                    case "CEnemy":
+                        chargingMonster = collidedObject.GetComponent<ChargingMonster>();
+                        Debug.Log("c" + collidedObject.name);
+                        break;
+                    case "HEnemy":
+                        horseMonsters = collidedObject.GetComponent<HorizontalAreaMonsters>();
+                        Debug.Log("h" + collidedObject.name);
+                        break;
+                    case "VEnemy":
+                        verticalMonsters = collidedObject.GetComponent<VerticalAreaMonsters>();
+                        Debug.Log("v" + collidedObject.name);
+                        break;
+                }
             }
+
+           
         }
     }
 
