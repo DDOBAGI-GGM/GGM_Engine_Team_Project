@@ -108988,7 +108988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
@@ -109878,7 +109878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
@@ -112493,7 +112493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
