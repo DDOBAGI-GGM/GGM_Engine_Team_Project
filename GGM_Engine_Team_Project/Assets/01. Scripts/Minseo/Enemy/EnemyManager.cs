@@ -38,15 +38,15 @@ public class EnemyManager : SINGLETON<EnemyManager>
                 {
                     case "CEnemy":
                         chargingMonster = collidedObject.GetComponent<ChargingMonster>();
-                        Debug.Log("c" + collidedObject.name);
+                        Debug.Log(collidedObject.name);
                         break;
                     case "HEnemy":
                         horseMonsters = collidedObject.GetComponent<HorizontalAreaMonsters>();
-                        Debug.Log("h" + collidedObject.name);
+                        Debug.Log(collidedObject.name);
                         break;
                     case "VEnemy":
                         verticalMonsters = collidedObject.GetComponent<VerticalAreaMonsters>();
-                        Debug.Log("v" + collidedObject.name);
+                        Debug.Log(collidedObject.name);
                         break;
                 }
             }
@@ -60,13 +60,16 @@ public class EnemyManager : SINGLETON<EnemyManager>
         switch (enemy)
         {
             case EnemyEnum.Charging:
-                chargingMonster.ChargeTowardsPlayer();
+                if(chargingMonster != null)
+                    chargingMonster.ChargeTowardsPlayer();
             break;
             case EnemyEnum.HorizontalArea:
-                horseMonsters.Attack();
+                if(horseMonsters != null)
+                    horseMonsters.Attack();
             break;
             case EnemyEnum.VerticalArea:
-                verticalMonsters.Attack();
+                if (verticalMonsters != null)
+                    verticalMonsters.Attack();
             break;
         }
     }
@@ -76,13 +79,16 @@ public class EnemyManager : SINGLETON<EnemyManager>
         switch (enemy)
         {
             case EnemyEnum.Charging:
-                chargingMonster.GetDamage();
+                if (chargingMonster != null)
+                    chargingMonster.GetDamage();    
                 break;
             case EnemyEnum.HorizontalArea:
-                horseMonsters.GetDamage();
+                if (horseMonsters != null)
+                    horseMonsters.GetDamage();
                 break;
             case EnemyEnum.VerticalArea:
-                verticalMonsters.GetDamage();
+                if (verticalMonsters != null)
+                    verticalMonsters.GetDamage();
                 break;
         }
     }

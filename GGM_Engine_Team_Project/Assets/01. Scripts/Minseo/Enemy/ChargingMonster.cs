@@ -64,7 +64,7 @@ public class ChargingMonster : MonoBehaviour
             isCharging = true;
         }
     }
-
+        
     public void ChargeTowardsPlayer()
     {
         _animator.SetBool("Attack", true);
