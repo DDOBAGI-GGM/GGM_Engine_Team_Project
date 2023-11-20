@@ -32,8 +32,6 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     private void Update()
     {
-        _animator.speed = Time.timeScale;
-
         Move();
     }
 

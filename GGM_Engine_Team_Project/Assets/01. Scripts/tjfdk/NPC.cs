@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.Windows;
 using Unity.VisualScripting;
 using TMPro;
 
@@ -16,12 +15,18 @@ public class NPC : SINGLETON<NPC>
     [SerializeField] private bool interaction = false;
     [SerializeField] private TextMeshProUGUI tolltxt;
 
-    [SerializeField] CircleCollider2D collider;
+    [SerializeField] PolygonCollider2D collider;
 
     private void Awake()
     {
-        collider = GetComponentInChildren<CircleCollider2D>();
+        collider = GetComponentInChildren<PolygonCollider2D>();
         tolltxt.text = "x" + toll;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+            UnLock(GameManager.Instance.GetItem());
     }
 
     private void Lock()
@@ -29,7 +34,7 @@ public class NPC : SINGLETON<NPC>
         collider.isTrigger = !isLock;
     }
 
-    public void UnLock(ref int itemCnt)     // 아직 안 쓰는 함수?
+    public void UnLock(int itemCnt)     // 아직 안 쓰는 함수?
     {
         Debug.Log("해금 호출중 + " + " " + interaction);
         if (interaction)
