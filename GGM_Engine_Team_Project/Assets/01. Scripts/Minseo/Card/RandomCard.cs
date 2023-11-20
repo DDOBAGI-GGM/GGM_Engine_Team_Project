@@ -26,6 +26,7 @@ public class RandomCard : MonoBehaviour
     private bool iscard = true;
 
     CardManager _cardManager;
+    [SerializeField] private PlayerMovement _playerMovement;
 
     #region 아이템 
     [Header("아이템")]
@@ -90,17 +91,27 @@ public class RandomCard : MonoBehaviour
         if (_cardManager.isShowCard)
         {
             panel.transform.DOMoveY(540, 1.5f);
+            
             HPPanel.SetActive(false);
             ItemPanel.SetActive(false);
+            
             iscard = true;
+
+            if (_playerMovement != null)
+                _playerMovement.Is_typing = true;
         }
         else if (!_cardManager.isShowCard)
         {
             panel.transform.DOMoveY(-540, 1.5f);
+
             HPPanel.SetActive(true);
             ItemPanel.SetActive(true);
 
-            if(iscard)
+
+            if (_playerMovement != null)
+                _playerMovement.Is_typing = false;
+
+            if (iscard)
                 ShuffleCard();
 
         }
