@@ -2047,8 +2047,8 @@ MonoBehaviour:
   bgm_slider: {fileID: 6775684431960414215}
   sfx_slider: {fileID: 6134859594852154816}
   fadePanel: {fileID: 7429775850140197032}
-  duration: 3
-  easingFunc: 5
+  duration: 1
+  easingFunc: 11
 --- !u!4 &680786052
 Transform:
   m_ObjectHideFlags: 0
@@ -3878,7 +3878,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 106367571178301188}
   m_HandleRect: {fileID: 5938869213755776103}
   m_Direction: 0
-  m_MinValue: -40
+  m_MinValue: -45
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
@@ -4251,7 +4251,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 3466760945704679046}
   m_HandleRect: {fileID: 2495607448208834030}
   m_Direction: 0
-  m_MinValue: -40
+  m_MinValue: -45
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
