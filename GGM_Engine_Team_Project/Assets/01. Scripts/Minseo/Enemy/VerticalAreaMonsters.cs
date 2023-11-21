@@ -62,7 +62,7 @@ public class VerticalAreaMonsters : MonoBehaviour
         {
             HP = maxHP;
 
-            Destroy(gameObject);
+            Destroy(gameObject, 0.5f);
         }
     }
 }
