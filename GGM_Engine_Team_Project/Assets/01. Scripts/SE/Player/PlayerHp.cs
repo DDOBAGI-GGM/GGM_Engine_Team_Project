@@ -66,6 +66,7 @@ public class PlayerHp : MonoBehaviour
             {
                 Debug.Log("죽었어용. 게임오버 사운드도 출력해줘!");
                 SoundManager.Instance.PlaySFX("over");
+                GameManager.Instance.TimeReset();
                 UIManager.Instance.ChangeScene("GameOverScene");
             }
         }

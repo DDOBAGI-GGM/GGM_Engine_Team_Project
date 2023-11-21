@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -34,10 +35,8 @@ public class InputCheck : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (!check)
+            if (!check && GameManager.Instance.GetHp() >= 0)
             {
-                //Debug.Log("ÁøÀÔ");
-
                 GameManager.Instance.playerMovementTypeSet(true);
 
                 string enemyTag = gameObject.transform.parent.parent.tag;

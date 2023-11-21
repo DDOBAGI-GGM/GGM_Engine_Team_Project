@@ -53,8 +53,9 @@ public class PlayerAnimation : MonoBehaviour//, IPlayerAction
 
     public void Win()
     {
-        Debug.Log("이김에 따른 애니");
-        animator.SetTrigger(winHash);
+        //Debug.Log("이김에 따른 애니");
+        //animator.SetTrigger(winHash);
+        UIManager.Instance.ChangeScene("GameClearScene");
     }
 
     public void Interaction()
