@@ -40,6 +40,7 @@ public class PlayerHp : MonoBehaviour
     public void HpDown(int damage = 1)
     {
         playerHp -= damage;
+        
         Debug.Log("지금 플레이어의 HP : " + playerHp);
         for (int i = 0; i < hpVisual.Length; i++)
         {
@@ -52,24 +53,27 @@ public class PlayerHp : MonoBehaviour
 
         SoundManager.Instance.PlaySFX("hit");
 
-        if (playerHp <= 0)      // 플레이어 체력이 0이면
+        EffectTest.Instance.Hit(gameObject, result =>
         {
-            if (resurrection > 0)       // 부활권이 있으면
+            if (playerHp <= 0)      // 플레이어 체력이 0이면
             {
-                Debug.Log("부활권 있어서 부활");
-                anim.ResurrectionAnimStart();
-                --resurrection;
-                UpdateResurrection();
-                ResurrectionHp();
+                if (resurrection > 0)       // 부활권이 있으면
+                {
+                    Debug.Log("부활권 있어서 부활");
+                    anim.ResurrectionAnimStart();
+                    --resurrection;
+                    UpdateResurrection();
+                    ResurrectionHp();
+                }
+                else
+                {
+                    Debug.Log("죽었어용. 게임오버 사운드도 출력해줘!");
+                    SoundManager.Instance.PlaySFX("over");
+                    GameManager.Instance.TimeReset();
+                    UIManager.Instance.ChangeScene("GameOverScene");
+                }
             }
-            else
-            {
-                Debug.Log("죽었어용. 게임오버 사운드도 출력해줘!");
-                SoundManager.Instance.PlaySFX("over");
-                GameManager.Instance.TimeReset();
-                UIManager.Instance.ChangeScene("GameOverScene");
-            }
-        }
+        });
     }
 
     public void UpdateResurrection(bool add = false)

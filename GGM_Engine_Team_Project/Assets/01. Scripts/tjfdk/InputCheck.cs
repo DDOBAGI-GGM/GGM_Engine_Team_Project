@@ -38,8 +38,8 @@ public class InputCheck : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (obj == null) obj.isHiting = false;
-            if (!check && GameManager.Instance.GetHp() >= 0 && obj.isHiting == false)
+            //if (obj == null) obj.isHiting = false;
+            if (!check && GameManager.Instance.GetHp() >= 0 /*&& obj.isHiting == false*/)
             {
                 GameManager.Instance.playerMovementTypeSet(true);
 
