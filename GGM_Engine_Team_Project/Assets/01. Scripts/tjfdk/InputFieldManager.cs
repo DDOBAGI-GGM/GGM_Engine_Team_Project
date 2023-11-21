@@ -53,11 +53,24 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
 
         if (inputField.isFocused == false)          // ?òÏóêÍ≤?ÏßëÏ§ë??
             inputField.OnPointerClick(new PointerEventData(EventSystem.current));
-
+        Debug.Log("input»£√‚§∏øÏ");
+        //StartCoroutine(tlqkf());
         Invoke("Check", timer);     // ???úÍ∞Ñ ?§Ïóê ?∏Ï∂ú?¥Ï§ò??
 
         is_typing = true;
     }
+
+    //private IEnumerator tlqkf()
+    //{
+    //    WaitForSeconds ws = new WaitForSeconds(3);
+    //    while (true)
+    //    {
+    //        inputField.text = string.Empty;
+    //        Debug.Log("§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§∂§µ");
+    //        yield return ws;
+
+    //    }
+    //}
 
     public void Effect()        // ?Ä?¥Ìïë ???åÎßà???¨Í∏∞ ?§ÏõåÏ£ºÍ∏∞
     {
