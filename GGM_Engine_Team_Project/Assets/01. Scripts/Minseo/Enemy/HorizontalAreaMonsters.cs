@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class HorizontalAreaMonsters : MonoBehaviour
+public class HorizontalAreaMonsters : Enemy
 {
     [SerializeField] private float moveSpeed = 2.0f;
     [SerializeField] private float moveDistance = 3.0f;
@@ -20,7 +20,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
     private int direction = 1;
     private float totalDistance = 0f;
 
-    private void Awake()
+    override protected void Awake()
     {
         maxHP = HP;
 
@@ -30,7 +30,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
         _playerHp = FindObjectOfType<PlayerHp>();
     }
 
-    private void Update()
+    override protected void Update()
     {
         Move();
     }
@@ -64,21 +64,21 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     }
 
-    public void Attack()
+    override public void Attack()
     {
         _animator.SetTrigger("Attack");
         _playerHp.HpDown(1);
     }
 
-    public void GetDamage(int damage = 1)
+    override public void GetDamage(int damage = 1)
     {
         Debug.Log($"겟데미지 {gameObject.name}");
         HP -= damage;
-
-        EffectTest.Instance.Hit(gameObject, result =>
-        {
-            //Debug.Log("아포라");
-        });
+        base.GetDamage(damage);
+        //EffectTest.Instance.Hit(gameObject, result =>
+        //{
+        //    //Debug.Log("아포라");
+        //});
 
         if (HP <= 0) 
         {

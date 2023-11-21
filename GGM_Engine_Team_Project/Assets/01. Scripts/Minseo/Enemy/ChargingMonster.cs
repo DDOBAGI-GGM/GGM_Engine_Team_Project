@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ChargingMonster : MonoBehaviour
+public class ChargingMonster : Enemy
 {
     public float direction = 3.5f;   // 플레이어를 감지할 x축 범위
     public float chargeSpeed = 10f; // 돌진 속도
@@ -18,7 +18,7 @@ public class ChargingMonster : MonoBehaviour
 
     private float chargeTimer = 0f; // 돌진 시간을 측정하는 타이머
 
-    private void Start()
+    override protected void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform; // 태그로 플레이어 찾기
         _rigid = GetComponent<Rigidbody2D>();
@@ -26,7 +26,7 @@ public class ChargingMonster : MonoBehaviour
         _playerHp = player.GetComponent<PlayerHp>();
     }
 
-    private void Update()
+    override protected void Update()
     {
         _animator.speed = Time.timeScale;
 
@@ -83,19 +83,20 @@ public class ChargingMonster : MonoBehaviour
             transform.localScale = new Vector3(-2, 2, 2);
         }
     }
-        
-    public void Attack()
+
+    override public void Attack()
     {
         _animator.SetBool("Attack", true);
         Debug.Log("공격함");
         _playerHp.HpDown(1);
     }
 
-    public void GetDamage()
+    override public void GetDamage(int damage = 1)
     {
-        EffectTest.Instance.Hit(gameObject, result =>
-        {
-        });
+        base.GetDamage(damage);
+        //EffectTest.Instance.Hit(gameObject, result =>
+        //{
+        //});
 
         Destroy(gameObject, 0.5f);
     }

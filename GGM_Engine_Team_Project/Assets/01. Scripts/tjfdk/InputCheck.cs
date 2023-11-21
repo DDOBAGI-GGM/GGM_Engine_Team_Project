@@ -22,9 +22,12 @@ public class InputCheck : MonoBehaviour
     private RaycastHit2D hit;
 
     private bool check = false;
+    [SerializeField] private Enemy obj;
 
     private void Awake()
     {
+        obj = gameObject.transform.parent.parent.GetComponent<Enemy>();
+        Debug.Log(obj);
         collider = GetComponent<BoxCollider2D>();
     }
 
@@ -35,7 +38,8 @@ public class InputCheck : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (!check && GameManager.Instance.GetHp() >= 0)
+            if (obj == null) obj.isHiting = false;
+            if (!check && GameManager.Instance.GetHp() >= 0 && obj.isHiting == false)
             {
                 GameManager.Instance.playerMovementTypeSet(true);
 

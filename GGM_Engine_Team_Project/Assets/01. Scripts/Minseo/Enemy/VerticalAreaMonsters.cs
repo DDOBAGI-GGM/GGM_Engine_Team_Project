@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VerticalAreaMonsters : MonoBehaviour
+public class VerticalAreaMonsters : Enemy
 {
     [SerializeField] private float moveSpeed = 2.0f;  // 이동 속도
     [SerializeField] private float moveDistance = 1.5f; // 움직일 거리
@@ -17,7 +17,7 @@ public class VerticalAreaMonsters : MonoBehaviour
 
     PlayerHp _playerHP;
 
-    private void Start()
+    override protected void Start()
     {
         HP = maxHP;
 
@@ -25,7 +25,7 @@ public class VerticalAreaMonsters : MonoBehaviour
         direction = initialDirection; // 초기 이동 방향 설정
     }
 
-    private void Update()
+    override protected void Update()
     {
         MoveObject(); // 오브젝트 이동 처리    
     }
@@ -44,20 +44,19 @@ public class VerticalAreaMonsters : MonoBehaviour
         }
     }
 
-    public void Attack()
+    override public void Attack()
     {
         _playerHP.HpDown(1);
     }
 
-    public void GetDamage(int damage = 1)
+    override public void GetDamage(int damage = 1)
     {
         HP -= damage;
-
-        EffectTest.Instance.Hit(gameObject, result =>
-        {
-            Debug.Log("아포라");
-        });
-
+        base.GetDamage(damage);
+        //EffectTest.Instance.Hit(gameObject, result =>
+        //{
+        //    Debug.Log("아포라");
+        //});
 
         if (HP <= 0)
         {
