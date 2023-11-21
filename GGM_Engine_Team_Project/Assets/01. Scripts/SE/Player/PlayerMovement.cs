@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     private SpriteRenderer spriteRenderer;
     private PlayerHp hp;
     private EffectTest effectTest;
+    [SerializeField] private PlayerParticle particle;
     [SerializeField] private CapsuleCollider2D capsuleCollider;          // 시리얼라이즈필드지워주기
     [SerializeField] private Animator jumpParticle;
 
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     private PlayerAnimation anim;
     private Vector2 rayOrigin, raySize;
     private bool attackFirst = true;
+    private bool wallParticleFirst = false;
 
     private void Start()
     {
@@ -173,6 +175,11 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
                 {
                     x = 0;
                 }
+                if (wallParticleFirst)
+                {
+                    particle.WallParticlePlay(true);
+                    wallParticleFirst = false;
+                }
             }
             if (HitLeft)
             {
@@ -180,7 +187,17 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
                 {
                     x = 0;
                 }
+                if (wallParticleFirst)
+                {
+                    particle.WallParticlePlay(false);
+                    wallParticleFirst = false;
+                }
             }
+            if (!HitRight && !HitLeft)
+            {
+                wallParticleFirst = true;
+            }
+
             #endregion
 
             body.velocity = new Vector2(x * speed, body.velocity.y);
@@ -197,7 +214,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
             else
             {
                 body.gravityScale = gravity;
-                if (first_ladder)
+                if (first_ladder && !is_Jumping)
                 {
                     Debug.Log("사다리가 아님");
                     body.velocity = Vector2.zero;
@@ -213,10 +230,11 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
         }
     }
     
-    public void Jump()
+    public void Jump(bool unconditional = false)
     {
-        if (is_onGround && !is_ladder)
+        if ((is_onGround && !is_ladder) || unconditional)
         {
+            Debug.Log("점프프프");
             SoundManager.Instance.PlaySFX("jump");
 
             jumpParticle.gameObject.SetActive(true);
