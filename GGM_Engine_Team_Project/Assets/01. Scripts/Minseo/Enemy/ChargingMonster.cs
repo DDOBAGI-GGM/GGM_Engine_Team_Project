@@ -93,20 +93,17 @@ public class ChargingMonster : MonoBehaviour
 
     public void GetDamage()
     {
-        Debug.Log("아야");
         EffectTest.Instance.Hit(gameObject, result =>
         {
-            Debug.Log("ㅇ,포");
         });
 
-        Destroy(gameObject);
+        Destroy(gameObject, 0.5f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("플레이어 충돌");
             chargeSpeed = 0;
         }
     }

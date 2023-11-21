@@ -18,8 +18,6 @@ public class InputCheck : MonoBehaviour
     [Header("Raycast")]
     [SerializeField] private float radius;
     [SerializeField] private LayerMask layer;
-
-    private PlayerMovement playerMovement;
     private RaycastHit2D hit;
 
     private bool check = false;
@@ -36,21 +34,14 @@ public class InputCheck : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (playerMovement == null)
-            {
-                if (hit.collider.CompareTag("Player"))
-                {
-                    playerMovement = hit.collider.gameObject.GetComponent<PlayerMovement>();
-                }
-            }
-            if (!check && playerMovement.GetHP() > 0)
+            if (!check && GameManager.Instance.GetHp() > 0)
             {
                 //Debug.Log("¡¯¿‘");
-                if (playerMovement == null)
-                    playerMovement = hit.collider.GetComponent<PlayerMovement>();
 
-                playerMovement.Is_typing = true;
-                string enemyTag = hit.collider.tag;
+                GameManager.Instance.playerMovementTypeSet(true);
+
+                string enemyTag = gameObject.transform.parent.parent.tag;
+                Debug.Log(enemyTag);
 
                 switch (enemyTag)
                 {

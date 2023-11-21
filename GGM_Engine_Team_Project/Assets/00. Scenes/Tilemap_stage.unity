@@ -112887,7 +112887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -116504,7 +116504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -122876,6 +122876,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSlow: 0.05
   itemCount: 0
+  playerHp: {fileID: 1992322768}
+  playerMovement: {fileID: 1992322763}
 --- !u!114 &1653918004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134530,7 +134532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}

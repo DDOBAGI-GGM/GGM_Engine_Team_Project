@@ -83,7 +83,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
         if (HP <= 0) 
         {
             HP = maxHP;
-            Destroy(gameObject);
+            Destroy(gameObject, 0.5f);
         }
     }
 }

@@ -13,8 +13,6 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     
     private Rigidbody2D body;
     private SpriteRenderer spriteRenderer;
-    private PlayerHp hp;
-    public float GetHP() { return hp.NowPlayerHp; }
     private EffectTest effectTest;
     [SerializeField] private PlayerParticle particle;
     [SerializeField] private CapsuleCollider2D capsuleCollider;          // 시리얼라이즈필드지워주기
@@ -54,7 +52,6 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     {
         body = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        hp = GetComponent<PlayerHp>();
         effectTest = GetComponent<EffectTest>();
         anim = GetComponent<PlayerAnimation>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
@@ -154,7 +151,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
 
                 if (attackFirst)
                 {
-                    hp.HpDown(1);
+                    GameManager.Instance.HpDown(1);
                     attackFirst = false;
                 }
 
