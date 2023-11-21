@@ -12,7 +12,7 @@ public class PlayerHp : MonoBehaviour
     private float maxHP = 3;
     public float MaxHP { get { return maxHP; } set { maxHP = value; } }
     private float playerHp;
-    //public float NowPlayerHp { get { return playerHp; } set { playerHp = value; } }
+    public float NowPlayerHp { get { return playerHp; } set { playerHp = value; } }
 
     private int resurrection = 0;
    // public int Resurrection { get { return resurrection; } set {  resurrection = value; } }

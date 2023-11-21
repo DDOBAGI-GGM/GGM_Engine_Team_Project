@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     private Rigidbody2D body;
     private SpriteRenderer spriteRenderer;
     private PlayerHp hp;
+    public float GetHP() { return hp.NowPlayerHp; }
     private EffectTest effectTest;
     [SerializeField] private PlayerParticle particle;
     [SerializeField] private CapsuleCollider2D capsuleCollider;          // 시리얼라이즈필드지워주기
