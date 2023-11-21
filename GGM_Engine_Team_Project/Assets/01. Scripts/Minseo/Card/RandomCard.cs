@@ -17,6 +17,7 @@ public class RandomCard : MonoBehaviour
     [SerializeField] private GameObject HPPanel;
     [SerializeField] private GameObject ItemPanel;
     [SerializeField] private GameObject ResurrectionPanel;
+    [SerializeField] private GameObject SavePanel;
 
     private bool iscard = true;
 
@@ -86,7 +87,10 @@ public class RandomCard : MonoBehaviour
         if (_cardManager.isShowCard)
         {
             panel.transform.DOMoveY(540, 1.5f);
-            
+            SavePanel.transform.DOMoveY(540, 1.5f);
+            SavePanel.SetActive(false);
+
+
             HPPanel.SetActive(false);
             ItemPanel.SetActive(false);
             ResurrectionPanel.SetActive(false);
@@ -98,7 +102,9 @@ public class RandomCard : MonoBehaviour
         }
         else if (!_cardManager.isShowCard)
         {
+            SavePanel.SetActive(true);
             panel.transform.DOMoveY(-540, 1.5f);
+            SavePanel.transform.DOMoveY(-540, 1.5f);
 
             HPPanel.SetActive(true);
             ItemPanel.SetActive(true);
