@@ -69,8 +69,6 @@ public class ChargingMonster : MonoBehaviour
         
     public void ChargeTowardsPlayer()
     {
-        _animator.SetBool("Attack", true);
-
         Vector2 targetPosition = new Vector2(player.position.x, _rigid.position.y);
         Vector2 moveDirection = (targetPosition - _rigid.position).normalized;
 
@@ -88,6 +86,7 @@ public class ChargingMonster : MonoBehaviour
         
     public void Attack()
     {
+        _animator.SetBool("Attack", true);
         _playerHp.HpDown(1);
     }
 

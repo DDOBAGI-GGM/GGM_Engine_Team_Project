@@ -111158,6 +111158,7 @@ MonoBehaviour:
   panel: {fileID: 1521058316}
   HPPanel: {fileID: 1859708104}
   ItemPanel: {fileID: 878120761}
+  ResurrectionPanel: {fileID: 1551600254}
   _playerMovement: {fileID: 1992322763}
   _itemCoundTMP: {fileID: 48833621}
   _resurrectionSprite: {fileID: -1609919807, guid: 7c2c10dfcda92ce4491810c9576e7ee7, type: 3}
@@ -120149,6 +120150,7 @@ MonoBehaviour:
   - {fileID: 888670965}
   - {fileID: 25600022}
   - {fileID: 800043582}
+  resurrectionTxt: {fileID: 2062636994}
 --- !u!114 &1992322769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121915,7 +121917,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: X 1
+  m_text: X 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}
   m_sharedMaterial: {fileID: -5685660346917535348, guid: 722185fb9e7323e4daea636ecd74850b, type: 2}

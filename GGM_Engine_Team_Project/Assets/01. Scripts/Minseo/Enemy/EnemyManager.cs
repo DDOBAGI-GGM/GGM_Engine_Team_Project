@@ -59,7 +59,7 @@ public class EnemyManager : SINGLETON<EnemyManager>
         {
             case EnemyEnum.Charging:
                 if(chargingMonster != null)
-                    chargingMonster.ChargeTowardsPlayer();
+                    chargingMonster.Attack();
             break;
             case EnemyEnum.HorizontalArea:
                 if(horseMonsters != null)
