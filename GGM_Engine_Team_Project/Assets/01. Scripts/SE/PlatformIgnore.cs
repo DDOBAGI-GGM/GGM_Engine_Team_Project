@@ -58,7 +58,6 @@ public class PlatformIgnore : MonoBehaviour
                     if (!movement.Is_onGround)      // 바닥에 닿아있지 않으면
                     {
                         anim.Climb(true);
-                        Debug.Log("사다리 타는 중이자나");
                     }
                     playerPos = nowPlayerPos;
                 }
