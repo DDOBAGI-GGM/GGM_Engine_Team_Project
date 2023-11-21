@@ -228,7 +228,6 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
                 body.gravityScale = gravity;
                 if (first_ladder && !is_Jumping)
                 {
-                    Debug.Log("사다리가 아님");
                     body.velocity = Vector2.zero;
                     first_ladder = false;
                 }
@@ -262,19 +261,13 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
 
     public void Attack()
     {
-        Debug.Log("어택에 따른 움직임");
         SoundManager.Instance.PlaySFX("attack");
         anim.Attack();
     }
 
     public void Avoidance()
     {
-        Debug.Log("피하기에 따른 움직임");
+        // 소리가 있을까?
         anim.Avoidance();
-    }
-
-    public void Climb()
-    {
-        Debug.Log("올라가기에 따른 움직임");
     }
 }

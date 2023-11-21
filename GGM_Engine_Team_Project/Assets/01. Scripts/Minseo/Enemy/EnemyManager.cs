@@ -57,6 +57,7 @@ public class EnemyManager : SINGLETON<EnemyManager>
 
     public void EnemyAttack(EnemyEnum enemy)
     {
+        Debug.Log(enemy);
         switch (enemy)
         {
             case EnemyEnum.Charging:

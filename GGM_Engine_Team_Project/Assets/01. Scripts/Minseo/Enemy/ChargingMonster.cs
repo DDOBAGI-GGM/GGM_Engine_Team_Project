@@ -23,7 +23,7 @@ public class ChargingMonster : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform; // 태그로 플레이어 찾기
         _rigid = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _playerHp = GetComponent<PlayerHp>();
+        _playerHp = player.GetComponent<PlayerHp>();
     }
 
     private void Update()
@@ -87,6 +87,7 @@ public class ChargingMonster : MonoBehaviour
     public void Attack()
     {
         _animator.SetBool("Attack", true);
+        Debug.Log("공격함");
         _playerHp.HpDown(1);
     }
 
