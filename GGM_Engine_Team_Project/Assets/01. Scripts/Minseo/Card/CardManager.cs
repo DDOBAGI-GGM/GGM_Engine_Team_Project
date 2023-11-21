@@ -9,6 +9,7 @@ public class CardManager : MonoBehaviour
 
     public bool isShowCard = false;
 
+    [SerializeField] ParticleSystem[] particles = new ParticleSystem[4];
 
     private void Awake()
     {
@@ -46,15 +47,20 @@ public class CardManager : MonoBehaviour
         {
             case State.Resurrection:
                 _playerHp.UpdateResurrection(true);
+                particles[(int)State.Resurrection].Play();
                 break;
             case State.IncreasedAttackPower:
                 Debug.Log("공격력 증가");
+                particles[(int)State.IncreasedAttackPower].Play();
                 break;
             case State.HPIncreased:
                 _playerHp.MaxHP++;
+                particles[(int)State.HPIncreased].Play();
                 break;
             case State.HPRegain:
                 _playerHp.HpReSet();
+                particles[(int)State.HPRegain].Play();
+
                 break;
         }
     }
