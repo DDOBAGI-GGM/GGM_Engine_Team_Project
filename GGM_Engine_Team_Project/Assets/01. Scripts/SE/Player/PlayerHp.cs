@@ -6,6 +6,7 @@ using TMPro;
 public class PlayerHp : MonoBehaviour
 {
     [SerializeField] private GameObject[] hpVisual = new GameObject[8];
+    [SerializeField] private TextMeshProUGUI resurrectionTxt;
 
     private float maxHP = 3;
     public float MaxHP { get { return maxHP; } set { maxHP = value; } }
@@ -64,6 +65,12 @@ public class PlayerHp : MonoBehaviour
                 //SoundManager.Instance.PlaySFX("");
             }
         }
+    }
+
+    public void UpdateResurrection()
+    {
+        Resurrection++;
+        resurrectionTxt.text = $"X {Resurrection}";
     }
 
     public void ResurrectionHp()

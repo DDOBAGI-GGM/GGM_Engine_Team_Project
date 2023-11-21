@@ -22,6 +22,7 @@ public class RandomCard : MonoBehaviour
     [SerializeField] private GameObject panel;
     [SerializeField] private GameObject HPPanel;
     [SerializeField] private GameObject ItemPanel;
+    [SerializeField] private GameObject ResurrectionPanel;
 
     private bool iscard = true;
 
@@ -94,6 +95,7 @@ public class RandomCard : MonoBehaviour
             
             HPPanel.SetActive(false);
             ItemPanel.SetActive(false);
+            ResurrectionPanel.SetActive(false);
             
             iscard = true;
 
@@ -106,7 +108,7 @@ public class RandomCard : MonoBehaviour
 
             HPPanel.SetActive(true);
             ItemPanel.SetActive(true);
-
+            ResurrectionPanel?.SetActive(true);
 
             if (_playerMovement != null)
                 _playerMovement.Is_typing = false;

@@ -45,8 +45,7 @@ public class CardManager : MonoBehaviour
         switch (state)
         {
             case State.Resurrection:
-                //_playerHp.resurrection = true;
-                _playerHp.Resurrection++;
+                _playerHp.UpdateResurrection();
                 break;
             case State.IncreasedAttackPower:
                 Debug.Log("공격력 증가");
