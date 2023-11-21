@@ -14,12 +14,13 @@ public class NPC : SINGLETON<NPC>
     [SerializeField] private bool isLock = true;
     [SerializeField] private bool interaction = false;
     [SerializeField] private TextMeshProUGUI tolltxt;
+    [SerializeField] private Animator tlqfk;
 
-    [SerializeField] PolygonCollider2D collider;
+    //[SerializeField] PolygonCollider2D collider;
 
     private void Awake()
     {
-        collider = GetComponentInChildren<PolygonCollider2D>();
+        //collider = GetComponentInChildren<PolygonCollider2D>();
         tolltxt.text = "x" + toll;
     }
 
@@ -29,26 +30,18 @@ public class NPC : SINGLETON<NPC>
             UnLock(GameManager.Instance.GetItem());
     }
 
-    private void Lock()
-    {
-        collider.isTrigger = !isLock;
-    }
-
     public void UnLock(int itemCnt)     // 아직 안 쓰는 함수?
     {
-        Debug.Log("해금 호출중 + " + " " + interaction);
         if (interaction)
         {
+            tlqfk.SetTrigger("is_interaction");
+
             if (itemCnt >= toll)
             {
                 itemCnt -= toll;
                 isLock = false;
-                Debug.Log("얏따 성공!!");
+                Destroy(gameObject);
             }
-            else
-                Debug.Log("저런 돈이 부족해요...");
-
-            Lock();
         }
     }
 
@@ -66,6 +59,9 @@ public class NPC : SINGLETON<NPC>
             SoundManager.Instance.PlaySFX("npc");
 
             Debug.Log(collision.name);
+
+            if (tlqfk == null)
+                tlqfk = collision.GetComponent<Animator>();
         }
     }
 
