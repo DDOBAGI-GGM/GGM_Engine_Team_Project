@@ -86,6 +86,7 @@ public class ChargingMonster : Enemy
 
     override public void Attack()
     {
+        base.Attack();
         _animator.SetBool("Attack", true);
         Debug.Log("°ø°ÝÇÔ");
         _playerHp.HpDown(1);

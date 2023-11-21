@@ -46,6 +46,7 @@ public class VerticalAreaMonsters : Enemy
 
     override public void Attack()
     {
+        base.Attack();
         _playerHP.HpDown(1);
     }
 

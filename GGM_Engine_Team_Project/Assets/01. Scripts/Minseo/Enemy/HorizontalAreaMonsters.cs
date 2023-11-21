@@ -66,6 +66,7 @@ public class HorizontalAreaMonsters : Enemy
 
     override public void Attack()
     {
+        base.Attack();
         _animator.SetTrigger("Attack");
         _playerHp.HpDown(1);
     }
