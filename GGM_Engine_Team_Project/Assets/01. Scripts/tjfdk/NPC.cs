@@ -14,13 +14,11 @@ public class NPC : SINGLETON<NPC>
     [SerializeField] private bool isLock = true;
     [SerializeField] private bool interaction = false;
     [SerializeField] private TextMeshProUGUI tolltxt;
-    [SerializeField] private Animator tlqfk;
 
-    //[SerializeField] PolygonCollider2D collider;
+    private Animator playerAnimator;
 
     private void Awake()
     {
-        //collider = GetComponentInChildren<PolygonCollider2D>();
         tolltxt.text = "x" + toll;
     }
 
@@ -34,7 +32,7 @@ public class NPC : SINGLETON<NPC>
     {
         if (interaction)
         {
-            tlqfk.SetTrigger("is_interaction");
+            playerAnimator.SetTrigger("is_interaction");
 
             if (itemCnt >= toll)
             {
@@ -60,8 +58,8 @@ public class NPC : SINGLETON<NPC>
 
             Debug.Log(collision.name);
 
-            if (tlqfk == null)
-                tlqfk = collision.GetComponent<Animator>();
+            if (playerAnimator == null)
+                playerAnimator = collision.GetComponent<Animator>();
         }
     }
 
