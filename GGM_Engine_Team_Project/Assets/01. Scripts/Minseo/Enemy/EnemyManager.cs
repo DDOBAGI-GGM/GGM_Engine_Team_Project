@@ -113,7 +113,7 @@ public class EnemyManager : SINGLETON<EnemyManager>
             case EnemyEnum.Charging:
                 return chargingMonster.is_Use ? 0 : 1;      // 트루면 0(죽음), 펄스면 살아있는거니까 1;
         }
-        return 1;
+        return 0;
     }
 
     private void OnDrawGizmos()
