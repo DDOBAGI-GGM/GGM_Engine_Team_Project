@@ -23,7 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00. Scenes/GameOverScene.unity
     guid: eed39274a48b7704d909021a51f85670
-  - enabled: 0
-    path: Assets/00. Scenes/tjfdk/SeolAh.unity
-    guid: bbc6877aec9a81d4d91ed4e72d5cf3ad
   m_configObjects: {}
