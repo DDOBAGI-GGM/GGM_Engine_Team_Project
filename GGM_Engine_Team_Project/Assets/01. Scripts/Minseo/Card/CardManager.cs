@@ -51,6 +51,7 @@ public class CardManager : MonoBehaviour
                 break;
             case State.IncreasedAttackPower:
                 Debug.Log("공격력 증가");
+                EnemyManager.Instance.enemyAttackDanamge++;
                 particles[(int)State.IncreasedAttackPower].Play();
                 break;
             case State.HPIncreased:
@@ -60,7 +61,6 @@ public class CardManager : MonoBehaviour
             case State.HPRegain:
                 _playerHp.HpReSet();
                 particles[(int)State.HPRegain].Play();
-
                 break;
         }
     }

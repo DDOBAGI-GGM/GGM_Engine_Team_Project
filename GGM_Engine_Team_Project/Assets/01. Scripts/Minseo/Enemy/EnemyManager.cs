@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public enum EnemyEnum
 {
@@ -77,6 +79,7 @@ public class EnemyManager : SINGLETON<EnemyManager>
 
     public void EnemyDamage(EnemyEnum enemy)
     {
+        Debug.Log(enemy);
         switch (enemy)
         {
             case EnemyEnum.Charging:
@@ -93,10 +96,26 @@ public class EnemyManager : SINGLETON<EnemyManager>
                 break;
         }
     }
+    public int GetEnemyHp(EnemyEnum enemyType)
+    {
+        switch (enemyType)
+        {
+            case EnemyEnum.HorizontalArea:
+                if (horseMonsters != null)
+                    return horseMonsters.M_HP;
+                break;
+            case EnemyEnum.VerticalArea:
+                if (verticalMonsters != null)
+                    return verticalMonsters.M_HP;
+                break;
+        }
+        return 1;
+    }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
     }
+
 }

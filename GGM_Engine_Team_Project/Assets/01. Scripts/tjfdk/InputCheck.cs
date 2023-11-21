@@ -55,6 +55,11 @@ public class InputCheck : MonoBehaviour
                         break;
                 }
 
+                if (EnemyManager.Instance.GetEnemyHp(enemyType) <= 0)
+                {
+                    return;
+                }
+
                 GameManager.Instance.TimeSlow();
                 InputFieldManager.Instance.Input(word, playerType, enemyType, timer);
 
