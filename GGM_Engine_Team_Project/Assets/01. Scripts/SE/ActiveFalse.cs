@@ -8,7 +8,7 @@ public class ActiveFalse : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("켜졌어!");
+        //Debug.Log("켜졌어!");
         StopCoroutine(ActiveMe());
         StartCoroutine(ActiveMe());
     }

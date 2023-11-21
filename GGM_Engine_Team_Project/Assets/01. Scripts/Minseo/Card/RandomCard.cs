@@ -1,13 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
-using UnityEditor.Timeline.Actions;
-using System.Runtime.ExceptionServices;
-using Unity.VisualScripting;
 using UnityEngine.UI;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 
 public enum State
 {
@@ -22,6 +16,7 @@ public class RandomCard : MonoBehaviour
     [SerializeField] private GameObject panel;
     [SerializeField] private GameObject HPPanel;
     [SerializeField] private GameObject ItemPanel;
+    [SerializeField] private GameObject ResurrectionPanel;
 
     private bool iscard = true;
 
@@ -94,6 +89,7 @@ public class RandomCard : MonoBehaviour
             
             HPPanel.SetActive(false);
             ItemPanel.SetActive(false);
+            ResurrectionPanel.SetActive(false);
             
             iscard = true;
 
@@ -106,7 +102,7 @@ public class RandomCard : MonoBehaviour
 
             HPPanel.SetActive(true);
             ItemPanel.SetActive(true);
-
+            ResurrectionPanel?.SetActive(true);
 
             if (_playerMovement != null)
                 _playerMovement.Is_typing = false;

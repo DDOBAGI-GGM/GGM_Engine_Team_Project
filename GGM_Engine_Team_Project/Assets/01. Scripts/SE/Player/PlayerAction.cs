@@ -12,7 +12,7 @@ public enum PlayerActionEnum
 
 public interface IPlayerAction
 {
-    void Jump();        // 점프하기
+    void Jump(bool a);        // 점프하기
     void Attack();      // 공격하기
     void Avoidance();       // 피하기
     void Climb();   // 공격
@@ -34,7 +34,8 @@ public class PlayerAction : MonoBehaviour
         switch (action)
         {
             case PlayerActionEnum.Jump:
-                movement.Jump();
+                Debug.Log("dd");
+                movement.Jump(true);
                 break;
             case PlayerActionEnum.Attack:
                 movement.Attack();

@@ -36,15 +36,15 @@ public class EnemyManager : SINGLETON<EnemyManager>
                 {
                     case "CEnemy":
                         chargingMonster = collidedObject.GetComponent<ChargingMonster>();
-                        Debug.Log(collidedObject.name);
+                        //Debug.Log(collidedObject.name);
                         break;
                     case "HEnemy":
                         horseMonsters = collidedObject.GetComponent<HorizontalAreaMonsters>();
-                        Debug.Log(collidedObject.name);
+                        //Debug.Log(collidedObject.name);
                         break;
                     case "VEnemy":
                         verticalMonsters = collidedObject.GetComponent<VerticalAreaMonsters>();
-                        Debug.Log(collidedObject.name);
+                        //Debug.Log(collidedObject.name);
                         break;
                 }
             }
@@ -59,7 +59,7 @@ public class EnemyManager : SINGLETON<EnemyManager>
         {
             case EnemyEnum.Charging:
                 if(chargingMonster != null)
-                    chargingMonster.ChargeTowardsPlayer();
+                    chargingMonster.Attack();
             break;
             case EnemyEnum.HorizontalArea:
                 if(horseMonsters != null)

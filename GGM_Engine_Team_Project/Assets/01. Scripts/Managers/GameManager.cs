@@ -10,7 +10,6 @@ public partial class GameManager : SINGLETON<GameManager>
     
     [Header("Item")]
     [SerializeField] private int itemCount = 0;
-    [SerializeField] private GameObject tttt;
 
     public void TimeSlow() { Time.timeScale = timeSlow; }
     public void TimeReset() { Time.timeScale = 1; }

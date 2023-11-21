@@ -49,37 +49,36 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         enemyType = _enemyType;
         timer = GameManager.Instance.TimeNormalize(_timer);
 
-        backText.text = text;       // 쳐야하는 거 표시
+        backText.text = text;       // 쳐야?�는 �??�시
 
-        if (inputField.isFocused == false)          // 나에게 집중해
+        if (inputField.isFocused == false)          // ?�에�?집중??
             inputField.OnPointerClick(new PointerEventData(EventSystem.current));
 
-        Invoke("Check", timer);     // 이 시간 뒤에 호출해줘라
+        Invoke("Check", timer);     // ???�간 ?�에 ?�출?�줘??
 
         is_typing = true;
     }
 
-    public void Effect()        // 타이핑 될 때마다 크기 키워주기
+    public void Effect()        // ?�?�핑 ???�마???�기 ?�워주기
     {
         inputField.transform.DOScale(1.1f, GameManager.Instance.TimeNormalize(0.25f))
             .OnComplete(() => { inputField.transform.DOScale(1f, GameManager.Instance.TimeNormalize(0.25f)); });
     }
 
-    public void Check()     // 엔터칠때, 시간이 지났을 때 사용됨.
+    public void Check()     // ?�터칠때, ?�간??지?�을 ???�용??
     {
-        // 체크하는 순간부터 시간 다시 정상화
+        // 체크?�는 ?�간부???�간 ?�시 ?�상??
         if (checking == false)
         {
-            Debug.Log("체크");
             if (inputField.text == text)
             {
-                Debug.Log("성공");
+                Debug.Log("��ǲ����");
                 player.action(playerType);
                 EnemyManager.Instance.EnemyDamage(enemyType);
             }
             else
             {
-                Debug.Log("실패");
+                Debug.Log("��ǲ����");
                 EnemyManager.Instance.EnemyAttack(enemyType); 
             }
 
