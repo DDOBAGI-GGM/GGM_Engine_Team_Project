@@ -82,8 +82,6 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
         if (HP <= 0) 
         {
-            Debug.Log(HP);
-
             HP = maxHP;
             Destroy(gameObject);
         }

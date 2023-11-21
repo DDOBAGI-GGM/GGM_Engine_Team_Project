@@ -21,7 +21,18 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     [SerializeField] private Animator jumpParticle;
 
     private bool is_typing;
-    public bool Is_typing { get { return is_typing; } set { is_typing = value; } }
+    public bool Is_typing 
+    {
+        get
+        { 
+            return is_typing; 
+        }
+        set 
+        {
+            //Debug.Log("타이핑 바꿨움! : " + value);
+            is_typing = value; 
+        }
+    }
     
     [SerializeField] private bool is_onGround;       // 확인용, 나중에 private 로 변경하기
     public bool Is_onGround { get { return is_onGround; } set { is_onGround = value; }  }
@@ -233,7 +244,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     
     public void Jump(bool unconditional = false)
     {
-        if ((is_onGround && !is_ladder) || unconditional)
+        if ((is_onGround && !is_ladder) || unconditional) 
         {
             //Debug.Log("점프프프");
             SoundManager.Instance.PlaySFX("jump");
@@ -252,11 +263,14 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     public void Attack()
     {
         Debug.Log("어택에 따른 움직임");
+        SoundManager.Instance.PlaySFX("attack");
+        anim.Attack();
     }
 
     public void Avoidance()
     {
         Debug.Log("피하기에 따른 움직임");
+        anim.Avoidance();
     }
 
     public void Climb()
