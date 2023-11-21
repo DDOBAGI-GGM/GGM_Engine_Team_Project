@@ -36,9 +36,9 @@ public class InputCheck : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (!check)
+            if (!check && playerMovement.GetHP() > 0)
             {
-                Debug.Log("진입");
+                //Debug.Log("진입");
                 if (playerMovement == null)
                     playerMovement = hit.collider.GetComponent<PlayerMovement>();
 

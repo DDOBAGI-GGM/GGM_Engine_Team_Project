@@ -7,14 +7,15 @@ public class PlayerHp : MonoBehaviour
 {
     [SerializeField] private GameObject[] hpVisual = new GameObject[8];
     [SerializeField] private TextMeshProUGUI resurrectionTxt;
+    [SerializeField] private ResurrectionAnim anim;
 
     private float maxHP = 3;
     public float MaxHP { get { return maxHP; } set { maxHP = value; } }
     private float playerHp;
-    //public float NowPlayerHp { get { return playerHp; } set { playerHp = value; } }
+    public float NowPlayerHp { get { return playerHp; } set { playerHp = value; } }
 
     private int resurrection = 0;
-    public int Resurrection { get { return resurrection; } set {  resurrection = value; } }
+   // public int Resurrection { get { return resurrection; } set {  resurrection = value; } }
 
     private void Awake()
     {
@@ -39,7 +40,7 @@ public class PlayerHp : MonoBehaviour
     public void HpDown(int damage = 1)
     {
         playerHp -= damage;
-        Debug.Log(playerHp);
+        Debug.Log("지금 플레이어의 HP : " + playerHp);
         for (int i = 0; i < hpVisual.Length; i++)
         {
             hpVisual[i].SetActive(false);
@@ -56,25 +57,33 @@ public class PlayerHp : MonoBehaviour
             if (resurrection > 0)       // 부활권이 있으면
             {
                 Debug.Log("부활권 있어서 부활");
+                anim.ResurrectionAnimStart();
                 --resurrection;
+                UpdateResurrection();
                 ResurrectionHp();
             }
             else
             {
                 Debug.Log("죽었어용. 게임오버 사운드도 출력해줘!");
-                //SoundManager.Instance.PlaySFX("");
+                SoundManager.Instance.PlaySFX("over");
+                UIManager.Instance.ChangeScene("GameOverScene");
             }
         }
     }
 
-    public void UpdateResurrection()
+    public void UpdateResurrection(bool add = false)
     {
-        Resurrection++;
-        resurrectionTxt.text = $"X {Resurrection}";
+        if (add)
+        {
+            Debug.Log("부활권이 추가됨! 현재 부활권 : " + resurrection);
+            resurrection++;
+        }
+        resurrectionTxt.text = $"X {resurrection}";
     }
 
     public void ResurrectionHp()
     {
+        playerHp = 1;
         hpVisual[0].SetActive(true);
     }
 }

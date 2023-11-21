@@ -34,7 +34,6 @@ public class PlayerAction : MonoBehaviour
         switch (action)
         {
             case PlayerActionEnum.Jump:
-                Debug.Log("dd");
                 movement.Jump(true);
                 break;
             case PlayerActionEnum.Attack:
@@ -44,7 +43,6 @@ public class PlayerAction : MonoBehaviour
                 movement.Avoidance();
                 break;
             case PlayerActionEnum.Climb:
-                Debug.Log("올라가기가 입력됨.");
                 movement.Climb();
                 break;
             default:

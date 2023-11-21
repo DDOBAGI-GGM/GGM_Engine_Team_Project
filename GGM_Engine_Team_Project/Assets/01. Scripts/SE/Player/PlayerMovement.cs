@@ -14,13 +14,25 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     private Rigidbody2D body;
     private SpriteRenderer spriteRenderer;
     private PlayerHp hp;
+    public float GetHP() { return hp.NowPlayerHp; }
     private EffectTest effectTest;
     [SerializeField] private PlayerParticle particle;
     [SerializeField] private CapsuleCollider2D capsuleCollider;          // 시리얼라이즈필드지워주기
     [SerializeField] private Animator jumpParticle;
 
     private bool is_typing;
-    public bool Is_typing { get { return is_typing; } set { is_typing = value; } }
+    public bool Is_typing 
+    {
+        get
+        { 
+            return is_typing; 
+        }
+        set 
+        {
+            //Debug.Log("타이핑 바꿨움! : " + value);
+            is_typing = value; 
+        }
+    }
     
     [SerializeField] private bool is_onGround;       // 확인용, 나중에 private 로 변경하기
     public bool Is_onGround { get { return is_onGround; } set { is_onGround = value; }  }
@@ -116,21 +128,6 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
 
             if (Hit&&Hit.collider.gameObject.CompareTag("Obstacle"))
             {
-                //effectTest.Hit(gameObject);
-                EffectTest.Instance.Hit(gameObject, result =>
-                {
-                    //if (result)
-                    // 타격 이펙트 실행 뒤 실행할 것들 (ex. destory, 이펙트 보여주고 지워야할 거 아녀) 딱히 뭘 지워주고는 안할건뎅
-                    //hp.HpDown(1);
-                    Debug.Log("dkf");
-                });
-
-                if (attackFirst)
-                {
-                    hp.HpDown(1);
-                    attackFirst = false;
-                }
-
                 switch (Hit.collider.gameObject.name)
                 {
                     case "one":
@@ -146,6 +143,21 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
                         Debug.Log("그냥 아파용");
                         break;
                 }
+
+                //effectTest.Hit(gameObject);
+                EffectTest.Instance.Hit(gameObject, result =>
+                {
+                    //if (result)
+                    // 타격 이펙트 실행 뒤 실행할 것들 (ex. destory, 이펙트 보여주고 지워야할 거 아녀) 딱히 뭘 지워주고는 안할건뎅
+                    //hp.HpDown(1);
+                });
+
+                if (attackFirst)
+                {
+                    hp.HpDown(1);
+                    attackFirst = false;
+                }
+
             }
             else
             {
@@ -232,9 +244,9 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     
     public void Jump(bool unconditional = false)
     {
-        if ((is_onGround && !is_ladder) || unconditional)
+        if ((is_onGround && !is_ladder) || unconditional) 
         {
-            Debug.Log("점프프프");
+            //Debug.Log("점프프프");
             SoundManager.Instance.PlaySFX("jump");
 
             jumpParticle.gameObject.SetActive(true);
@@ -251,11 +263,14 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     public void Attack()
     {
         Debug.Log("어택에 따른 움직임");
+        SoundManager.Instance.PlaySFX("attack");
+        anim.Attack();
     }
 
     public void Avoidance()
     {
         Debug.Log("피하기에 따른 움직임");
+        anim.Avoidance();
     }
 
     public void Climb()

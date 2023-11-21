@@ -72,13 +72,13 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         {
             if (inputField.text == text)
             {
-                Debug.Log("?±ê³µ");
+                Debug.Log("ÀÎÇ²¼º°ø");
                 player.action(playerType);
                 EnemyManager.Instance.EnemyDamage(enemyType);
             }
             else
             {
-                Debug.Log("?¤íŒ¨");
+                Debug.Log("ÀÎÇ²½ÇÆÐ");
                 EnemyManager.Instance.EnemyAttack(enemyType); 
             }
 
