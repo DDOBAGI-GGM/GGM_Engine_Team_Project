@@ -50,8 +50,6 @@ public class ResurrectionAnim : MonoBehaviour
         float alphaValue = 0.25f; // 투명한 알파값
         for (int i = 0; i < 3; i++)
         {
-            Debug.Log(i);
-
             Color originalColor = player.color;
             Color targetColor = new Color(originalColor.r, originalColor.g, originalColor.b, alphaValue);
 

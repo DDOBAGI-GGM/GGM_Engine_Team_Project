@@ -40,7 +40,7 @@ public class PlayerHp : MonoBehaviour
     public void HpDown(int damage = 1)
     {
         playerHp -= damage;
-        Debug.Log(playerHp);
+        Debug.Log("지금 플레이어의 HP : " + playerHp);
         for (int i = 0; i < hpVisual.Length; i++)
         {
             hpVisual[i].SetActive(false);
@@ -75,6 +75,7 @@ public class PlayerHp : MonoBehaviour
     {
         if (add)
         {
+            Debug.Log("부활권이 추가됨! 현재 부활권 : " + resurrection);
             resurrection++;
         }
         resurrectionTxt.text = $"X {resurrection}";
