@@ -10,7 +10,13 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     [SerializeField] private int maxHP = 1;
     [SerializeField] private int HP;
-    public int M_HP { get { return HP; } }
+    public int M_HP 
+    {
+        get 
+        {
+            return HP; 
+        }
+    }
 
     Rigidbody2D _rigid;
     SpriteRenderer _spriteRenderer;
@@ -22,7 +28,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     private void Awake()
     {
-        maxHP = HP;
+        HP = maxHP;
 
         _rigid = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -82,7 +88,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
         if (HP <= 0) 
         {
-            HP = maxHP;
+            //HP = maxHP;
             Destroy(gameObject, 0.5f);
         }
     }
