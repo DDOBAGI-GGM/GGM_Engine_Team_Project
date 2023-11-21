@@ -105394,7 +105394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: Attack the pufferfish
+      value: Attack the pufferfish!!
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
@@ -105763,7 +105763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: Avoid the enemies!
+      value: Avoid the enemies
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
@@ -106064,7 +106064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: hit the enemy
+      value: Hit the enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
@@ -106203,11 +106203,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: You have to attack the pufferfish
+      value: You have to attack the pufferfish!
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
@@ -106289,7 +106289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: hit the enemy
+      value: Hit the enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
@@ -106385,11 +106385,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: catch seaweed
+      value: Catch seaweed
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
@@ -107976,7 +107976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
@@ -108065,7 +108065,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
@@ -108374,7 +108374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: Attack the pufferfish
+      value: Attack the pufferfish!!
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
@@ -108537,11 +108537,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: catch seaweed
+      value: Catch seaweed
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
@@ -108749,7 +108749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: enemyType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: playerType
@@ -109273,7 +109273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: Attack the pufferfish
+      value: Attack the pufferfish!!
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
@@ -109425,11 +109425,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: catch seaweed
+      value: Catch seaweed
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
@@ -111815,7 +111815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: Attack the pufferfish
+      value: Attack the pufferfish!!
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
@@ -112233,11 +112233,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: catch seaweed
+      value: Catch seaweed
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
@@ -115735,7 +115735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: Avoid the enemies!
+      value: Avoid the enemies
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
@@ -116122,11 +116122,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: You have to attack the pufferfish
+      value: You have to attack the pufferfish!
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
@@ -134032,7 +134032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: Attack the pufferfish
+      value: Attack the pufferfish!!
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
@@ -134599,11 +134599,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: You have to attack the pufferfish
+      value: You have to attack the pufferfish!
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
@@ -141762,11 +141762,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: word
-      value: You have to attack the pufferfish
+      value: You have to attack the pufferfish!
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: timer
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8803890975719073840, guid: 1c6abaacf150526408631ee51d6e5c71, type: 3}
       propertyPath: collider
