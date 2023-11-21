@@ -18,24 +18,24 @@ public class CardManager : MonoBehaviour
 
     public void ClickCard1()
     {
-        Debug.Log("카드1 클릭");
-        Debug.Log(_randomCard.CardState1);
+        //Debug.Log("카드1 클릭");
+       // Debug.Log(_randomCard.CardState1);
         StatsUpdate(_randomCard.CardState1);
         isShowCard = false;
     }
 
     public void ClickCard2()
     {
-        Debug.Log("카드2 클릭");    
-        Debug.Log(_randomCard.CardState2);
+       // Debug.Log("카드2 클릭");    
+       // Debug.Log(_randomCard.CardState2);
         StatsUpdate(_randomCard.CardState2);
         isShowCard = false;
     }
 
     public void ClickCard3()
     {
-        Debug.Log("카드3 클릭");
-        Debug.Log(_randomCard.CardState3);
+       // Debug.Log("카드3 클릭");
+      //  Debug.Log(_randomCard.CardState3);
         StatsUpdate(_randomCard.CardState3);
         isShowCard = false;
     }
@@ -45,7 +45,7 @@ public class CardManager : MonoBehaviour
         switch (state)
         {
             case State.Resurrection:
-                _playerHp.UpdateResurrection();
+                _playerHp.UpdateResurrection(true);
                 break;
             case State.IncreasedAttackPower:
                 Debug.Log("공격력 증가");

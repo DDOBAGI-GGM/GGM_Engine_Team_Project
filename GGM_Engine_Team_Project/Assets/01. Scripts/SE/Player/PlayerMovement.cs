@@ -116,21 +116,6 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
 
             if (Hit&&Hit.collider.gameObject.CompareTag("Obstacle"))
             {
-                //effectTest.Hit(gameObject);
-                EffectTest.Instance.Hit(gameObject, result =>
-                {
-                    //if (result)
-                    // 타격 이펙트 실행 뒤 실행할 것들 (ex. destory, 이펙트 보여주고 지워야할 거 아녀) 딱히 뭘 지워주고는 안할건뎅
-                    //hp.HpDown(1);
-                    Debug.Log("dkf");
-                });
-
-                if (attackFirst)
-                {
-                    hp.HpDown(1);
-                    attackFirst = false;
-                }
-
                 switch (Hit.collider.gameObject.name)
                 {
                     case "one":
@@ -146,6 +131,21 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
                         Debug.Log("그냥 아파용");
                         break;
                 }
+
+                //effectTest.Hit(gameObject);
+                EffectTest.Instance.Hit(gameObject, result =>
+                {
+                    //if (result)
+                    // 타격 이펙트 실행 뒤 실행할 것들 (ex. destory, 이펙트 보여주고 지워야할 거 아녀) 딱히 뭘 지워주고는 안할건뎅
+                    //hp.HpDown(1);
+                });
+
+                if (attackFirst)
+                {
+                    hp.HpDown(1);
+                    attackFirst = false;
+                }
+
             }
             else
             {
@@ -234,7 +234,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     {
         if ((is_onGround && !is_ladder) || unconditional)
         {
-            Debug.Log("점프프프");
+            //Debug.Log("점프프프");
             SoundManager.Instance.PlaySFX("jump");
 
             jumpParticle.gameObject.SetActive(true);
