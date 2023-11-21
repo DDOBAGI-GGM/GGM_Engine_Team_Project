@@ -10,6 +10,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     [SerializeField] private int maxHP = 1;
     [SerializeField] private int HP;
+    public int M_HP { get { return HP; } }
 
     Rigidbody2D _rigid;
     SpriteRenderer _spriteRenderer;
@@ -21,7 +22,6 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     private void Awake()
     {
-
         maxHP = HP;
 
         _rigid = GetComponent<Rigidbody2D>();
@@ -72,7 +72,7 @@ public class HorizontalAreaMonsters : MonoBehaviour
 
     public void GetDamage(int damage = 1)
     {
-        //Debug.Log("百单固瘤");
+        Debug.Log($"百单固瘤 {gameObject.name}");
         HP -= damage;
 
         EffectTest.Instance.Hit(gameObject, result =>

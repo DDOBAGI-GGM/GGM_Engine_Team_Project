@@ -10,6 +10,7 @@ public class VerticalAreaMonsters : MonoBehaviour
 
     [SerializeField] private int maxHP = 1;
     [SerializeField] private int HP;
+    public int M_HP { get { return HP; } }
 
     private int direction; // 현재 이동 방향
     private float totalDistanceMoved; // 총 이동한 거리'
