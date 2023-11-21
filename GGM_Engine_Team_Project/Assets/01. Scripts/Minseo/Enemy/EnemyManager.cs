@@ -16,6 +16,8 @@ public class EnemyManager : SINGLETON<EnemyManager>
     ChargingMonster chargingMonster;
     HorizontalAreaMonsters horseMonsters;
     VerticalAreaMonsters verticalMonsters;
+
+    public int enemyAttackDanamge = 1; 
     
 
     [SerializeField] private float radius = 2.2f; 
@@ -82,11 +84,11 @@ public class EnemyManager : SINGLETON<EnemyManager>
                 break;
             case EnemyEnum.HorizontalArea:
                 if (horseMonsters != null)
-                    horseMonsters.GetDamage();
+                    horseMonsters.GetDamage(enemyAttackDanamge);
                 break;
             case EnemyEnum.VerticalArea:
                 if (verticalMonsters != null)
-                    verticalMonsters.GetDamage();
+                    verticalMonsters.GetDamage(enemyAttackDanamge);
                 break;
         }
     }

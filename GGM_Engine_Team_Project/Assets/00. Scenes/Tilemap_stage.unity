@@ -111174,9 +111174,9 @@ MonoBehaviour:
   _cardExplain1: {fileID: 1899883922}
   _cardExplain2: {fileID: 1868428189}
   _cardExplain3: {fileID: 330735817}
-  resurrection: 25
+  resurrection: 10
   hPRegain: 50
-  hPIncreased: 75
+  hPIncreased: 80
   increasedAttackPower: 100
 --- !u!114 &939182142
 MonoBehaviour:
@@ -120008,6 +120008,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 128
+  particle: {fileID: 0}
   capsuleCollider: {fileID: 1992322760}
   jumpParticle: {fileID: 803615388}
   is_onGround: 0
@@ -120162,6 +120163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca433c6410eceec4dbd52318344ecbb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAttackDanamge: 1
   radius: 2.3
 --- !u!1001 &1995556635
 PrefabInstance:

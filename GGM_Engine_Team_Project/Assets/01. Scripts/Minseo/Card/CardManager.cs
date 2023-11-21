@@ -48,7 +48,7 @@ public class CardManager : MonoBehaviour
                 _playerHp.UpdateResurrection();
                 break;
             case State.IncreasedAttackPower:
-                Debug.Log("공격력 증가");
+                EnemyManager.Instance.enemyAttackDanamge++;
                 break;
             case State.HPIncreased:
                 _playerHp.MaxHP++;
