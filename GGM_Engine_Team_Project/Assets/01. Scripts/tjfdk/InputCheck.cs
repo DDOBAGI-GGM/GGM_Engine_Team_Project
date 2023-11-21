@@ -34,7 +34,7 @@ public class InputCheck : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (!check && GameManager.Instance.GetHp() > 0)
+            if (!check)
             {
                 //Debug.Log("ÁøÀÔ");
 
