@@ -22,38 +22,34 @@ public class EnemyManager : SINGLETON<EnemyManager>
     public int enemyAttackDanamge = 1; 
     
 
-    [SerializeField] private float radius = 2.2f; 
+    [SerializeField] private float radius = 2.2f;
+    [SerializeField] private LayerMask enemyMask;
 
     private void Update()
     {
         RaycastHit2D hit;   
-        hit = Physics2D.CircleCast(transform.position, radius, Vector3.forward, 0f);
+        hit = Physics2D.CircleCast(transform.position, radius, Vector3.forward, 0f, enemyMask);
 
         if (hit.collider != null)
         {
-            if (!hit.collider.CompareTag("Player"))
+            // 충돌한 객체 가져오기
+            GameObject collidedObject = hit.collider.gameObject;
+
+            switch (collidedObject.tag)
             {
-                // 충돌한 객체 가져오기
-                GameObject collidedObject = hit.collider.gameObject;
-
-                switch (collidedObject.tag)
-                {
-                    case "CEnemy":
-                        chargingMonster = collidedObject.GetComponent<ChargingMonster>();
-                        //Debug.Log(collidedObject.name);
-                        break;
-                    case "HEnemy":
-                        horseMonsters = collidedObject.GetComponent<HorizontalAreaMonsters>();
-                        //Debug.Log(collidedObject.name);
-                        break;
-                    case "VEnemy":
-                        verticalMonsters = collidedObject.GetComponent<VerticalAreaMonsters>();
-                        //Debug.Log(collidedObject.name);
-                        break;
-                }
+                case "CEnemy":
+                    chargingMonster = collidedObject.GetComponent<ChargingMonster>();
+                    //Debug.Log(collidedObject.name);
+                    break;
+                case "HEnemy":
+                    horseMonsters = collidedObject.GetComponent<HorizontalAreaMonsters>();
+                    //Debug.Log(collidedObject.name);
+                    break;
+                case "VEnemy":
+                    verticalMonsters = collidedObject.GetComponent<VerticalAreaMonsters>();
+                    //Debug.Log(collidedObject.name);
+                    break;
             }
-
-           
         }
     }
 
@@ -63,6 +59,7 @@ public class EnemyManager : SINGLETON<EnemyManager>
         switch (enemy)
         {
             case EnemyEnum.Charging:
+                Debug.Log(chargingMonster);
                 if(chargingMonster != null)
                     chargingMonster.Attack();
             break;
@@ -87,6 +84,7 @@ public class EnemyManager : SINGLETON<EnemyManager>
                     chargingMonster.GetDamage();    
                 break;
             case EnemyEnum.HorizontalArea:
+                Debug.Log(horseMonsters);
                 if (horseMonsters != null)
                     horseMonsters.GetDamage(enemyAttackDanamge);
                 break;
@@ -101,15 +99,21 @@ public class EnemyManager : SINGLETON<EnemyManager>
         switch (enemyType)
         {
             case EnemyEnum.HorizontalArea:
-                if (horseMonsters != null)
-                    return horseMonsters.M_HP;
+                    if (horseMonsters != null)
+                    {
+                        return horseMonsters.M_HP;
+                    }
                 break;
             case EnemyEnum.VerticalArea:
                 if (verticalMonsters != null)
+                {
                     return verticalMonsters.M_HP;
+                }
                 break;
+            case EnemyEnum.Charging:
+                return chargingMonster.is_Use ? 0 : 1;      // 트루면 0(죽음), 펄스면 살아있는거니까 1;
         }
-        return 1;
+        return 0;
     }
 
     private void OnDrawGizmos()

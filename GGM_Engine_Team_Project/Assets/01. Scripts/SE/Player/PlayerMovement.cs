@@ -265,6 +265,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerAction
     public void Avoidance()
     {
         // 소리가 있을까?
+        SoundManager.Instance.PlaySFX("dash");
         anim.Avoidance();
     }
 }

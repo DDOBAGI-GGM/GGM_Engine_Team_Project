@@ -59,6 +59,7 @@ public class InputCheck : MonoBehaviour
                         break;
                 }
 
+                Debug.Log("ÀûÀÇ hp! : "+EnemyManager.Instance.GetEnemyHp(enemyType));
                 if (EnemyManager.Instance.GetEnemyHp(enemyType) <= 0)
                 {
                     return;

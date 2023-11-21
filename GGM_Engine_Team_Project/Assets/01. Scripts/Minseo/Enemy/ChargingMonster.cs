@@ -15,6 +15,7 @@ public class ChargingMonster : Enemy
     private PlayerHp _playerHp; 
 
     private bool isCharging = false; // 돌진 상태를 나타내는 변수
+    public bool is_Use = false;
 
     private float chargeTimer = 0f; // 돌진 시간을 측정하는 타이머
 
@@ -89,6 +90,7 @@ public class ChargingMonster : Enemy
         base.Attack();
         _animator.SetBool("Attack", true);
         Debug.Log("공격함");
+        is_Use = true;
         _playerHp.HpDown(1);
     }
 
@@ -98,6 +100,8 @@ public class ChargingMonster : Enemy
         //EffectTest.Instance.Hit(gameObject, result =>
         //{
         //});
+
+        is_Use = true;
 
         Destroy(gameObject, 0.5f);
     }
