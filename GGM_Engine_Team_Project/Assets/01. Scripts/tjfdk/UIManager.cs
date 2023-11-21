@@ -24,12 +24,6 @@ public class UIManager : SINGLETON<UIManager>
         fadePanel.DOFade(0, duration).SetEase(easingFunc).OnComplete(() => fadePanel.gameObject.SetActive(false));
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            ChangeScene("SeolAh");
-    }
-
     public void SetActivePanel(GameObject panel)
     {
         panel.SetActive(!panel.activeSelf);
