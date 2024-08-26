@@ -8,7 +8,6 @@ public class ActiveFalse : MonoBehaviour
 
     private void OnEnable()
     {
-        //Debug.Log("ÄÑÁ³¾î!");
         StopCoroutine(ActiveMe());
         StartCoroutine(ActiveMe());
     }
