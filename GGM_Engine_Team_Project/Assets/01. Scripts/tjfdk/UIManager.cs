@@ -59,7 +59,6 @@ public class UIManager : SINGLETON<UIManager>
 
     public void Exit()
     {
-        Debug.Log("∞‘¿” ¥›±‚");
         Application.Quit();
     }
 }
