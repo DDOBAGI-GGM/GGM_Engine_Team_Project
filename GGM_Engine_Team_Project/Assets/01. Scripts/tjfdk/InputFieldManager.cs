@@ -49,49 +49,32 @@ public class InputFieldManager : SINGLETON<InputFieldManager>
         enemyType = _enemyType;
         timer = GameManager.Instance.TimeNormalize(_timer);
 
-        backText.text = text;       // ì³ì•¼?˜ëŠ” ê±??œì‹œ
+        backText.text = text;    
 
-        if (inputField.isFocused == false)          // ?˜ì—ê²?ì§‘ì¤‘??
+        if (inputField.isFocused == false)      
             inputField.OnPointerClick(new PointerEventData(EventSystem.current));
-        Debug.Log("inputÈ£Ãâ¤¸¿ì");
-        //StartCoroutine(tlqkf());
-        Invoke("Check", timer);     // ???œê°„ ?¤ì— ?¸ì¶œ?´ì¤˜??
+        Invoke("Check", timer);    
 
         is_typing = true;
     }
 
-    //private IEnumerator tlqkf()
-    //{
-    //    WaitForSeconds ws = new WaitForSeconds(3);
-    //    while (true)
-    //    {
-    //        inputField.text = string.Empty;
-    //        Debug.Log("¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤¶¤µ");
-    //        yield return ws;
-
-    //    }
-    //}
-
-    public void Effect()        // ?€?´í•‘ ???Œë§ˆ???¬ê¸° ?¤ì›Œì£¼ê¸°
+    public void Effect()     
     {
         inputField.transform.DOScale(1.1f, GameManager.Instance.TimeNormalize(0.25f))
             .OnComplete(() => { inputField.transform.DOScale(1f, GameManager.Instance.TimeNormalize(0.25f)); });
     }
 
-    public void Check()     // ?”í„°ì¹ ë•Œ, ?œê°„??ì§€?¬ì„ ???¬ìš©??
+    public void Check() 
     {
-        // ì²´í¬?˜ëŠ” ?œê°„ë¶€???œê°„ ?¤ì‹œ ?•ìƒ??
         if (checking == false)
         {
             if (inputField.text == text)
             {
-                Debug.Log("ÀÎÇ²¼º°ø");
                 player.action(playerType);
                 EnemyManager.Instance.EnemyDamage(enemyType);
             }
             else
             {
-                Debug.Log("ÀÎÇ²½ÇÆĞ");
                 EnemyManager.Instance.EnemyAttack(enemyType); 
             }
 
