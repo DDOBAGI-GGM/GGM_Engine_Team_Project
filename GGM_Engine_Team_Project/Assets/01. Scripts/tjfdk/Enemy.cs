@@ -19,11 +19,9 @@ public class Enemy : MonoBehaviour
     {
         SoundManager.Instance.PlaySFX("hit");
         isHiting = true;
-        Debug.Log(isHiting);
         EffectTest.Instance.Hit(gameObject, result =>
         {
             isHiting = false;
-            Debug.Log(isHiting);
         });
     }
 }
