@@ -59,7 +59,6 @@ public class PlayerParticle : MonoBehaviour
     {
         if (right)
         {
-            // 오른쪽으로 이동
             wallParticle.gameObject.transform.localPosition = new Vector2(0.4f, -0.1f);
         }
         else
